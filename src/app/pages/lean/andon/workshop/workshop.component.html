@@ -4,23 +4,55 @@
       <!-- Step 1 -->
       <nb-step [label]="labelOne">
         <ng-template #labelOne>First step</ng-template>
-        <h4>1. Define the Purpose and Scope</h4>
-        <p class="lorem">
-          Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
 
-        </p>
+
+        <nb-card>
+          <nb-card-header>
+            <h4>1. Define the Purpose and Scope</h4>
+          </nb-card-header>
+          <nb-card-body>
+            <p class="larger-text">
+              Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
+              <br>
+              Define clear objectives and metrics to measure success.
+
+            </p>
+            <div class="image-container">
+              <img src="https://www.versacall.com/wp-content/uploads/2021/09/vaclav-FKZZV17Kwhg-unsplash-scaled-e1629916533418.jpg" alt="Example Image">
+            </div>
+
+          </nb-card-body>
+        </nb-card>
+
        <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 2 -->
       <nb-step [label]="labelTwo">
         <ng-template #labelTwo>Second step</ng-template>
-        <h4>Step content #2</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>2. Select Visual Indicators</h3></nb-card-header>
+          <nb-card-body>
+              <div class="larger-text">
+
+                  <p >
+                    Choose visual indicators (lights, boards, displays) to represent the status of operations:
+                  </p>
+                  <ul>
+                    <li>
+                      <nb-icon icon="bulb-outline" [options]="{ animation: { type: 'zoom' } } " class="icon-large"></nb-icon>
+                      Lights: <span class="indicator green">Green</span> for normal, <span class="indicator yellow">yellow</span> for attention required, <span class="indicator red">red</span> for stoppage.
+                    </li>
+
+                    <li>
+                      <nb-icon icon="layout-outline" class="icon-large"></nb-icon>
+                      Boards: Physical or digital displays showing real-time data.
+                    </li>
+                  </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button>
         </div>
@@ -28,96 +60,221 @@
 
       <!-- Step 3 -->
       <nb-step label="Third step">
-        <h4>Step content #3</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p><div class="nb-stepper-buttons">
+        <nb-card>
+          <nb-card-header> <h3>3. Design Andon Board Layout</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Create the layout for your Andon board:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="browser-outline"></nb-icon>
+                    Sections: Divide into areas if monitoring multiple processes.
+                  </li>
+                  <li>
+                    <nb-icon icon="hash-outline"></nb-icon>
+                    Labels: Clearly label each section or indicator.
+                  </li>
+                  <li>
+                    <nb-icon icon="activity-outline"></nb-icon>
+                    Information Display: Decide what to display (e.g., process status, time since last incident).
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card><div class="nb-stepper-buttons">
         <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 4 -->
       <nb-step label="Fourth step">
-        <h4>Step content #4</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>4. Choose Andon Trigger Mechanisms</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Determine what events or conditions will trigger an Andon alert:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="play-circle-outline"></nb-icon>
+                    Manual: Operators press a button or pull a cord to indicate an issue.
+                  </li>
+                  <li>
+                    <nb-icon icon="thermometer-plus-outline"></nb-icon>
+                    Automated: Sensors detect abnormalities in production metrics (e.g., downtime, error rates).
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons">  <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 5 -->
       <nb-step label="Fifth step">
-        <h4>Step content #5</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>5. Implement Visual Controls</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Install and integrate the chosen visual indicators with your workspace:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="bulb-outline"></nb-icon>
+                    Lights: Mount Andon lights where they are easily visible to all relevant personnel.
+                  </li>
+                  <li>
+                    <nb-icon icon="layout-outline"></nb-icon>
+                    Boards: Set up digital displays or physical boards in strategic locations.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 6 -->
       <nb-step label="Sixth step">
-        <h4>Step content #6</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>6. Train Personnel</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Educate employees on the Andon system:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="person-done-outline"></nb-icon>
+                    Operation: How to trigger an alert, interpret indicators, and respond appropriately.
+                  </li>
+                  <li>
+                    <nb-icon icon="people-outline"></nb-icon>
+                    Responsibilities: Define roles and responsibilities for different levels of alerts.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 7 -->
       <nb-step label="Seventh step">
-        <h4>Step content #7</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>7. Establish Response Procedures</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Develop clear protocols for responding to Andon alerts:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="arrowhead-up-outline"></nb-icon>
+                    Escalation: Define who to notify for each level of alert (e.g., team leader, maintenance).
+                  </li>
+                  <li>
+                    <nb-icon icon="flash-outline"></nb-icon>
+                    Resolution: Standard procedures for addressing and resolving issues promptly.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 8 -->
       <nb-step label="Eighth step">
-        <h4>Step content #8</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <nb-card>
+          <nb-card-header> <h3>8. Monitor and Improve</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Continuously monitor the effectiveness of your Andon system:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="message-circle-outline"></nb-icon>
+                    Feedback: Solicit feedback from employees on system usability and effectiveness.
+                  </li>
+                  <li>
+                    <nb-icon icon="bar-chart-2-outline"></nb-icon>
+                    Metrics: Track key performance indicators (KPIs) related to response times and issue resolution.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
         <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 9 -->
       <nb-step label="Ninth step">
-        <h4>Step content #9</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p><div class="nb-stepper-buttons">
-        <button nbButton nbStepperPrevious>Previous</button>
+        <nb-card>
+          <nb-card-header> <h3>9. Iterate and Optimize</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Based on feedback and data, make iterative improvements to your Andon system:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="edit-2-outline"></nb-icon>
+                    Adjustments: Modify triggers or indicators as processes evolve.
+                  </li>
+                  <li>
+                    <nb-icon icon="award-outline"></nb-icon>
+                    Training: Provide ongoing training to ensure all personnel are proficient with the system.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
+        <div>        <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton nbStepperNext>Next</button></div>
       </nb-step>
 
       <!-- Step 10 -->
       <nb-step label="Tenth step">
-        <h4>Step content #10</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p><div class="nb-stepper-buttons">
+        <nb-card>
+          <nb-card-header> <h3>10. Integrate with Continuous Improvement</h3></nb-card-header>
+          <nb-card-body>
+              <div class="step">
+                <p>
+                  Incorporate Andon insights into your continuous improvement processes:
+                </p>
+                <ul>
+                  <li>
+                    <nb-icon icon="activity-outline"></nb-icon>
+                    Root Cause Analysis: Use Andon data to identify recurring issues and implement permanent solutions.
+                  </li>
+                  <li>
+                    <nb-icon icon="settings-2-outline"></nb-icon>
+                    Kaizen: Encourage a culture of continuous improvement based on Andon system feedback.
+                  </li>
+                </ul>
+                </div>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
+        <div class="nb-stepper-buttons">
         <button nbButton nbStepperPrevious>Previous</button>
         <button nbButton disabled nbStepperNext>Next</button></div>
       </nb-step>

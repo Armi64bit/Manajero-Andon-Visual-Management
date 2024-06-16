@@ -18,3 +18,39 @@
 .nb-stepper-buttons button {
   margin: 0 10px; // Adjust button spacing as needed
 }
+.indicator {
+  font-weight: bold;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: rgb(211, 211, 7);
+}
+
+.red {
+  color: red;
+}
+
+.larger-text {
+  font-size: 1.2em; /* Adjust the font size as needed */
+  text-align: left; /* Start text from the left */
+  padding: 10px; /* Adjust padding as needed */
+  margin: 10px 0; /* Adjust margin for spacing */
+  line-height: 1.6; /* Adjust line height for space between lines */
+}
+// .icon-large {
+//   font-size: 2rem; /* Adjust the font size as needed to make the icons larger */
+// }
+.image-container {
+  width: 40%; /* Adjust width as needed */
+  max-width: 800px; /* Example maximum width */
+  margin: 0 auto; /* Center the image horizontally */
+}
+.image-container img {
+  display: block; /* Ensures the image behaves like a block element */
+  max-width: 40%; /* Ensures the image does not exceed its container */
+  height: auto; /* Maintains aspect ratio */
+}
