@@ -1,12 +1,12 @@
 <nb-card>
   <nb-card-body>
-    <nb-stepper orientation="horizontal">
+    <nb-stepper orientation="vertical">
       <!-- Step 1 -->
       <nb-step [label]="labelOne">
         <ng-template #labelOne>First step</ng-template>
 
 
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header>
             <h4>1. Define the Purpose and Scope</h4>
           </nb-card-header>
@@ -30,7 +30,7 @@
       <!-- Step 2 -->
       <nb-step [label]="labelTwo">
         <ng-template #labelTwo>Second step</ng-template>
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>2. Select Visual Indicators</h3></nb-card-header>
           <nb-card-body>
               <div class="larger-text">
@@ -60,24 +60,24 @@
 
       <!-- Step 3 -->
       <nb-step label="Third step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>3. Design Andon Board Layout</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Create the layout for your Andon board:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="browser-outline"></nb-icon>
+                    <nb-icon icon="browser-outline" class="icon-large"></nb-icon>
                     Sections: Divide into areas if monitoring multiple processes.
                   </li>
                   <li>
-                    <nb-icon icon="hash-outline"></nb-icon>
+                    <nb-icon icon="hash-outline" class="icon-large"></nb-icon>
                     Labels: Clearly label each section or indicator.
                   </li>
                   <li>
-                    <nb-icon icon="activity-outline"></nb-icon>
+                    <nb-icon icon="activity-outline" class="icon-large"></nb-icon>
                     Information Display: Decide what to display (e.g., process status, time since last incident).
                   </li>
                 </ul>
@@ -91,20 +91,20 @@
 
       <!-- Step 4 -->
       <nb-step label="Fourth step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>4. Choose Andon Trigger Mechanisms</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Determine what events or conditions will trigger an Andon alert:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="play-circle-outline"></nb-icon>
+                    <nb-icon icon="play-circle-outline" class="icon-large"></nb-icon>
                     Manual: Operators press a button or pull a cord to indicate an issue.
                   </li>
                   <li>
-                    <nb-icon icon="thermometer-plus-outline"></nb-icon>
+                    <nb-icon icon="thermometer-plus-outline" class="icon-large"></nb-icon>
                     Automated: Sensors detect abnormalities in production metrics (e.g., downtime, error rates).
                   </li>
                 </ul>
@@ -118,20 +118,20 @@
 
       <!-- Step 5 -->
       <nb-step label="Fifth step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>5. Implement Visual Controls</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Install and integrate the chosen visual indicators with your workspace:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="bulb-outline"></nb-icon>
+                    <nb-icon icon="bulb-outline" class="icon-large"></nb-icon>
                     Lights: Mount Andon lights where they are easily visible to all relevant personnel.
                   </li>
                   <li>
-                    <nb-icon icon="layout-outline"></nb-icon>
+                    <nb-icon icon="layout-outline" class="icon-large"></nb-icon>
                     Boards: Set up digital displays or physical boards in strategic locations.
                   </li>
                 </ul>
@@ -145,20 +145,20 @@
 
       <!-- Step 6 -->
       <nb-step label="Sixth step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>6. Train Personnel</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Educate employees on the Andon system:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="person-done-outline"></nb-icon>
+                    <nb-icon icon="person-done-outline" class="icon-large"></nb-icon>
                     Operation: How to trigger an alert, interpret indicators, and respond appropriately.
                   </li>
                   <li>
-                    <nb-icon icon="people-outline"></nb-icon>
+                    <nb-icon icon="people-outline" class="icon-large"></nb-icon>
                     Responsibilities: Define roles and responsibilities for different levels of alerts.
                   </li>
                 </ul>
@@ -172,20 +172,20 @@
 
       <!-- Step 7 -->
       <nb-step label="Seventh step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>7. Establish Response Procedures</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Develop clear protocols for responding to Andon alerts:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="arrowhead-up-outline"></nb-icon>
+                    <nb-icon icon="arrowhead-up-outline" class="icon-large"></nb-icon>
                     Escalation: Define who to notify for each level of alert (e.g., team leader, maintenance).
                   </li>
                   <li>
-                    <nb-icon icon="flash-outline"></nb-icon>
+                    <nb-icon icon="flash-outline" class="icon-large"></nb-icon>
                     Resolution: Standard procedures for addressing and resolving issues promptly.
                   </li>
                 </ul>
@@ -199,20 +199,20 @@
 
       <!-- Step 8 -->
       <nb-step label="Eighth step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>8. Monitor and Improve</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Continuously monitor the effectiveness of your Andon system:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="message-circle-outline"></nb-icon>
+                    <nb-icon icon="message-circle-outline" class="icon-large"></nb-icon>
                     Feedback: Solicit feedback from employees on system usability and effectiveness.
                   </li>
                   <li>
-                    <nb-icon icon="bar-chart-2-outline"></nb-icon>
+                    <nb-icon icon="bar-chart-2-outline" class="icon-large"></nb-icon>
                     Metrics: Track key performance indicators (KPIs) related to response times and issue resolution.
                   </li>
                 </ul>
@@ -226,20 +226,20 @@
 
       <!-- Step 9 -->
       <nb-step label="Ninth step">
-        <nb-card>
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>9. Iterate and Optimize</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
+              <div class="larger-text">
                 <p>
                   Based on feedback and data, make iterative improvements to your Andon system:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="edit-2-outline"></nb-icon>
+                    <nb-icon icon="edit-2-outline" class="icon-large"></nb-icon>
                     Adjustments: Modify triggers or indicators as processes evolve.
                   </li>
                   <li>
-                    <nb-icon icon="award-outline"></nb-icon>
+                    <nb-icon icon="award-outline" class="icon-large"></nb-icon>
                     Training: Provide ongoing training to ensure all personnel are proficient with the system.
                   </li>
                 </ul>
@@ -253,20 +253,24 @@
 
       <!-- Step 10 -->
       <nb-step label="Tenth step">
-        <nb-card>
+        <div class="nb-stepper-buttons">
+          <button nbButton nbStepperPrevious>Previous</button>
+          <button nbButton disabled nbStepperNext>Next</button></div>
+
+        <nb-card class="full-screen-card">
           <nb-card-header> <h3>10. Integrate with Continuous Improvement</h3></nb-card-header>
           <nb-card-body>
-              <div class="step">
-                <p>
+              <div class="larger-text">
+                <p >
                   Incorporate Andon insights into your continuous improvement processes:
                 </p>
                 <ul>
                   <li>
-                    <nb-icon icon="activity-outline"></nb-icon>
+                    <nb-icon icon="activity-outline" class="icon-large"></nb-icon>
                     Root Cause Analysis: Use Andon data to identify recurring issues and implement permanent solutions.
                   </li>
                   <li>
-                    <nb-icon icon="settings-2-outline"></nb-icon>
+                    <nb-icon icon="settings-2-outline" class="icon-large"></nb-icon>
                     Kaizen: Encourage a culture of continuous improvement based on Andon system feedback.
                   </li>
                 </ul>
@@ -274,9 +278,7 @@
           </nb-card-body>
           <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
         </nb-card>
-        <div class="nb-stepper-buttons">
-        <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton disabled nbStepperNext>Next</button></div>
+
       </nb-step>
 
     </nb-stepper>

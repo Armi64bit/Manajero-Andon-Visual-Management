@@ -10,11 +10,12 @@
   font-size: 16px;
 }
 .nb-stepper-buttons {
+  position: absolute;
+  top: 20px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
   display: flex;
-  justify-content: center;
-  margin-top: 20px; // Adjust margin as needed
+  gap: 10px; /* Space between buttons */
 }
-
 .nb-stepper-buttons button {
   margin: 0 10px; // Adjust button spacing as needed
 }
@@ -34,18 +35,18 @@
   color: red;
 }
 
-.larger-text {
-  font-size: 1.2em; /* Adjust the font size as needed */
-  text-align: left; /* Start text from the left */
-  padding: 10px; /* Adjust padding as needed */
-  margin: 10px 0; /* Adjust margin for spacing */
-  line-height: 1.6; /* Adjust line height for space between lines */
-}
-// .icon-large {
-//   font-size: 2rem; /* Adjust the font size as needed to make the icons larger */
+// .larger-text {
+//   font-size: 1.2em; /* Adjust the font size as needed */
+//   text-align: left; /* Start text from the left */
+//   padding: 10px; /* Adjust padding as needed */
+//   margin: 10px 0; /* Adjust margin for spacing */
+//   line-height: 1.6; /* Adjust line height for space between lines */
 // }
+.icon-large {
+  font-size: 3rem; /* Adjust the font size as needed to make the icons larger */
+}
 .image-container {
-  width: 40%; /* Adjust width as needed */
+  width: 90%; /* Adjust width as needed */
   max-width: 800px; /* Example maximum width */
   margin: 0 auto; /* Center the image horizontally */
 }
@@ -53,4 +54,39 @@
   display: block; /* Ensures the image behaves like a block element */
   max-width: 40%; /* Ensures the image does not exceed its container */
   height: auto; /* Maintains aspect ratio */
+}
+.full-screen-card {
+  height: auto;
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.full-screen-card h3,
+.full-screen-card h4 {
+  font-size: 2.5vw; /* Heading size responsive to viewport width */
+  // font-family: 'Roboto', sans-serif; /* Custom font */
+  color: #007bff; /* Dark color */
+  // margin: 0 0 20px 0; /* Margin for spacing */
+  text-align: left; /* Center align text */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 0.1em; /* Spacing between letters */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  // border-bottom: 2px solid #007bff; /* Bottom border for separation */
+  padding-bottom: 10px; /* Padding for bottom border spacing */
+}
+
+
+.larger-text p,
+.larger-text ul,
+.larger-text li,
+.larger-text {
+  font-size: 1.5vw; /* Text size responsive to viewport width */
+  text-align: left;
+  padding: 1vw; /* Padding responsive to viewport width */
+  margin: 0.5vw 0; /* Margin responsive to viewport width */
+  line-height: 2vw; /* Line height responsive to viewport width */
 }
