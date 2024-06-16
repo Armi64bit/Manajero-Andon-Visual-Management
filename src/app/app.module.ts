@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AndonModule } from './pages/lean/andon/andon.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    AndonModule
   ],
   bootstrap: [AppComponent],
 })

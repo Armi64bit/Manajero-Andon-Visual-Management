@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { AndonModule } from './lean/andon/andon.module';
 
 
 @NgModule({
@@ -17,6 +18,8 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
+    AndonModule
+
   ],
   declarations: [
     PagesComponent,
