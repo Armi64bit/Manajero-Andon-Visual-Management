@@ -1,10 +1,12 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { NbIconConfig } from '@nebular/theme';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'ngx-workshop',
   templateUrl: './workshop.component.html',
   styleUrls: ['./workshop.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('revealAnimation', [
       state('hidden', style({
@@ -19,9 +21,15 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         animate('0.5s ease-out')
       ])
     ])
-  ]
+  ],
+  styles: [`
+    :host nb-tab {
+      padding: 1.25rem;
+    }
+  `],
 })
 export class WorkshopComponent implements AfterViewInit {
+  bellIconConfig: NbIconConfig = { icon: 'bell-outline', pack: 'eva' };
   isVisible = 'hidden';
 
   ngAfterViewInit() {

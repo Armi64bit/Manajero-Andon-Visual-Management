@@ -1,286 +1,447 @@
+<!-- <h1 class="text-center">Andon visual management method</h1> -->
 <nb-card>
   <nb-card-body>
-    <nb-stepper orientation="vertical">
-      <!-- Step 1 -->
-      <nb-step [label]="labelOne">
-        <ng-template #labelOne>First step</ng-template>
-
-
-        <nb-card class="full-screen-card">
+    <nb-tabset>
+      <nb-tab tabTitle="Why" tabIcon="question-mark-outline" responsive>
+        <nb-card>
           <nb-card-header>
-            <h4>1. Define the Purpose and Scope</h4>
+            <h4>Concrete Experience (Why)</h4>
           </nb-card-header>
           <nb-card-body>
-            <p class="larger-text">
-              Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
-              <br>
-              Define clear objectives and metrics to measure success.
-
-            </p>
-            <div class="image-container">
-              <img src="https://www.versacall.com/wp-content/uploads/2021/09/vaclav-FKZZV17Kwhg-unsplash-scaled-e1629916533418.jpg" alt="Example Image">
+            <h5>Why use the Andon visual management method?</h5>
+            <div class="text-image-container">
+              <div class="text-container">
+                <p>
+                  <strong>Problem Identification:</strong> Andon systems quickly identify problems in the production process. By providing immediate visual or audible alerts, they enable quick intervention to prevent defects and minimize downtime.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="https://t3.ftcdn.net/jpg/05/08/65/40/360_F_508654065_8fIk7RCYChobsZXErMw1JVn2s9mYKUx1.jpg" alt="Early Defect Detection" class="responsive-image">
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="image-container">
+                <img src="https://www.cabem.com/wp-content/uploads/2023/03/quality-assurance-1.jpg" alt="Early Defect Detection" class="responsive-image">
+              </div>
+              <div class="text-container">
+                <p>
+                  <strong>Quality Assurance:</strong> Ensuring high-quality production standards by enabling immediate corrective actions when deviations occur.
+                </p>
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="text-container">
+                <p>
+                  <strong>Efficiency:</strong> Streamlining communication and responses to issues, leading to more efficient operations.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZxyE1PIVlX9bWu5zWWTCXg_30wqOj9Fi67Q&s" alt="Early Defect Detection" class="responsive-image">
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="image-container">
+                <img src="https://www.achievers.com/wp-content/uploads/2023/08/4-steps-empowering-employees.png" alt="Early Defect Detection" class="responsive-image">
+              </div>
+              <div class="text-container">
+                <p>
+                  <strong>Employee Empowerment:</strong> Workers on the production line can stop the production process if they notice a problem, fostering a culture of accountability and continuous improvement.
+                </p>
+              </div>
             </div>
 
+
           </nb-card-body>
         </nb-card>
 
-       <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 2 -->
-      <nb-step [label]="labelTwo">
-        <ng-template #labelTwo>Second step</ng-template>
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>2. Select Visual Indicators</h3></nb-card-header>
+              </nb-tab>
+      <nb-tab tabTitle="What" tabIcon="info-outline" responsive>
+        <nb-card>
+          <nb-card-header>
+            <h4>Reflective Observation (What)</h4>
+          </nb-card-header>
           <nb-card-body>
-              <div class="larger-text">
-
-                  <p >
-                    Choose visual indicators (lights, boards, displays) to represent the status of operations:
-                  </p>
-                  <ul>
-                    <li>
-                      <nb-icon icon="bulb-outline" [options]="{ animation: { type: 'zoom' } } " class="icon-large"></nb-icon>
-                      Lights: <span class="indicator green">Green</span> for normal, <span class="indicator yellow">yellow</span> for attention required, <span class="indicator red">red</span> for stoppage.
-                    </li>
-
-                    <li>
-                      <nb-icon icon="layout-outline" [options]="{ animation: { type: 'zoom' } }" class="icon-large"></nb-icon>
-                      Boards: Physical or digital displays showing real-time data.
-                    </li>
-                  </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button>
-        </div>
-      </nb-step>
-
-      <!-- Step 3 -->
-      <nb-step label="Third step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>3. Design Andon Board Layout</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
+            <h5>What is the Andon visual management method?</h5>
+            <div class="text-image-container">
+              <div class="text-container">
                 <p>
-                  Create the layout for your Andon board:
+                  <strong>Visual Signals:</strong> Andon systems typically use lights, displays, or other visual signals to indicate the status of the production process. Common indicators include green for normal operations, yellow for a caution or minor issue, and red for a significant problem that needs immediate attention.
                 </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="browser-outline" [options]="{ animation: { type: 'zoom' } }" class="icon-large"></nb-icon>
-                    Sections: Divide into areas if monitoring multiple processes.
-                  </li>
-                  <li>
-                    <nb-icon icon="hash-outline" class="icon-large"></nb-icon>
-                    Labels: Clearly label each section or indicator.
-                  </li>
-                  <li>
-                    <nb-icon icon="activity-outline" class="icon-large"></nb-icon>
-                    Information Display: Decide what to display (e.g., process status, time since last incident).
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card><div class="nb-stepper-buttons">
-        <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 4 -->
-      <nb-step label="Fourth step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>4. Choose Andon Trigger Mechanisms</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
+              </div>
+              <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBRZPJZgK9_Vaf_YZ5wsADnxRlJjiBJO7WsA&s" alt="Early Defect Detection" class="responsive-image">
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXb70_j4ui3OO76ma34ZX0Y32zlDXRlrs6MQ&s" alt="Early Defect Detection" class="responsive-image">
+              </div>
+              <div class="text-container">
                 <p>
-                  Determine what events or conditions will trigger an Andon alert:
+                  <strong>Real-Time Alerts:</strong> Provides real-time alerts to supervisors and workers about the status of production processes.
                 </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="play-circle-outline" class="icon-large"></nb-icon>
-                    Manual: Operators press a button or pull a cord to indicate an issue.
-                  </li>
-                  <li>
-                    <nb-icon icon="thermometer-plus-outline" class="icon-large"></nb-icon>
-                    Automated: Sensors detect abnormalities in production metrics (e.g., downtime, error rates).
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons">  <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 5 -->
-      <nb-step label="Fifth step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>5. Implement Visual Controls</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="text-container">
                 <p>
-                  Install and integrate the chosen visual indicators with your workspace:
+                  <strong>Problem Resolution:</strong> Alerts prompt immediate action to resolve issues, often involving team leaders or maintenance personnel.
                 </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="bulb-outline" class="icon-large"></nb-icon>
-                    Lights: Mount Andon lights where they are easily visible to all relevant personnel.
-                  </li>
-                  <li>
-                    <nb-icon icon="layout-outline" class="icon-large"></nb-icon>
-                    Boards: Set up digital displays or physical boards in strategic locations.
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 6 -->
-      <nb-step label="Sixth step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>6. Train Personnel</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
+              </div>
+              <div class="image-container">
+                <img src="https://www.alfraconsulting.eu/wp-content/uploads/2021/01/andon-escalation-1.png  " alt="Early Defect Detection" class="responsive-image">
+              </div>
+            </div>
+            <div class="text-image-container">
+              <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgorbK7CSUOGz9RbmnkauPuOKdmtVRuoJpoA&s" alt="Early Defect Detection" class="responsive-image">
+              </div>
+              <div class="text-container">
                 <p>
-                  Educate employees on the Andon system:
+                  <strong>Integration:</strong> Can be integrated with other systems like PLCs (Programmable Logic Controllers) for automated monitoring and reporting.
                 </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="person-done-outline" class="icon-large"></nb-icon>
-                    Operation: How to trigger an alert, interpret indicators, and respond appropriately.
-                  </li>
-                  <li>
-                    <nb-icon icon="people-outline" class="icon-large"></nb-icon>
-                    Responsibilities: Define roles and responsibilities for different levels of alerts.
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
+              </div>
+            </div>
 
-      <!-- Step 7 -->
-      <nb-step label="Seventh step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>7. Establish Response Procedures</h3></nb-card-header>
+
+          </nb-card-body>
+          <!-- <nb-card-body>
+            <h5>What is the Andon visual management method?</h5>
+            <p>
+              <strong>Visual Signals:</strong> Andon systems typically use lights, displays, or other visual signals to indicate the status of the production process. Common indicators include green for normal operations, yellow for a caution or minor issue, and red for a significant problem that needs immediate attention.
+            </p>
+            <p>
+              <strong>Real-Time Alerts:</strong> Provides real-time alerts to supervisors and workers about the status of production processes.
+            </p>
+            <p>
+              <strong>Problem Resolution:</strong> Alerts prompt immediate action to resolve issues, often involving team leaders or maintenance personnel.
+            </p>
+            <p>
+              <strong>Integration:</strong> Can be integrated with other systems like PLCs (Programmable Logic Controllers) for automated monitoring and reporting.
+            </p>
+          </nb-card-body> -->
+        </nb-card>
+
+            </nb-tab>
+      <nb-tab tabTitle="How" tabIcon="settings-outline" responsive>
+
           <nb-card-body>
-              <div class="larger-text">
-                <p>
-                  Develop clear protocols for responding to Andon alerts:
-                </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="arrowhead-up-outline" class="icon-large"></nb-icon>
-                    Escalation: Define who to notify for each level of alert (e.g., team leader, maintenance).
-                  </li>
-                  <li>
-                    <nb-icon icon="flash-outline" class="icon-large"></nb-icon>
-                    Resolution: Standard procedures for addressing and resolving issues promptly.
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
+            <nb-stepper orientation="vertical">
+              <!-- Step 1 -->
+              <nb-step [label]="labelOne">
+                <ng-template #labelOne>First step</ng-template>
 
-      <!-- Step 8 -->
-      <nb-step label="Eighth step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>8. Monitor and Improve</h3></nb-card-header>
+
+                <nb-card class="full-screen-card">
+                  <nb-card-header>
+                    <h4>1. Define the Purpose and Scope</h4>
+                  </nb-card-header>
+                  <nb-card-body>
+                    <p class="larger-text">
+                      Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
+                      <br>
+                      Define clear objectives and metrics to measure success.
+
+                    </p>
+                    <div class="image-container">
+                      <img src="https://www.versacall.com/wp-content/uploads/2021/09/vaclav-FKZZV17Kwhg-unsplash-scaled-e1629916533418.jpg" alt="Example Image">
+                    </div>
+
+                  </nb-card-body>
+                </nb-card>
+
+               <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 2 -->
+              <nb-step [label]="labelTwo">
+                <ng-template #labelTwo>Second step</ng-template>
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>2. Select Visual Indicators</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+
+                          <p >
+                            Choose visual indicators (lights, boards, displays) to represent the status of operations:
+                          </p>
+                          <ul>
+                            <li>
+                              <nb-icon icon="bulb-outline" [options]="{ animation: { type: 'pulse' } } " class="icon-large"></nb-icon>
+                              Lights: <span class="indicator green">Green</span> for normal, <span class="indicator yellow">yellow</span> for attention required, <span class="indicator red">red</span> for stoppage.
+                            </li>
+
+                            <li>
+                              <nb-icon icon="layout-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                              Boards: Physical or digital displays showing real-time data.
+                            </li>
+                          </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button>
+                </div>
+              </nb-step>
+
+              <!-- Step 3 -->
+              <nb-step label="Third step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>3. Design Andon Board Layout</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Create the layout for your Andon board:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="browser-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Sections: Divide into areas if monitoring multiple processes.
+                          </li>
+                          <li>
+                            <nb-icon icon="hash-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Labels: Clearly label each section or indicator.
+                          </li>
+                          <li>
+                            <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Information Display: Decide what to display (e.g., process status, time since last incident).
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card><div class="nb-stepper-buttons">
+                <button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 4 -->
+              <nb-step label="Fourth step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>4. Choose Andon Trigger Mechanisms</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Determine what events or conditions will trigger an Andon alert:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="play-circle-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Manual: Operators press a button or pull a cord to indicate an issue.
+                          </li>
+                          <li>
+                            <nb-icon icon="thermometer-plus-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Automated: Sensors detect abnormalities in production metrics (e.g., downtime, error rates).
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons">  <button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 5 -->
+              <nb-step label="Fifth step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>5. Implement Visual Controls</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Install and integrate the chosen visual indicators with your workspace:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="bulb-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Lights: Mount Andon lights where they are easily visible to all relevant personnel.
+                          </li>
+                          <li>
+                            <nb-icon icon="layout-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Boards: Set up digital displays or physical boards in strategic locations.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 6 -->
+              <nb-step label="Sixth step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>6. Train Personnel</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Educate employees on the Andon system:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="person-done-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Operation: How to trigger an alert, interpret indicators, and respond appropriately.
+                          </li>
+                          <li>
+                            <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Responsibilities: Define roles and responsibilities for different levels of alerts.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 7 -->
+              <nb-step label="Seventh step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>7. Establish Response Procedures</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Develop clear protocols for responding to Andon alerts:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="arrowhead-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Escalation: Define who to notify for each level of alert (e.g., team leader, maintenance).
+                          </li>
+                          <li>
+                            <nb-icon icon="flash-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Resolution: Standard procedures for addressing and resolving issues promptly.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 8 -->
+              <nb-step label="Eighth step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>8. Monitor and Improve</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Continuously monitor the effectiveness of your Andon system:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="message-circle-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Feedback: Solicit feedback from employees on system usability and effectiveness.
+                          </li>
+                          <li>
+                            <nb-icon icon="bar-chart-2-outline"  [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Metrics: Track key performance indicators (KPIs) related to response times and issue resolution.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 9 -->
+              <nb-step label="Ninth step">
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>9. Iterate and Optimize</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p>
+                          Based on feedback and data, make iterative improvements to your Andon system:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="edit-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Adjustments: Modify triggers or indicators as processes evolve.
+                          </li>
+                          <li>
+                            <nb-icon icon="award-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                            Training: Provide ongoing training to ensure all personnel are proficient with the system.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+                <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
+                <button nbButton nbStepperNext>Next</button></div>
+              </nb-step>
+
+              <!-- Step 10 -->
+              <nb-step label="Tenth step">
+                <div class="nb-stepper-buttons">
+                  <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton disabled nbStepperNext>Next</button></div>
+
+                <nb-card class="full-screen-card">
+                  <nb-card-header> <h3>10. Integrate with Continuous Improvement</h3></nb-card-header>
+                  <nb-card-body>
+                      <div class="larger-text">
+                        <p >
+                          Incorporate Andon insights into your continuous improvement processes:
+                        </p>
+                        <ul>
+                          <li>
+                            <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            Root Cause Analysis: Use Andon data to identify recurring issues and implement permanent solutions.
+                          </li>
+                          <li>
+                            <nb-icon icon="settings-2-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"  ></nb-icon>
+                            Kaizen: Encourage a culture of continuous improvement based on Andon system feedback.
+                          </li>
+                        </ul>
+                        </div>
+                  </nb-card-body>
+                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+                </nb-card>
+
+              </nb-step>
+
+            </nb-stepper>
+          </nb-card-body>
+              </nb-tab>
+      <nb-tab tabTitle="What if" tabIcon="bulb-outline" responsive>
+        <nb-card>
+          <nb-card-header>
+            <h4>Active Experimentation (What If)</h4>
+          </nb-card-header>
           <nb-card-body>
-              <div class="larger-text">
-                <p>
-                  Continuously monitor the effectiveness of your Andon system:
-                </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="message-circle-outline" class="icon-large"></nb-icon>
-                    Feedback: Solicit feedback from employees on system usability and effectiveness.
-                  </li>
-                  <li>
-                    <nb-icon icon="bar-chart-2-outline" class="icon-large"></nb-icon>
-                    Metrics: Track key performance indicators (KPIs) related to response times and issue resolution.
-                  </li>
-                </ul>
-                </div>
+            <h5>What if we implement the Andon visual management method? Examples and scenarios</h5>
+            <p>
+              <strong>Scenario 1: Early Defect Detection</strong><br>
+              <em>Example:</em> A worker notices a defect in a part being assembled. They activate the Andon system, triggering a yellow light. The team leader immediately comes to assess the situation, identifies the root cause, and fixes the issue before it affects the entire batch.<br>
+              <em>Outcome:</em> Early detection prevents a large number of defective products, saving costs and maintaining quality standards.
+            </p>
+            <p>
+              <strong>Scenario 2: Equipment Malfunction</strong><br>
+              <em>Example:</em> A machine starts malfunctioning, producing irregular outputs. The worker pulls the Andon cord, activating a red light and halting production. Maintenance personnel are alerted and quickly repair the machine.<br>
+              <em>Outcome:</em> Quick intervention minimizes downtime and prevents further damage to the equipment.
+            </p>
+            <p>
+              <strong>Scenario 3: Continuous Improvement</strong><br>
+              <em>Example:</em> Over a month, data from the Andon system reveals that a specific machine frequently triggers alerts. Analysis shows that it is due for a major maintenance overhaul.<br>
+              <em>Outcome:</em> Proactive maintenance scheduling prevents future breakdowns, improving overall efficiency and reliability.
+            </p>
           </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 9 -->
-      <nb-step label="Ninth step">
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>9. Iterate and Optimize</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
-                <p>
-                  Based on feedback and data, make iterative improvements to your Andon system:
-                </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="edit-2-outline" class="icon-large"></nb-icon>
-                    Adjustments: Modify triggers or indicators as processes evolve.
-                  </li>
-                  <li>
-                    <nb-icon icon="award-outline" class="icon-large"></nb-icon>
-                    Training: Provide ongoing training to ensure all personnel are proficient with the system.
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-        </nb-card>
-        <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
-        <button nbButton nbStepperNext>Next</button></div>
-      </nb-step>
-
-      <!-- Step 10 -->
-      <nb-step label="Tenth step">
-        <div class="nb-stepper-buttons">
-          <button nbButton nbStepperPrevious>Previous</button>
-          <button nbButton disabled nbStepperNext>Next</button></div>
-
-        <nb-card class="full-screen-card">
-          <nb-card-header> <h3>10. Integrate with Continuous Improvement</h3></nb-card-header>
-          <nb-card-body>
-              <div class="larger-text">
-                <p >
-                  Incorporate Andon insights into your continuous improvement processes:
-                </p>
-                <ul>
-                  <li>
-                    <nb-icon icon="activity-outline" class="icon-large"></nb-icon>
-                    Root Cause Analysis: Use Andon data to identify recurring issues and implement permanent solutions.
-                  </li>
-                  <li>
-                    <nb-icon icon="settings-2-outline" class="icon-large"></nb-icon>
-                    Kaizen: Encourage a culture of continuous improvement based on Andon system feedback.
-                  </li>
-                </ul>
-                </div>
-          </nb-card-body>
-          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
         </nb-card>
 
-      </nb-step>
-
-    </nb-stepper>
+              </nb-tab>
+    </nb-tabset>
   </nb-card-body>
 </nb-card>
+
+
+
+
+
+

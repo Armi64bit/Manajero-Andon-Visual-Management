@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbIconModule, NbStepperModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbStepperModule, NbTabsetModule } from '@nebular/theme';
 import { AndonRoutingModule } from './andon-routing.module';
 import { WorkshopComponent } from './workshop/workshop.component';
 
@@ -15,7 +15,10 @@ import { WorkshopComponent } from './workshop/workshop.component';
     NbIconModule,
     NbStepperModule,
     NbCardModule,
-    NbButtonModule
+    NbButtonModule,
+    NbLayoutModule,
+    NbTabsetModule
+
   ]
 })
 export class AndonModule { }
