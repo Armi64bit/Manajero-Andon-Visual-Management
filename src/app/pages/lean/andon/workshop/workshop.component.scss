@@ -43,7 +43,7 @@
 //   line-height: 1.6; /* Adjust line height for space between lines */
 // }
 .icon-large {
-  font-size: 3rem; /* Adjust the font size as needed to make the icons larger */
+  font-size: 2rem; /* Adjust the font size as needed to make the icons larger */
 }
 .image-container {
   width: 90%; /* Adjust width as needed */
@@ -69,12 +69,12 @@
 .full-screen-card h4 {
   font-size: 2vw; /* Heading size responsive to viewport width */
   // font-family: 'Roboto', sans-serif; /* Custom font */
-  color: #007bff; /* Dark color */
+  color: #ffffff; /* Dark color */
   // margin: 0 0 20px 0; /* Margin for spacing */
   text-align: left; /* Center align text */
   text-transform: uppercase; /* Uppercase text */
   letter-spacing: 0.1em; /* Spacing between letters */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  // text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   // border-bottom: 2px solid #007bff; /* Bottom border for separation */
   // padding-bottom: 10px; /* Padding for bottom border spacing */
 }
@@ -84,11 +84,11 @@
 .larger-text ul,
 .larger-text li,
 .larger-text {
-  font-size: 1.5vw; /* Text size responsive to viewport width */
+  font-size: 1vw; /* Text size responsive to viewport width */
   text-align: left;
-  padding: 1vw; /* Padding responsive to viewport width */
-  margin: 0.5vw 0; /* Margin responsive to viewport width */
-  line-height: 2vw; /* Line height responsive to viewport width */
+  padding: 0.2vw; /* Padding responsive to viewport width */
+  margin: 0.2vw 0; /* Margin responsive to viewport width */
+  line-height: 1vw; /* Line height responsive to viewport width */
 }
 .image-container2 {
   display: flex;

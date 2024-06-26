@@ -133,20 +133,26 @@
 
 
                 <nb-card class="full-screen-card">
-                  <nb-card-header>
+                  <nb-card-header class="card-header bg-primary text-white">
                     <h4>1. Define the Purpose and Scope</h4>
                   </nb-card-header>
-                  <nb-card-body>
-                    <p class="larger-text">
-                      Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
+                  <nb-card-body class="card-body">
+
+
+                    <p class="mt-3">
+                      - Determine what processes or areas will benefit from Andon visual management. Identify key metrics or parameters you want to monitor.
                       <br>
-                      Define clear objectives and metrics to measure success.
-
+                      - Define clear objectives and metrics to measure success.
+                      Effective Andon systems help to highlight issues in real-time, enabling quicker resolution and continuous improvement. Ensure that your objectives are specific, measurable, achievable, relevant, and time-bound (SMART).
                     </p>
-                    <div class="image-container">
-                      <img src="https://www.versacall.com/wp-content/uploads/2021/09/vaclav-FKZZV17Kwhg-unsplash-scaled-e1629916533418.jpg" alt="Example Image">
+                    <ul class="lead">
+                      <li>Process areas to improve</li>
+                      <li>Key metrics to monitor</li>
+                      <li>Objectives and success metrics</li>
+                    </ul>
+                    <div class="image-container text-center my-3">
+                      <img src="https://www.versacall.com/wp-content/uploads/2021/09/vaclav-FKZZV17Kwhg-unsplash-scaled-e1629916533418.jpg" alt="Example Image" class="img-fluid rounded">
                     </div>
-
                   </nb-card-body>
                 </nb-card>
 
@@ -157,25 +163,40 @@
               <nb-step [label]="labelTwo">
                 <ng-template #labelTwo>Second step</ng-template>
                 <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>2. Select Visual Indicators</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-
-                          <p >
-                            Choose visual indicators (lights, boards, displays) to represent the status of operations:
-                          </p>
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>2. Select Visual Indicators</h3>
+                  </nb-card-header>
+                  <nb-card-body class="card-body">
+                    <div class="">
+                      <p>
+                        Choose visual indicators (lights, boards, displays) to represent the status of operations. These indicators should be easily visible and understandable by all team members to ensure quick and accurate communication of the current status:
+                      </p>
+                      <ul>
+                        <li>
+                          <nb-icon icon="bulb-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Lights:</strong> Use color-coded lights to indicate different statuses. For example:
                           <ul>
-                            <li>
-                              <nb-icon icon="bulb-outline" [options]="{ animation: { type: 'pulse' } } " class="icon-large"></nb-icon>
-                              Lights: <span class="indicator green">Green</span> for normal, <span class="indicator yellow">yellow</span> for attention required, <span class="indicator red">red</span> for stoppage.
-                            </li>
-
-                            <li>
-                              <nb-icon icon="layout-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                              Boards: Physical or digital displays showing real-time data.
-                            </li>
+                            <li><span class="indicator green">Green</span>: Normal operation</li>
+                            <li><span class="indicator yellow">Yellow</span>: Attention required</li>
+                            <li><span class="indicator red">Red</span>: Stoppage</li>
                           </ul>
-                        </div>
+                          These lights can be placed at strategic locations to ensure visibility.
+                        </li>
+                        <li class="mt-3">
+                          <nb-icon icon="layout-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Boards:</strong> Physical or digital displays showing real-time data. These boards can include:
+                          <ul>
+                            <li>Current production status</li>
+                            <li>Key performance indicators (KPIs)</li>
+                            <li>Alerts and notifications</li>
+                          </ul>
+                          Digital boards can be updated automatically through integrated systems, while physical boards might require manual updates.
+                        </li>
+                      </ul>
+                      <p class="mt-3">
+                        Selecting the right visual indicators is crucial for maintaining an efficient and responsive operation. Ensure that the indicators are standardized and clearly understood by all team members.
+                      </p>
+                    </div>
                   </nb-card-body>
                   <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
@@ -187,28 +208,72 @@
               <!-- Step 3 -->
               <nb-step label="Third step">
                 <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>3. Design Andon Board Layout</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Create the layout for your Andon board:
-                        </p>
-                        <ul>
-                          <li>
+                  <nb-card class="card mb-4">
+                    <nb-card-header class="card-header bg-primary text-white">
+                      <h3>3. Design Andon Board Layout</h3>
+                    </nb-card-header>
+                    <nb-card-body class="card-body">
+                      <div class="text-image-container">
+                        <div class="text-container">
+                          <p>
+                            Create the layout for your Andon board. A well-organized Andon board is crucial for quick comprehension and effective decision-making:
+                          </p>
+                          <div class="mt-3">
                             <nb-icon icon="browser-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Sections: Divide into areas if monitoring multiple processes.
-                          </li>
-                          <li>
-                            <nb-icon icon="hash-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Labels: Clearly label each section or indicator.
-                          </li>
-                          <li>
-                            <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Information Display: Decide what to display (e.g., process status, time since last incident).
-                          </li>
-                        </ul>
+                            <strong>Sections:</strong> Divide the board into distinct sections if you need to monitor multiple processes or areas. For example:
+                            <ul>
+                              <li>Production lines</li>
+                              <li>Maintenance activities</li>
+                              <li>Quality control</li>
+                            </ul>
+                            This helps in quickly identifying the area that requires attention.
+                          </div>
                         </div>
-                  </nb-card-body>
+                        <div class="image-container">
+                          <img src="https://tse1.mm.bing.net/th?id=OIG4.7c2VA3jNNPYKttadZDnt&amp;pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                        </div>
+                      </div>
+                      <div class="text-image-container">
+                        <div class="image-container">
+                          <img src="https://tse4.mm.bing.net/th?id=OIG3.esE.yZbr.wdmkDV7Z90l&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                        </div>
+                        <div class="text-container">
+                          <div class="mt-3">
+                            <nb-icon icon="hash-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            <strong>Labels:</strong> Clearly label each section or indicator to avoid confusion. Use large, readable fonts and consider color-coding labels for additional clarity.
+                            <ul>
+                              <li>Process names</li>
+                              <li>Machine IDs</li>
+                              <li>Shift timings</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-image-container">
+                        <div class="text-container">
+                          <div class="mt-3">
+                            <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            <strong>Information Display:</strong> Decide what critical information you need to display on the Andon board. This could include:
+                            <ul>
+                              <li>Current process status (running, stopped, maintenance)</li>
+                              <li>Time since the last incident or downtime</li>
+                              <li>Performance metrics (e.g., output rate, defect rate)</li>
+                            </ul>
+                            Ensure the information is updated in real-time to provide accurate and timely data for decision-making.
+                          </div>
+
+                        <p class="mt-3">
+                          A well-designed Andon board can significantly improve communication and efficiency on the shop floor. Regularly review and update the layout and content to ensure it continues to meet the needs of your operations.
+                        </p>
+                        </div>
+                        <div class="image-container">
+                          <img src="https://tse3.mm.bing.net/th?id=OIG4.XK9oguMxanoZCCHcPTFP&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                        </div>
+                      </div>
+
+                    </nb-card-body>
+                  </nb-card>
+
                   <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card><div class="nb-stepper-buttons">
                 <button nbButton nbStepperPrevious>Previous</button>
@@ -217,108 +282,182 @@
 
               <!-- Step 4 -->
               <nb-step label="Fourth step">
-                <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>4. Choose Andon Trigger Mechanisms</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Determine what events or conditions will trigger an Andon alert:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="play-circle-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Manual: Operators press a button or pull a cord to indicate an issue.
-                          </li>
-                          <li>
-                            <nb-icon icon="thermometer-plus-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Automated: Sensors detect abnormalities in production metrics (e.g., downtime, error rates).
-                          </li>
-                        </ul>
-                        </div>
+                <nb-card class="card mb-4">
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3 style="color: white;">4. Choose Andon Trigger Mechanisms</h3>
+                  </nb-card-header>
+                  <nb-card-body class="card-body">
+                    <div class="larger-text">
+                      <p>
+                        Determine what events or conditions will trigger an Andon alert. Identifying the right triggers is essential for ensuring timely intervention and maintaining smooth operations:
+                      </p>
+                      
+                      <ul>
+                        <li class="mt-3">
+                          <nb-icon icon="play-circle-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                          <strong>Manual:</strong> Operators can manually trigger an Andon alert by pressing a button or pulling a cord. This method allows for immediate human intervention when an issue is detected. Examples include:
+                          <ul>
+                            <li>Identifying a defect in the production line</li>
+                            <li>Noticing a safety hazard</li>
+                            <li>Requesting assistance or support</li>
+                          </ul>
+                          Manual triggers rely on the vigilance and prompt response of operators.
+                        </li>
+                        <li class="mt-3">
+                          <nb-icon icon="thermometer-plus-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Automated:</strong> Automated systems use sensors and software to detect abnormalities in production metrics and trigger Andon alerts without human intervention. This can help in:
+                          <ul>
+                            <li>Detecting equipment malfunctions or breakdowns</li>
+                            <li>Monitoring error rates and product defects</li>
+                            <li>Tracking downtime and production delays</li>
+                          </ul>
+                          Automated triggers ensure that issues are identified promptly, even if operators are not immediately aware of them.
+                        </li>
+                      </ul>
+                      <p class="mt-3">
+                        Combining both manual and automated triggers can provide a comprehensive Andon system that maximizes responsiveness and minimizes downtime. Ensure that the triggers are well-integrated with your Andon board and clearly understood by all team members.
+                      </p>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons">  <button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 5 -->
               <nb-step label="Fifth step">
-                <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>5. Implement Visual Controls</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Install and integrate the chosen visual indicators with your workspace:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="bulb-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Lights: Mount Andon lights where they are easily visible to all relevant personnel.
-                          </li>
-                          <li>
-                            <nb-icon icon="layout-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Boards: Set up digital displays or physical boards in strategic locations.
-                          </li>
-                        </ul>
-                        </div>
+                <nb-card class="card mb-4 full-screen-card">
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>5. Implement Visual Controls</h3>
+                  </nb-card-header>
+                  <nb-card-body class="card-body">
+                    <div class="larger-text">
+                      <p>
+                        Install and integrate the chosen visual indicators with your workspace. Proper implementation ensures that the Andon system is effective and accessible to all team members:
+                      </p>
+                      <ul>
+                        <li class="mt-3">
+                          <nb-icon icon="bulb-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                          <strong>Lights:</strong> Mount Andon lights in locations where they are easily visible to all relevant personnel. Consider the following:
+                          <ul>
+                            <li>Install lights at key points along the production line to ensure visibility from various angles.</li>
+                            <li>Use high-mounted lights for large workspaces or areas with obstructions.</li>
+                            <li>Ensure lights are color-coded (e.g., green for normal operation, yellow for attention, red for stoppage) and visible from a distance.</li>
+                          </ul>
+                          Proper placement of lights helps in quickly signaling the status of operations to everyone on the floor.
+                        </li>
+                        <li class="mt-3">
+                          <nb-icon icon="layout-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                          <strong>Boards:</strong> Set up digital displays or physical boards in strategic locations. These boards should be:
+                          <ul>
+                            <li>Placed at entrances or central points where they can be easily seen by all team members.</li>
+                            <li>Large enough to display critical information clearly.</li>
+                            <li>Updated in real-time to provide accurate data on the current status of operations.</li>
+                          </ul>
+                          Digital boards can be integrated with your systems for automatic updates, while physical boards should be maintained regularly.
+                        </li>
+                      </ul>
+                      <p class="mt-3">
+                        Implementing visual controls effectively requires planning and consideration of the workspace layout. Ensure that all team members are trained on how to interpret the visual indicators and respond appropriately. Regular maintenance and updates are essential to keep the Andon system reliable and functional.
+                      </p>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 6 -->
               <nb-step label="Sixth step">
-                <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>6. Train Personnel</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Educate employees on the Andon system:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="person-done-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Operation: How to trigger an alert, interpret indicators, and respond appropriately.
-                          </li>
-                          <li>
-                            <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Responsibilities: Define roles and responsibilities for different levels of alerts.
-                          </li>
-                        </ul>
-                        </div>
+                <nb-card class="card mb-4 full-screen-card">
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>6. Train Personnel</h3>
+                  </nb-card-header>
+                  <nb-card-body class="card-body">
+                    <div class="larger-text">
+                      <p>
+                        Educate employees on the Andon system to ensure effective utilization and response. Comprehensive training is crucial for the success of the Andon system:
+                      </p>
+                      <ul>
+                        <li class="mt-3">
+                          <nb-icon icon="person-done-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Operation:</strong> Train employees on how to trigger an alert, interpret indicators, and respond appropriately. This includes:
+                          <ul>
+                            <li>Understanding the different types of alerts and their meanings.</li>
+                            <li>Learning how to manually trigger an alert using buttons or cords.</li>
+                            <li>Recognizing automated alerts generated by sensors and systems.</li>
+                            <li>Knowing the immediate steps to take when an alert is triggered, such as stopping the production line or calling for assistance.</li>
+                          </ul>
+                          Proper training ensures that employees can quickly and accurately respond to alerts, minimizing downtime and maintaining safety.
+                        </li>
+                        <li class="mt-3">
+                          <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Responsibilities:</strong> Define clear roles and responsibilities for different levels of alerts. This includes:
+                          <ul>
+                            <li>Identifying who is responsible for responding to specific types of alerts.</li>
+                            <li>Ensuring supervisors and managers are aware of their roles in investigating and resolving issues.</li>
+                            <li>Establishing protocols for escalating alerts to higher levels of management if necessary.</li>
+                            <li>Providing ongoing training and refreshers to keep everyone up-to-date with procedures and best practices.</li>
+                          </ul>
+                          Clearly defined responsibilities ensure that there is no confusion during an alert, and that issues are resolved efficiently.
+                        </li>
+                      </ul>
+                      <p class="mt-3">
+                        Regular training sessions and drills can help reinforce knowledge and ensure that all personnel are prepared to effectively use the Andon system. Continuous education and practice are key to maintaining a responsive and efficient operational environment.
+                      </p>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 7 -->
               <nb-step label="Seventh step">
-                <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>7. Establish Response Procedures</h3></nb-card-header>
-                  <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Develop clear protocols for responding to Andon alerts:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="arrowhead-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Escalation: Define who to notify for each level of alert (e.g., team leader, maintenance).
-                          </li>
-                          <li>
-                            <nb-icon icon="flash-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Resolution: Standard procedures for addressing and resolving issues promptly.
-                          </li>
-                        </ul>
-                        </div>
+                <nb-card class="card mb-4 full-screen-card">
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>7. Establish Response Procedures</h3>
+                  </nb-card-header>
+                  <nb-card-body class="card-body">
+                    <div class="larger-text">
+                      <p>
+                        Develop clear protocols for responding to Andon alerts. Well-defined response procedures ensure that issues are addressed promptly and efficiently:
+                      </p>
+                      <ul>
+                        <li class="mt-3">
+                          <nb-icon icon="arrowhead-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Escalation:</strong> Define who to notify for each level of alert to ensure the right personnel are informed and can take action. Consider the following steps:
+                          <ul>
+                            <li>Identify the specific individuals or roles responsible for responding to different types of alerts.</li>
+                            <li>Establish a chain of command for escalating alerts from operators to team leaders, supervisors, and maintenance staff.</li>
+                            <li>Ensure that contact information and communication channels (e.g., phone, email, radio) are readily available and regularly updated.</li>
+                            <li>Develop criteria for when and how alerts should be escalated to higher levels of management or external support teams.</li>
+                          </ul>
+                          Clear escalation procedures help in quickly mobilizing the appropriate response and minimizing downtime.
+                        </li>
+                        <li class="mt-3">
+                          <nb-icon icon="flash-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Resolution:</strong> Establish standard procedures for addressing and resolving issues promptly. This includes:
+                          <ul>
+                            <li>Creating step-by-step guides for common issues and their resolutions.</li>
+                            <li>Ensuring that all necessary tools and resources are available to address problems as they arise.</li>
+                            <li>Training personnel on troubleshooting techniques and the use of diagnostic equipment.</li>
+                            <li>Implementing a feedback loop to review resolved issues and improve procedures continuously.</li>
+                            <li>Documenting each incident, including the actions taken and the outcome, to build a knowledge base for future reference.</li>
+                          </ul>
+                          Standardized resolution procedures ensure consistency and effectiveness in handling alerts.
+                        </li>
+                      </ul>
+                      <p class="mt-3">
+                        Regularly review and update response procedures to adapt to changing operational needs and incorporate lessons learned from past incidents. Effective response protocols are vital for maintaining productivity and ensuring workplace safety.
+                      </p>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
@@ -326,26 +465,36 @@
               <!-- Step 8 -->
               <nb-step label="Eighth step">
                 <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>8. Monitor and Improve</h3></nb-card-header>
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>8. Monitor and Improve</h3>
+                  </nb-card-header>
                   <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Continuously monitor the effectiveness of your Andon system:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="message-circle-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Feedback: Solicit feedback from employees on system usability and effectiveness.
-                          </li>
-                          <li>
-                            <nb-icon icon="bar-chart-2-outline"  [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Metrics: Track key performance indicators (KPIs) related to response times and issue resolution.
-                          </li>
-                        </ul>
-                        </div>
+                    <div class="larger-text">
+                      <p>
+                        Continuously monitor the effectiveness of your Andon system to ensure it remains efficient and relevant. Here are key aspects to focus on:
+                      </p>
+                      <ul>
+                        <li>
+                          <nb-icon icon="message-circle-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Feedback:</strong> Solicit feedback from employees on system usability and effectiveness. Regularly gather input from those using the system to identify any areas of improvement or issues that need addressing. Encourage open communication and create a feedback loop to foster continuous improvement.
+                        </li>
+                        <li>
+                          <nb-icon icon="bar-chart-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Metrics:</strong> Track key performance indicators (KPIs) related to response times and issue resolution. Analyze data on the frequency of alerts, average time taken to address issues, and the success rate of solutions implemented. Use these metrics to identify trends, measure the system's impact, and drive data-informed decisions.
+                        </li>
+                        <li>
+                          <nb-icon icon="settings-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>System Updates:</strong> Regularly update the Andon system to incorporate new features and enhancements. Stay informed about the latest technologies and practices to keep the system up-to-date and efficient.
+                        </li>
+                        <li>
+                          <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Training:</strong> Provide ongoing training for employees on how to effectively use the Andon system. Ensure that new hires are adequately trained and that existing employees are refreshed on best practices and any system updates.
+                        </li>
+                      </ul>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
@@ -353,26 +502,36 @@
               <!-- Step 9 -->
               <nb-step label="Ninth step">
                 <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>9. Iterate and Optimize</h3></nb-card-header>
+                  <nb-card-header class="card-header bg-primary text-white">
+                    <h3>9. Iterate and Optimize</h3>
+                  </nb-card-header>
                   <nb-card-body>
-                      <div class="larger-text">
-                        <p>
-                          Based on feedback and data, make iterative improvements to your Andon system:
-                        </p>
-                        <ul>
-                          <li>
-                            <nb-icon icon="edit-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Adjustments: Modify triggers or indicators as processes evolve.
-                          </li>
-                          <li>
-                            <nb-icon icon="award-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            Training: Provide ongoing training to ensure all personnel are proficient with the system.
-                          </li>
-                        </ul>
-                        </div>
+                    <div class="larger-text">
+                      <p>
+                        Based on feedback and data, make iterative improvements to your Andon system to ensure it remains effective and efficient. Consider the following actions:
+                      </p>
+                      <ul>
+                        <li>
+                          <nb-icon icon="edit-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Adjustments:</strong> Modify triggers or indicators as processes evolve. As your operational processes change, ensure that the Andon system reflects these changes by updating the triggers that signal alerts. This may involve redefining thresholds, adding new indicators, or removing obsolete ones to keep the system relevant and responsive.
+                        </li>
+                        <li>
+                          <nb-icon icon="award-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Training:</strong> Provide ongoing training to ensure all personnel are proficient with the system. Continuous education is key to maintaining high proficiency levels among staff. Regularly conduct training sessions, workshops, and refreshers to keep everyone up-to-date with any changes or new features in the Andon system. This ensures that all employees can effectively use the system and contribute to its optimization.
+                        </li>
+                        <li>
+                          <nb-icon icon="trending-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Performance Analysis:</strong> Regularly analyze system performance and identify areas for improvement. Use data analytics to assess how well the Andon system is performing and pinpoint any weaknesses or bottlenecks. Implement solutions based on these insights to enhance system efficiency and reliability.
+                        </li>
+                        <li>
+                          <nb-icon icon="refresh-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                          <strong>Continuous Improvement:</strong> Adopt a culture of continuous improvement. Encourage employees to propose enhancements and stay proactive in seeking ways to optimize the Andon system. Regularly review and update the system to incorporate new technologies, best practices, and feedback from users.
+                        </li>
+                      </ul>
+                    </div>
                   </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
+
                 <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
                 <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
@@ -383,27 +542,37 @@
                   <button nbButton nbStepperPrevious>Previous</button>
                   <button nbButton disabled nbStepperNext>Next</button></div>
 
-                <nb-card class="full-screen-card">
-                  <nb-card-header> <h3>10. Integrate with Continuous Improvement</h3></nb-card-header>
-                  <nb-card-body>
+                  <nb-card class="full-screen-card">
+                    <nb-card-header class="card-header bg-primary text-white">
+                      <h3>10. Integrate with Continuous Improvement</h3>
+                    </nb-card-header>
+                    <nb-card-body>
                       <div class="larger-text">
-                        <p >
-                          Incorporate Andon insights into your continuous improvement processes:
+                        <p>
+                          Incorporate Andon insights into your continuous improvement processes to drive ongoing enhancements and operational excellence. Here are key steps to consider:
                         </p>
                         <ul>
                           <li>
                             <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            Root Cause Analysis: Use Andon data to identify recurring issues and implement permanent solutions.
+                            <strong>Root Cause Analysis:</strong> Use Andon data to identify recurring issues and implement permanent solutions. By analyzing the alerts and incidents captured by the Andon system, you can uncover underlying problems that cause disruptions. Conduct thorough root cause analyses to understand the reasons behind these issues and develop strategies to eliminate them, ensuring long-term stability and efficiency.
                           </li>
                           <li>
-                            <nb-icon icon="settings-2-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"  ></nb-icon>
-                            Kaizen: Encourage a culture of continuous improvement based on Andon system feedback.
+                            <nb-icon icon="settings-2-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            <strong>Kaizen:</strong> Encourage a culture of continuous improvement based on Andon system feedback. Embrace the principles of Kaizen by fostering an environment where employees are motivated to seek and implement incremental improvements. Use the feedback and data from the Andon system to guide these efforts, promoting regular, small changes that collectively lead to significant enhancements over time.
+                          </li>
+                          <li>
+                            <nb-icon icon="trending-up-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            <strong>Benchmarking:</strong> Compare Andon data with industry standards and best practices. Identify areas where your processes may lag behind and set goals for improvement. Use benchmarks to measure progress and ensure your operations remain competitive and efficient.
+                          </li>
+                          <li>
+                            <nb-icon icon="file-text-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                            <strong>Documentation:</strong> Document all improvements and changes made based on Andon insights. Maintain detailed records of the issues identified, the actions taken, and the outcomes achieved. This documentation serves as a valuable resource for training, audits, and future improvement initiatives.
                           </li>
                         </ul>
-                        </div>
-                  </nb-card-body>
-                  <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-                </nb-card>
+                      </div>
+                    </nb-card-body>
+                  </nb-card>
+
 
               </nb-step>
 
