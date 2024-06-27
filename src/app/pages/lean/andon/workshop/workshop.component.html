@@ -130,6 +130,7 @@
               <!-- Step 1 -->
               <nb-step [label]="labelOne">
                 <ng-template #labelOne>First step</ng-template>
+                <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
 
 
                 <nb-card class="full-screen-card">
@@ -156,12 +157,15 @@
                   </nb-card-body>
                 </nb-card>
 
-               <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 2 -->
               <nb-step [label]="labelTwo">
+
                 <ng-template #labelTwo>Second step</ng-template>
+                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button>
+                  </div>
                 <nb-card class="full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>2. Select Visual Indicators</h3>
@@ -200,88 +204,103 @@
                   </nb-card-body>
                   <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
                 </nb-card>
-                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button>
-                </div>
+
               </nb-step>
 
               <!-- Step 3 -->
               <nb-step label="Third step">
+                <div class="nb-stepper-buttons">
+                  <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="full-screen-card">
                   <nb-card class="card mb-4">
                     <nb-card-header class="card-header bg-primary text-white">
                       <h3>3. Design Andon Board Layout</h3>
                     </nb-card-header>
                     <nb-card-body class="card-body">
-                      <div class="text-image-container">
-                        <div class="text-container">
-                          <p>
-                            Create the layout for your Andon board. A well-organized Andon board is crucial for quick comprehension and effective decision-making:
-                          </p>
-                          <div class="mt-3">
-                            <nb-icon icon="browser-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                            <strong>Sections:</strong> Divide the board into distinct sections if you need to monitor multiple processes or areas. For example:
-                            <ul>
-                              <li>Production lines</li>
-                              <li>Maintenance activities</li>
-                              <li>Quality control</li>
-                            </ul>
-                            This helps in quickly identifying the area that requires attention.
+                      <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <p>
+                              Create the layout for your Andon board. A well-organized Andon board is crucial for quick comprehension and effective decision-making:
+                            </p>
+                            <div class="mt-3">
+                              <nb-icon icon="browser-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                              <strong>Sections:</strong> Divide the board into distinct sections if you need to monitor multiple processes or areas. For example:
+                              <ul>
+                                <li>Production lines</li>
+                                <li>Maintenance activities</li>
+                                <li>Quality control</li>
+                              </ul>
+                              This helps in quickly identifying the area that requires attention.
+                            </div>
                           </div>
                         </div>
-                        <div class="image-container">
-                          <img src="https://tse1.mm.bing.net/th?id=OIG4.7c2VA3jNNPYKttadZDnt&amp;pid=ImgGn" class="img-fluid" alt="Medium-sized image">
-                        </div>
-                      </div>
-                      <div class="text-image-container">
-                        <div class="image-container">
-                          <img src="https://tse4.mm.bing.net/th?id=OIG3.esE.yZbr.wdmkDV7Z90l&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
-                        </div>
-                        <div class="text-container">
-                          <div class="mt-3">
-                            <nb-icon icon="hash-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            <strong>Labels:</strong> Clearly label each section or indicator to avoid confusion. Use large, readable fonts and consider color-coding labels for additional clarity.
-                            <ul>
-                              <li>Process names</li>
-                              <li>Machine IDs</li>
-                              <li>Shift timings</li>
-                            </ul>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://tse1.mm.bing.net/th?id=OIG4.7c2VA3jNNPYKttadZDnt&amp;pid=ImgGn" class="img-fluid" alt="Medium-sized image">
                           </div>
-                        </div>
-                      </div>
-                      <div class="text-image-container">
-                        <div class="text-container">
-                          <div class="mt-3">
-                            <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                            <strong>Information Display:</strong> Decide what critical information you need to display on the Andon board. This could include:
-                            <ul>
-                              <li>Current process status (running, stopped, maintenance)</li>
-                              <li>Time since the last incident or downtime</li>
-                              <li>Performance metrics (e.g., output rate, defect rate)</li>
-                            </ul>
-                            Ensure the information is updated in real-time to provide accurate and timely data for decision-making.
-                          </div>
-
-                        <p class="mt-3">
-                          A well-designed Andon board can significantly improve communication and efficiency on the shop floor. Regularly review and update the layout and content to ensure it continues to meet the needs of your operations.
-                        </p>
-                        </div>
-                        <div class="image-container">
-                          <img src="https://tse3.mm.bing.net/th?id=OIG4.XK9oguMxanoZCCHcPTFP&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
                         </div>
                       </div>
 
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="image-container">
+                            <img src="https://tse4.mm.bing.net/th?id=OIG3.esE.yZbr.wdmkDV7Z90l&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="hash-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                              <strong>Labels:</strong> Clearly label each section or indicator to avoid confusion. Use large, readable fonts and consider color-coding labels for additional clarity.
+                              <ul>
+                                <li>Process names</li>
+                                <li>Machine IDs</li>
+                                <li>Shift timings</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                              <strong>Information Display:</strong> Decide what critical information you need to display on the Andon board. This could include:
+                              <ul>
+                                <li>Current process status (running, stopped, maintenance)</li>
+                                <li>Time since the last incident or downtime</li>
+                                <li>Performance metrics (e.g., output rate, defect rate)</li>
+                              </ul>
+                              Ensure the information is updated in real-time to provide accurate and timely data for decision-making.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://tse3.mm.bing.net/th?id=OIG4.XK9oguMxanoZCCHcPTFP&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="mt-4">
+                        A well-designed Andon board can significantly improve communication and efficiency on the shop floor. Regularly review and update the layout and content to ensure it continues to meet the needs of your operations.
+                      </p>
                     </nb-card-body>
                   </nb-card>
 
                   <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
-                </nb-card><div class="nb-stepper-buttons">
-                <button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
+                </nb-card>
               </nb-step>
 
               <!-- Step 4 -->
               <nb-step label="Fourth step">
+                <div class="nb-stepper-buttons mb-5">
+                  <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="card mb-4">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3 style="color: white;">4. Choose Andon Trigger Mechanisms</h3>
@@ -291,20 +310,34 @@
                       <p>
                         Determine what events or conditions will trigger an Andon alert. Identifying the right triggers is essential for ensuring timely intervention and maintaining smooth operations:
                       </p>
-                      
+
                       <ul>
-                        <li class="mt-3">
-                          <nb-icon icon="play-circle-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                          <strong>Manual:</strong> Operators can manually trigger an Andon alert by pressing a button or pulling a cord. This method allows for immediate human intervention when an issue is detected. Examples include:
-                          <ul>
-                            <li>Identifying a defect in the production line</li>
-                            <li>Noticing a safety hazard</li>
-                            <li>Requesting assistance or support</li>
-                          </ul>
-                          Manual triggers rely on the vigilance and prompt response of operators.
-                        </li>
-                        <li class="mt-3">
-                          <nb-icon icon="thermometer-plus-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+
+                        <div class="row mt-4">
+                          <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="text-container">
+                              <div class="mt-3">
+                                <nb-icon icon="play-circle-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                <strong>Manual:</strong> Operators can manually trigger an Andon alert by pressing a button or pulling a cord. This method allows for immediate human intervention when an issue is detected. Examples include:
+                                <ul>
+                                  <li>Identifying a defect in the production line</li>
+                                  <li>Noticing a safety hazard</li>
+                                  <li>Requesting assistance or support</li>
+                                </ul>
+                                Manual triggers rely on the vigilance and prompt response of operators.  </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="image-container">
+                              <img src="https://tse1.mm.bing.net/th?id=OIG3.smfmFl5V_9zGLIJ5mVFF&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="text-container">
+                              <div class="mt-3">
+                                <nb-icon icon="thermometer-plus-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
                           <strong>Automated:</strong> Automated systems use sensors and software to detect abnormalities in production metrics and trigger Andon alerts without human intervention. This can help in:
                           <ul>
                             <li>Detecting equipment malfunctions or breakdowns</li>
@@ -312,7 +345,16 @@
                             <li>Tracking downtime and production delays</li>
                           </ul>
                           Automated triggers ensure that issues are identified promptly, even if operators are not immediately aware of them.
-                        </li>
+                         </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="image-container">
+                              <img src="https://tse3.mm.bing.net/th?id=OIG2.XV8vi3dZr.ZhEyCOye1.&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                            </div>
+                          </div>
+                        </div>
+
                       </ul>
                       <p class="mt-3">
                         Combining both manual and automated triggers can provide a comprehensive Andon system that maximizes responsiveness and minimizes downtime. Ensure that the triggers are well-integrated with your Andon board and clearly understood by all team members.
@@ -321,12 +363,13 @@
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons">  <button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
+
               </nb-step>
 
               <!-- Step 5 -->
               <nb-step label="Fifth step">
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="card mb-4 full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>5. Implement Visual Controls</h3>
@@ -337,18 +380,33 @@
                         Install and integrate the chosen visual indicators with your workspace. Proper implementation ensures that the Andon system is effective and accessible to all team members:
                       </p>
                       <ul>
-                        <li class="mt-3">
-                          <nb-icon icon="bulb-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-                          <strong>Lights:</strong> Mount Andon lights in locations where they are easily visible to all relevant personnel. Consider the following:
-                          <ul>
-                            <li>Install lights at key points along the production line to ensure visibility from various angles.</li>
-                            <li>Use high-mounted lights for large workspaces or areas with obstructions.</li>
-                            <li>Ensure lights are color-coded (e.g., green for normal operation, yellow for attention, red for stoppage) and visible from a distance.</li>
-                          </ul>
-                          Proper placement of lights helps in quickly signaling the status of operations to everyone on the floor.
-                        </li>
-                        <li class="mt-3">
-                          <nb-icon icon="layout-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+
+                        <div class="row mt-4">
+                          <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="text-container">
+                              <div class="mt-3">
+                                <nb-icon icon="bulb-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                <strong>Lights:</strong> Mount Andon lights in locations where they are easily visible to all relevant personnel. Consider the following:
+                                <ul>
+                                  <li>Install lights at key points along the production line to ensure visibility from various angles.</li>
+                                  <li>Use high-mounted lights for large workspaces or areas with obstructions.</li>
+                                  <li>Ensure lights are color-coded (e.g., green for normal operation, yellow for attention, red for stoppage) and visible from a distance.</li>
+                                </ul>
+                                Proper placement of lights helps in quickly signaling the status of operations to everyone on the floor.
+                             </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="image-container">
+                              <img src="https://www.shutterstock.com/image-vector/andon-light-3-colour-indicator-260nw-2228621031.jpg" class="img-fluid" alt="Medium-sized image">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="text-container">
+                              <div class="mt-3">
+                                <nb-icon icon="layout-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
                           <strong>Boards:</strong> Set up digital displays or physical boards in strategic locations. These boards should be:
                           <ul>
                             <li>Placed at entrances or central points where they can be easily seen by all team members.</li>
@@ -356,7 +414,16 @@
                             <li>Updated in real-time to provide accurate data on the current status of operations.</li>
                           </ul>
                           Digital boards can be integrated with your systems for automatic updates, while physical boards should be maintained regularly.
-                        </li>
+                        </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="image-container">
+                              <img src="https://www.makigami.info/images/stories/andon/andonboard.jpg" class="img-fluid" alt="Medium-sized image">
+                            </div>
+                          </div>
+                        </div>
+
                       </ul>
                       <p class="mt-3">
                         Implementing visual controls effectively requires planning and consideration of the workspace layout. Ensure that all team members are trained on how to interpret the visual indicators and respond appropriately. Regular maintenance and updates are essential to keep the Andon system reliable and functional.
@@ -365,12 +432,13 @@
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
+
               </nb-step>
 
               <!-- Step 6 -->
               <nb-step label="Sixth step">
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="card mb-4 full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>6. Train Personnel</h3>
@@ -380,9 +448,11 @@
                       <p>
                         Educate employees on the Andon system to ensure effective utilization and response. Comprehensive training is crucial for the success of the Andon system:
                       </p>
-                      <ul>
-                        <li class="mt-3">
-                          <nb-icon icon="person-done-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="person-done-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
                           <strong>Operation:</strong> Train employees on how to trigger an alert, interpret indicators, and respond appropriately. This includes:
                           <ul>
                             <li>Understanding the different types of alerts and their meanings.</li>
@@ -391,9 +461,20 @@
                             <li>Knowing the immediate steps to take when an alert is triggered, such as stopping the production line or calling for assistance.</li>
                           </ul>
                           Proper training ensures that employees can quickly and accurately respond to alerts, minimizing downtime and maintaining safety.
-                        </li>
-                        <li class="mt-3">
-                          <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                       </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://www.pingflow.com/wp-content/uploads/2018/07/e%CC%81cran-andon-CLAAS-PingFlow.jpg" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
                           <strong>Responsibilities:</strong> Define clear roles and responsibilities for different levels of alerts. This includes:
                           <ul>
                             <li>Identifying who is responsible for responding to specific types of alerts.</li>
@@ -402,8 +483,16 @@
                             <li>Providing ongoing training and refreshers to keep everyone up-to-date with procedures and best practices.</li>
                           </ul>
                           Clearly defined responsibilities ensure that there is no confusion during an alert, and that issues are resolved efficiently.
-                        </li>
-                      </ul>
+                        </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                      </div>
+
                       <p class="mt-3">
                         Regular training sessions and drills can help reinforce knowledge and ensure that all personnel are prepared to effectively use the Andon system. Continuous education and practice are key to maintaining a responsive and efficient operational environment.
                       </p>
@@ -411,12 +500,14 @@
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
+
               </nb-step>
 
               <!-- Step 7 -->
               <nb-step label="Seventh step">
+
+                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="card mb-4 full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>7. Establish Response Procedures</h3>
@@ -426,31 +517,51 @@
                       <p>
                         Develop clear protocols for responding to Andon alerts. Well-defined response procedures ensure that issues are addressed promptly and efficiently:
                       </p>
-                      <ul>
-                        <li class="mt-3">
-                          <nb-icon icon="arrowhead-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                          <strong>Escalation:</strong> Define who to notify for each level of alert to ensure the right personnel are informed and can take action. Consider the following steps:
-                          <ul>
-                            <li>Identify the specific individuals or roles responsible for responding to different types of alerts.</li>
-                            <li>Establish a chain of command for escalating alerts from operators to team leaders, supervisors, and maintenance staff.</li>
-                            <li>Ensure that contact information and communication channels (e.g., phone, email, radio) are readily available and regularly updated.</li>
-                            <li>Develop criteria for when and how alerts should be escalated to higher levels of management or external support teams.</li>
-                          </ul>
-                          Clear escalation procedures help in quickly mobilizing the appropriate response and minimizing downtime.
-                        </li>
-                        <li class="mt-3">
-                          <nb-icon icon="flash-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-                          <strong>Resolution:</strong> Establish standard procedures for addressing and resolving issues promptly. This includes:
-                          <ul>
-                            <li>Creating step-by-step guides for common issues and their resolutions.</li>
-                            <li>Ensuring that all necessary tools and resources are available to address problems as they arise.</li>
-                            <li>Training personnel on troubleshooting techniques and the use of diagnostic equipment.</li>
-                            <li>Implementing a feedback loop to review resolved issues and improve procedures continuously.</li>
-                            <li>Documenting each incident, including the actions taken and the outcome, to build a knowledge base for future reference.</li>
-                          </ul>
-                          Standardized resolution procedures ensure consistency and effectiveness in handling alerts.
-                        </li>
-                      </ul>
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="arrowhead-up-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                              <strong>Escalation:</strong> Define who to notify for each level of alert to ensure the right personnel are informed and can take action. Consider the following steps:
+                              <ul>
+                                <li>Identify the specific individuals or roles responsible for responding to different types of alerts.</li>
+                                <li>Establish a chain of command for escalating alerts from operators to team leaders, supervisors, and maintenance staff.</li>
+                                <li>Ensure that contact information and communication channels (e.g., phone, email, radio) are readily available and regularly updated.</li>
+                                <li>Develop criteria for when and how alerts should be escalated to higher levels of management or external support teams.</li>
+                              </ul>
+                              Clear escalation procedures help in quickly mobilizing the appropriate response and minimizing downtime.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://slideplayer.com/slide/734343/2/images/19/Escalation+process+Stage+2+Operator+Team+Leader+Shift+Leader+D%2FMgr+Mgr.jpg" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                          <div class="text-container">
+                            <div class="mt-3">
+                              <nb-icon icon="flash-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+                              <strong>Resolution:</strong> Establish standard procedures for addressing and resolving issues promptly. This includes:
+                              <ul>
+                                <li>Creating step-by-step guides for common issues and their resolutions.</li>
+                                <li>Ensuring that all necessary tools and resources are available to address problems as they arise.</li>
+                                <li>Training personnel on troubleshooting techniques and the use of diagnostic equipment.</li>
+                                <li>Implementing a feedback loop to review resolved issues and improve procedures continuously.</li>
+                                <li>Documenting each incident, including the actions taken and the outcome, to build a knowledge base for future reference.</li>
+                              </ul>
+                              Standardized resolution procedures ensure consistency and effectiveness in handling alerts.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="image-container">
+                            <img src="https://fastercapital.com/i/Andon-System--Real-Time-Problem-Resolution-in-Pull-Through-Production--Successful-Implementation-of-the-Andon-System.webp" class="img-fluid" alt="Medium-sized image">
+                          </div>
+                        </div>
+                      </div>
                       <p class="mt-3">
                         Regularly review and update response procedures to adapt to changing operational needs and incorporate lessons learned from past incidents. Effective response protocols are vital for maintaining productivity and ensuring workplace safety.
                       </p>
@@ -458,12 +569,13 @@
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 8 -->
               <nb-step label="Eighth step">
+
+                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>8. Monitor and Improve</h3>
@@ -491,16 +603,29 @@
                           <strong>Training:</strong> Provide ongoing training for employees on how to effectively use the Andon system. Ensure that new hires are adequately trained and that existing employees are refreshed on best practices and any system updates.
                         </li>
                       </ul>
+                      <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="https://25913880.fs1.hubspotusercontent-eu1.net/hub/25913880/hubfs/Imported_Blog_Media/1-feedback-descriptive-2.jpg?width=600&height=400&name=1-feedback-descriptive-2.jpg" class="img-fluid" alt="Image 1">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://neomatrixinc.com/wp-content/uploads/neomatrix-andon-board2-min.png" class="img-fluid" alt="Image 2">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6MtQPSusqniU3IzIHH1V0XroasaIiprjJg&s" class="img-fluid" alt="Image 3">
+                            </div>
+                        </div>
+                    </div>
                     </div>
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
               </nb-step>
 
               <!-- Step 9 -->
               <nb-step label="Ninth step">
+                <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
+                  <button nbButton nbStepperNext>Next</button></div>
                 <nb-card class="full-screen-card">
                   <nb-card-header class="card-header bg-primary text-white">
                     <h3>9. Iterate and Optimize</h3>
@@ -528,12 +653,27 @@
                           <strong>Continuous Improvement:</strong> Adopt a culture of continuous improvement. Encourage employees to propose enhancements and stay proactive in seeking ways to optimize the Andon system. Regularly review and update the system to incorporate new technologies, best practices, and feedback from users.
                         </li>
                       </ul>
+                      <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 1">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 2">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 3">
+                            </div>
+                            <div class="col-md-3">
+                              <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 3">
+                          </div>
+                        </div>
+                    </div>
                     </div>
                   </nb-card-body>
                 </nb-card>
 
-                <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
-                <button nbButton nbStepperNext>Next</button></div>
+
               </nb-step>
 
               <!-- Step 10 -->
@@ -569,6 +709,22 @@
                             <strong>Documentation:</strong> Document all improvements and changes made based on Andon insights. Maintain detailed records of the issues identified, the actions taken, and the outcomes achieved. This documentation serves as a valuable resource for training, audits, and future improvement initiatives.
                           </li>
                         </ul>
+                        <div class="container mt-5">
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 1">
+                              </div>
+                              <div class="col-md-3">
+                                  <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 2">
+                              </div>
+                              <div class="col-md-3">
+                                  <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 3">
+                              </div>
+                              <div class="col-md-3">
+                                <img src="https://tse3.mm.bing.net/th?id=OIG4.UKYUISlDZDip6ZjqPZJE&pid=ImgGn" class="img-fluid" alt="Image 3">
+                            </div>
+                          </div>
+                      </div>
                       </div>
                     </nb-card-body>
                   </nb-card>
@@ -601,8 +757,14 @@
               <em>Example:</em> Over a month, data from the Andon system reveals that a specific machine frequently triggers alerts. Analysis shows that it is due for a major maintenance overhaul.<br>
               <em>Outcome:</em> Proactive maintenance scheduling prevents future breakdowns, improving overall efficiency and reliability.
             </p>
+            <!-- Placeholder for an image or diagram -->
+            <div class="image-placeholder">
+              <!-- Replace with your image source and alt text -->
+              <img src="path/to/your/image.jpg" alt="Image description">
+            </div>
           </nb-card-body>
         </nb-card>
+
 
               </nb-tab>
     </nb-tabset>
