@@ -7,6 +7,7 @@ import { UseMethodComponent } from './use-method/use-method.component';
 import { ChartsModule } from '../../charts/charts.module';
 import { AlertListComponent } from './alert-list/alert-list.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
     UseMethodComponent,
     AlertListComponent,
     IssueListComponent,
+    DashboardComponent,
     
 
   ],

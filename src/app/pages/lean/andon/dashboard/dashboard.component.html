@@ -1,0 +1,39 @@
+<div class="dashboard">
+  <h2>Production Dashboard</h2>
+
+  <!-- Metrics Section -->
+  <div class="metrics">
+    <div class="metric">
+      <h5>Production Line Status</h5>
+      <div class="status-indicator" [ngClass]="{'running': productionLineStatus === 'running', 'stopped': productionLineStatus !== 'running'}"></div>
+      <h4>{{ productionLineStatus }}</h4>
+    </div>
+    <div class="metric">
+      <h5>Uptime</h5>
+      <div class="metric-icon">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+      <h4>{{ uptimePercentage }}%</h4>
+    </div>
+    <div class="metric">
+      <h5>Downtime</h5>
+      <div class="metric-icon">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+      <h4>{{ downtimePercentage }}%</h4>
+    </div>
+  </div>
+
+
+  <!-- Charts Section -->
+  <div class="charts">
+    <!-- Bar Chart for Production Data -->
+    <canvas #barChart></canvas>
+
+    <!-- Line Chart for Uptime and Downtime -->
+    <canvas #lineChart></canvas>
+
+    <!-- Chart for Lines with Most Issues -->
+    <canvas #issuesChart></canvas>
+  </div>
+</div>
