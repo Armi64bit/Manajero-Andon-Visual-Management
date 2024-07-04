@@ -1,0 +1,23 @@
+<div class="issue-list">
+  <h2>Current Issues</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Location</th>
+        <th>Severity</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues">
+        <td>{{ issue.timestamp | date }}</td>
+        <td>{{ issue.location }}</td>
+        <td>{{ issue.severity }}</td>
+        <td>{{ issue.assignedTo }}</td>
+        <td>{{ issue.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,10 @@
+.alerts-issues-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alerts-issues-container ngx-alert-list,
+.alerts-issues-container ngx-issue-list {
+  flex: 1;
+  margin-right: 20px; /* Adjust spacing between components */
+}

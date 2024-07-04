@@ -3,11 +3,20 @@ import { CommonModule } from '@angular/common';
 import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbStepperModule, NbTabsetModule } from '@nebular/theme';
 import { AndonRoutingModule } from './andon-routing.module';
 import { WorkshopComponent } from './workshop/workshop.component';
+import { UseMethodComponent } from './use-method/use-method.component';
+import { ChartsModule } from '../../charts/charts.module';
+import { AlertListComponent } from './alert-list/alert-list.component';
+import { IssueListComponent } from './issue-list/issue-list.component';
 
 
 @NgModule({
   declarations: [
-    WorkshopComponent
+    WorkshopComponent,
+    UseMethodComponent,
+    AlertListComponent,
+    IssueListComponent,
+    
+
   ],
   imports: [
     CommonModule,
@@ -17,8 +26,8 @@ import { WorkshopComponent } from './workshop/workshop.component';
     NbCardModule,
     NbButtonModule,
     NbLayoutModule,
-    NbTabsetModule
-
+    NbTabsetModule,
+    ChartsModule
   ]
 })
 export class AndonModule { }

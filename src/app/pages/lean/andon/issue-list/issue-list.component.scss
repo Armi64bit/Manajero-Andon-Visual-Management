@@ -1,0 +1,31 @@
+.issue-list {
+  width: 100%;
+  max-width: 800px; /* Adjust width as needed */
+  margin: 0 auto;
+}
+
+.issue-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.issue-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.issue-list th, .issue-list td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.issue-list th {
+  // background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.issue-list tbody tr:nth-child(even) {
+  // background-color: #f9f9f9;
+}
