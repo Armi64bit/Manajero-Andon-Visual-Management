@@ -112,7 +112,7 @@ export class DashboardComponent implements AfterViewInit {
 
       // Create the chart
       this.chart = new Chart(canvasElement, {
-        type: 'pie',
+        type: 'doughnut', // Change type to doughnut
         data: {
           labels: ['Compliant Lines', 'Non-compliant Lines'],
           datasets: [{
@@ -147,6 +147,7 @@ export class DashboardComponent implements AfterViewInit {
       });
     }
   }
+
 
 
 
@@ -211,7 +212,7 @@ export class DashboardComponent implements AfterViewInit {
 
   private setupIssuesChart() {
     this.issuesChart = new Chart(this.issuesChartRef.nativeElement, {
-      type: 'bar',
+      type: 'radar',
       data: {
         labels: ['8am', '9am', '10am', '11am', '12pm', '1pm', '2pm'], // Example labels for hours
         datasets: [
