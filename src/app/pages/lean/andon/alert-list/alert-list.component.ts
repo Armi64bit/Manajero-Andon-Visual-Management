@@ -17,16 +17,17 @@ export class AlertListComponent {
     // Implement logic to send acknowledgment to backend
   }
 
-  getSeverityClass(severity: string) {
+  getSeverityClass(severity: string): string {
     switch (severity) {
       case 'High':
-        return 'severity-high';
+        return 'badge-danger';
       case 'Medium':
-        return 'severity-medium';
+        return 'badge-warning';
       case 'Low':
-        return 'severity-low';
+        return 'badge-success';
       default:
-        return '';
+        return 'badge-secondary';
     }
   }
+
 }

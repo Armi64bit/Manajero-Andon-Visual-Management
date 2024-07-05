@@ -1,28 +1,53 @@
 <div class="dashboard">
   <h2>Production Dashboard</h2>
 
-  <!-- Metrics Section -->
-  <div class="metrics">
-    <div class="metric">
-      <h5>Production Line Status</h5>
-      <div class="status-indicator" [ngClass]="{'running': productionLineStatus === 'running', 'stopped': productionLineStatus !== 'running'}"></div>
-      <h4>{{ productionLineStatus }}</h4>
+<!-- Metrics Section -->
+<div class="metrics">
+  <!-- Today's Issues -->
+  <div class="metric">
+    <h5>Today's Issues</h5>
+    <div class="metric-icon" [ngClass]="getIssuesIndicatorClass()">
+      <i class="fas fa-exclamation-triangle"></i>
     </div>
-    <div class="metric">
-      <h5>Uptime</h5>
-      <div class="metric-icon">
-        <i class="fas fa-arrow-up"></i>
-      </div>
-      <h4>{{ uptimePercentage }}%</h4>
-    </div>
-    <div class="metric">
-      <h5>Downtime</h5>
-      <div class="metric-icon">
-        <i class="fas fa-arrow-down"></i>
-      </div>
-      <h4>{{ downtimePercentage }}%</h4>
-    </div>
+    <h4>{{ todayIssues }}</h4>
   </div>
+
+  <!-- Compliant Lines -->
+  <div class="metric">
+    <h5>Compliant Lines</h5>
+    <div class="metric-icon" [ngClass]="getCompliantLinesIndicatorClass()">
+      <div class="half-circle" [style.transform]="'rotate(' + (compliantLinesPercentage * 180 / 100) + 'deg)'"></div>
+    </div>
+    <h4>{{ compliantLinesPercentage }}%</h4>
+  </div>
+
+  <!-- Stop Hours and Work Hours -->
+  <div class="metric">
+    <h5>Stop Hours / Work Hours</h5>
+    <div class="metric-icon">
+      <i class="far fa-clock"></i>
+    </div>
+    <h4>{{ stopHours }} / {{ workHours }}</h4>
+  </div>
+
+  <!-- Stacking Delay -->
+  <div class="metric">
+    <h5>Stacking Delay Today</h5>
+    <div class="metric-icon" [ngClass]="getStackingDelayIndicatorClass()">
+      <i class="fas fa-layer-group"></i>
+    </div>
+    <h4>{{ stackingDelay }}</h4>
+  </div>
+
+  <!-- Untracked Lines -->
+  <div class="metric">
+    <h5>Untracked Lines</h5>
+    <div class="metric-icon" [ngClass]="getUntrackedLinesIndicatorClass()">
+      <i class="fas fa-ellipsis-h"></i>
+    </div>
+    <h4>{{ untrackedLines }}</h4>
+  </div>
+</div>
 
 
   <!-- Charts Section -->

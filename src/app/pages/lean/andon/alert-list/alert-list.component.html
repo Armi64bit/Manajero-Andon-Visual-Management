@@ -1,12 +1,14 @@
 <div class="alert-list">
-  <h2>Alerts and Notifications</h2>
-  <ul>
-    <li *ngFor="let alert of alerts">
-      <span>{{ alert.timestamp | date }}</span>
-      <span>{{ alert.location }}</span>
-      <span class="severity-indicator" [ngClass]="getSeverityClass(alert.severity)">{{ alert.severity }}</span>
+  <h2 class="text-center">Alerts and Notifications</h2>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let alert of alerts">
+      <div class="flex-column">
+        <span>{{ alert.timestamp | date }}</span>
+        <span>{{ alert.location }}</span>
+      </div>
+      <span class="severity-indicator badge" [ngClass]="getSeverityClass(alert.severity)">{{ alert.severity }}</span>
       <span>{{ alert.status }}</span>
-      <button (click)="acknowledgeAlert(alert)">Acknowledge</button>
+      <button class="btn btn-primary btn-sm" (click)="acknowledgeAlert(alert)">Acknowledge</button>
     </li>
   </ul>
 </div>

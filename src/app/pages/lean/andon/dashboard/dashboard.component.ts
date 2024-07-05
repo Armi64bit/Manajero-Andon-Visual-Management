@@ -7,10 +7,61 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements AfterViewInit {
+
+  todayIssues: number = 7; // Example: Number of issues today
+  compliantLinesPercentage: number = 80; // Example: Percentage of compliant lines
+  stopHours: number = 3; // Example: Stop hours today
+  workHours: number = 10; // Example: Work hours today
+  stackingDelay: number = 5; // Example: Stacking delay today
+  untrackedLines: number = 2; // Example: Number of untracked lines
+
+
   productionLineStatus: string = 'Running';
   uptimePercentage: number = 95;
   downtimePercentage: number = 5;
+  constructor() {}
+  getIssuesIndicatorClass(): string {
+    // Logic to determine class based on today's issues
+    if (this.todayIssues > 5) {
+      return 'indicator-red'; // Example class for high issues
+    } else if (this.todayIssues > 0) {
+      return 'indicator-yellow'; // Example class for moderate issues
+    } else {
+      return 'indicator-green'; // Example class for low issues
+    }
+  }
 
+  getCompliantLinesIndicatorClass(): string {
+    // Logic to determine class based on compliant lines percentage
+    if (this.compliantLinesPercentage < 70) {
+      return 'indicator-red'; // Example class for low compliance
+    } else if (this.compliantLinesPercentage < 90) {
+      return 'indicator-yellow'; // Example class for moderate compliance
+    } else {
+      return 'indicator-green'; // Example class for high compliance
+    }
+  }
+  getStackingDelayIndicatorClass(): string {
+    // Logic to determine class based on stacking delay
+    if (this.stackingDelay > 30) {
+      return 'indicator-red'; // Example class for high delay
+    } else if (this.stackingDelay > 10) {
+      return 'indicator-yellow'; // Example class for moderate delay
+    } else {
+      return 'indicator-green'; // Example class for low delay
+    }
+  }
+  getUntrackedLinesIndicatorClass(): string {
+    // Logic to determine class based on untracked lines
+    if (this.untrackedLines > 10) {
+      return 'indicator-red'; // Example class for high untracked lines
+    } else if (this.untrackedLines > 0) {
+      return 'indicator-yellow'; // Example class for moderate untracked lines
+    } else {
+      return 'indicator-green'; // Example class for low untracked lines
+    }
+  }
+ 
   @ViewChild('barChart') private barChartRef: ElementRef;
   @ViewChild('lineChart') private lineChartRef: ElementRef;
   @ViewChild('issuesChart') private issuesChartRef: ElementRef;
@@ -19,7 +70,12 @@ export class DashboardComponent implements AfterViewInit {
   private lineChart: any;
   private issuesChart: any;
 
-  chartData: number[] = [65, 59, 80, 81, 56, 55, 40];
+  // Example data for production lines
+  chartData: number[][] = [
+    [65, 59, 80, 81, 56, 55, 40], // Production Line 1
+    [70, 62, 78, 79, 60, 58, 42], // Production Line 2
+    [60, 58, 75, 77, 50, 48, 38]  // Production Line 3
+  ];
   chartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   chartOptions: any = {
     responsive: true,
@@ -32,7 +88,6 @@ export class DashboardComponent implements AfterViewInit {
     }
   };
 
-  constructor() {}
 
   ngAfterViewInit() {
     this.setupBarChart();
@@ -45,13 +100,29 @@ export class DashboardComponent implements AfterViewInit {
       type: 'bar',
       data: {
         labels: this.chartLabels,
-        datasets: [{
-          label: 'Production Data',
-          data: this.chartData,
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
+        datasets: [
+          {
+            label: 'Production Line 1',
+            data: this.chartData[0],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Production Line 2',
+            data: this.chartData[1],
+            backgroundColor: 'rgba(255, 206, 86, 0.6)',
+            borderColor: 'rgba(255, 206, 86, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Production Line 3',
+            data: this.chartData[2],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }
+        ]
       },
       options: this.chartOptions
     });
@@ -62,19 +133,22 @@ export class DashboardComponent implements AfterViewInit {
       type: 'line',
       data: {
         labels: this.chartLabels,
-        datasets: [{
-          label: 'Uptime',
-          data: [95, 92, 96, 94, 93, 97, 95],
-          fill: false,
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 2
-        }, {
-          label: 'Downtime',
-          data: [5, 8, 4, 6, 7, 3, 5],
-          fill: false,
-          borderColor: 'rgba(255, 99, 132, 1)',
-          borderWidth: 2
-        }]
+        datasets: [
+          {
+            label: 'Uptime',
+            data: [95, 92, 96, 94, 93, 97, 95],
+            fill: false,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2
+          },
+          {
+            label: 'Downtime',
+            data: [5, 8, 4, 6, 7, 3, 5],
+            fill: false,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 2
+          }
+        ]
       },
       options: this.chartOptions
     });
@@ -85,24 +159,31 @@ export class DashboardComponent implements AfterViewInit {
       type: 'bar',
       data: {
         labels: this.chartLabels,
-        datasets: [{
-          label: 'Lines with Most Issues',
-          data: [10, 8, 12, 9, 11, 7, 13], // Example data for lines with issues
-          backgroundColor: 'rgba(255, 159, 64, 0.6)',
-          borderColor: 'rgba(255, 159, 64, 1)',
-          borderWidth: 1
-        }]
+        datasets: [
+          {
+            label: 'Production Line 1 Issues',
+            data: [10, 8, 12, 9, 11, 7, 13], // Example data for Production Line 1 issues
+            backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Production Line 2 Issues',
+            data: [8, 6, 10, 7, 9, 5, 11], // Example data for Production Line 2 issues
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          },
+          {
+            label: 'Production Line 3 Issues',
+            data: [12, 9, 14, 10, 13, 8, 15], // Example data for Production Line 3 issues
+            backgroundColor: 'rgba(255, 206, 86, 0.6)',
+            borderColor: 'rgba(255, 206, 86, 1)',
+            borderWidth: 1
+          }
+        ]
       },
-      options: {
-        responsive: true,
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+      options: this.chartOptions
     });
   }
 }

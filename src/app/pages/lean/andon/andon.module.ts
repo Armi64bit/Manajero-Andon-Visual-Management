@@ -17,7 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AlertListComponent,
     IssueListComponent,
     DashboardComponent,
-    
+
 
   ],
   imports: [
@@ -29,7 +29,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NbButtonModule,
     NbLayoutModule,
     NbTabsetModule,
-    ChartsModule
+    ChartsModule,
+    
   ]
 })
 export class AndonModule { }
