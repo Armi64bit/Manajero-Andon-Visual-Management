@@ -14,21 +14,21 @@
 
   <!-- Compliant Lines -->
   <div class="metric">
-    <h5>Compliant Lines</h5>
-    <div class="metric-icon" [ngClass]="getCompliantLinesIndicatorClass()">
-      <div class="half-circle" [style.transform]="'rotate(' + (compliantLinesPercentage * 180 / 100) + 'deg)'"></div>
-    </div>
+    <canvas #pieChartCanvas></canvas>
     <h4>{{ compliantLinesPercentage }}%</h4>
   </div>
 
-  <!-- Stop Hours and Work Hours -->
+
+
+
   <div class="metric">
     <h5>Stop Hours / Work Hours</h5>
-    <div class="metric-icon">
+    <div class="metric-icon clock-icon">
       <i class="far fa-clock"></i>
     </div>
     <h4>{{ stopHours }} / {{ workHours }}</h4>
   </div>
+
 
   <!-- Stacking Delay -->
   <div class="metric">

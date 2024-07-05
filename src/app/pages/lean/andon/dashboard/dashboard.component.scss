@@ -30,21 +30,110 @@
 
   .metric-icon {
     margin: 0 auto 10px;
-    width: 48px; /* Adjust size of icon container */
-    height: 48px; /* Adjust size of icon container */
+    width: 80px; /* Adjusted to fit the pie chart */
+    height: 80px; /* Adjusted to fit the pie chart */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #007bff; /* Blue background for icons */
-    border-radius: 50%; /* Circular shape */
+    border-radius: 50%;
     font-size: 24px; /* Icon size */
     color: #fff; /* Icon color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    position: relative;
+
+    .pie-chart {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip: rect(0, 80px, 80px, 40px); /* Adjust clip to fit the pie chart */
+      transform: rotate(-180deg); /* Start from top */
+
+      .slice {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        clip: rect(0, 40px, 80px, 0);
+        background-color: #4caf50; /* Green color for compliant lines */
+        transform-origin: right;
+      }
+
+      .fill {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        clip: rect(0, 80px, 80px, 40px);
+        background-color: #f3f3f3; /* Background color to cover remaining area */
+      }
+
+      .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        color: #333;
+      }
+    }
+  }
+
+  .circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6; /* Grey background */
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .circle .mask,
+  .circle .fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .circle .mask {
+    clip: rect(0, 60px, 60px, 30px); /* Adjust clip for half-circle */
+  }
+
+  .circle .mask .fill {
+    clip: rect(0, 30px, 60px, 0);
+    background-color: #4caf50; /* Green color for compliant lines */
+    transform: rotate(180deg); /* Start from bottom */
+  }
+
+  .circle .mask.full,
+  .circle .mask.half {
+    clip: rect(0, 60px, 60px, 0);
+  }
+
+  .circle .mask.full .fill {
+    transform: rotate(0deg); /* Default rotation */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+
+  .circle .mask.half .fill {
+    background-color: transparent;
+    transform: rotate(0deg); /* Reset for half-circle */
+  }
+
+  .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px; /* Adjust font size */
+    color: #333; /* Adjust text color */
+  }
+
+  .clock-icon {
+    background-color: #007bff; /* Green background for clock icon */
   }
 
   .metric-icon i {
     font-size: 24px; /* Adjust icon size */
-    color: #fff; /* Adjust icon color */
+    color: inherit; /* Inherit color from parent (.metric-icon) */
   }
 }
 
