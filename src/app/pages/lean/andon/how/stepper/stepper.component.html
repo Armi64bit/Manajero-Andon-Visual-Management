@@ -1,0 +1,99 @@
+<nb-stepper orientation="vertical">
+  <!-- Step 1 -->
+  <nb-step [label]="labelOne">
+    <ng-template #labelOne>First step</ng-template>
+    <div class="nb-stepper-buttons"> <button nbButton  nbStepperNext>Next</button></div>
+
+
+    <ngx-step1></ngx-step1>
+
+  </nb-step>
+
+  <!-- Step 2 -->
+  <nb-step [label]="labelTwo">
+
+    <ng-template #labelTwo>Second step</ng-template>
+    <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button>
+      </div>
+  <ngx-step2></ngx-step2>
+
+  </nb-step>
+
+  <!-- Step 3 -->
+  <nb-step label="Third step">
+    <div class="nb-stepper-buttons">
+      <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+    <ngx-step3></ngx-step3>
+  </nb-step>
+
+  <!-- Step 4 -->
+  <nb-step label="Fourth step">
+    <div class="nb-stepper-buttons mb-5">
+      <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+
+      <ngx-step4></ngx-step4>
+
+  </nb-step>
+
+  <!-- Step 5 -->
+  <nb-step label="Fifth step">
+    <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+      <ngx-step5></ngx-step5>
+
+
+  </nb-step>
+
+  <!-- Step 6 -->
+  <nb-step label="Sixth step">
+    <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+
+      <ngx-step6></ngx-step6>
+
+
+  </nb-step>
+
+  <!-- Step 7 -->
+  <nb-step label="Seventh step">
+
+    <div class="nb-stepper-buttons"><button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+      <ngx-step7></ngx-step7>
+
+  </nb-step>
+
+  <!-- Step 8 -->
+  <nb-step label="Eighth step">
+
+    <div class="nb-stepper-buttons"> <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+      <ngx-step8></ngx-step8>
+
+  </nb-step>
+
+  <!-- Step 9 -->
+  <nb-step label="Ninth step">
+    <div class="nb-stepper-buttons">        <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton nbStepperNext>Next</button></div>
+      <ngx-step9></ngx-step9>
+
+
+
+  </nb-step>
+
+  <!-- Step 10 -->
+  <nb-step label="Tenth step">
+    <div class="nb-stepper-buttons">
+      <button nbButton nbStepperPrevious>Previous</button>
+      <button nbButton disabled nbStepperNext>Next</button></div>
+
+      <ngx-step10></ngx-step10>
+
+
+  </nb-step>
+
+</nb-stepper>

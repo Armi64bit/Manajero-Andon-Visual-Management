@@ -1,0 +1,54 @@
+<nb-card>
+  <nb-card-header>Edit How</nb-card-header>
+  <nb-card-body>
+    <div class="scrollable-body">
+      <form class="edit-form">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 2 Content -->
+            <div class="form-group">
+              <label>Step 2 Content</label>
+              <textarea class="form-control" [(ngModel)]="howData.step2" name="step2" rows="3" placeholder="Step 2 Content"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 2 Subpoint L -->
+            <div class="form-group">
+              <label>Step 2 Subpoint L</label>
+              <textarea type="text" class="form-control" [(ngModel)]="howData.step2L" name="step2L" placeholder="Step 2 Subpoint L"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 2 Subpoint B -->
+            <div class="form-group">
+              <label>Step 2 Subpoint B</label>
+              <textarea type="text" class="form-control" [(ngModel)]="howData.step2B" name="step2B" placeholder="Step 2 Subpoint B"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <!-- Buttons -->
+    <div class="buttons mt-3 text-right">
+      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+      <span class="ml-2"></span>
+      <button nbButton outline status="danger" (click)="close()">Cancel</button>
+    </div>
+  </nb-card-footer>
+</nb-card>
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>

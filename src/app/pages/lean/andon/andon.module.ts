@@ -16,6 +16,19 @@ import { WhatLayoutComponent } from './what/what-layout/what-layout.component';
 import { EditWhatModalComponent } from './what/edit-what-modal/edit-what-modal.component';
 import { WhatifLayoutComponent } from './whatif/whatif-layout/whatif-layout.component';
 import { EditWhatifModalComponent } from './whatif/edit-whatif-modal/edit-whatif-modal.component';
+import { StepperComponent } from './how/stepper/stepper.component';
+import { Step1Component } from './how/step1/step1.component';
+import { Step2Component } from './how/step2/step2.component';
+import { Step3Component } from './how/step3/step3.component';
+import { Step4Component } from './how/step4/step4.component';
+import { Step5Component } from './how/step5/step5.component';
+import { Step6Component } from './how/step6/step6.component';
+import { Step7Component } from './how/step7/step7.component';
+import { Step8Component } from './how/step8/step8.component';
+import { Step9Component } from './how/step9/step9.component';
+import { Step10Component } from './how/step10/step10.component';
+import { Step1editComponent } from './how/step1edit/step1edit.component';
+import { Step2editComponent } from './how/step2edit/step2edit.component';
 
 
 @NgModule({
@@ -31,6 +44,19 @@ import { EditWhatifModalComponent } from './whatif/edit-whatif-modal/edit-whatif
     EditWhatModalComponent,
     WhatifLayoutComponent,
     EditWhatifModalComponent,
+    StepperComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component,
+    Step6Component,
+    Step7Component,
+    Step8Component,
+    Step9Component,
+    Step10Component,
+    Step1editComponent,
+    Step2editComponent,
 
 
   ],

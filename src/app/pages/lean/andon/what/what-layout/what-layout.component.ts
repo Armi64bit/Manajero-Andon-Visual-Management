@@ -34,7 +34,10 @@ export class WhatLayoutComponent implements OnInit {
     }).onClose.subscribe(updatedWhat => {
       if (updatedWhat) {
         this.what = updatedWhat; // Update whys if changes were saved
+        this.loadWhyData(); // Reload data to reflect changes
+
       }
     });
   }
+
 }

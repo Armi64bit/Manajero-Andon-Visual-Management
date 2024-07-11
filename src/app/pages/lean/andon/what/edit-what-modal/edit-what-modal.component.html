@@ -69,15 +69,16 @@
           </div>
         </div>
 
-        <!-- Buttons -->
-        <div class="buttons mt-3 text-right">
-          <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
-          <span class="ml-2"></span>
-          <button nbButton outline status="danger" (click)="close()">Cancel</button>
-        </div>
+
       </form>
     </div>
   </nb-card-body>
+  <nb-card-footer><!-- Buttons -->
+    <div class="buttons mt-3 text-right">
+      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+      <span class="ml-2"></span>
+      <button nbButton outline status="danger" (click)="close()">Cancel</button>
+    </div></nb-card-footer>
 </nb-card>
 
 <style>

@@ -1,0 +1,18 @@
+<nb-card class="full-screen-card">
+  <nb-card-header class="card-header bg-primary text-white ">
+    <h4>1. Define the Purpose and Scope </h4>
+    <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
+
+  </nb-card-header>
+  <nb-card-body class="card-body">
+
+
+    <p class="mt-3">
+    {{how.step1}}
+    </p>
+
+    <div class="image-container text-center my-3">
+      <img [src]="how.step1img" alt="Example Image" class="img-fluid rounded">
+    </div>
+  </nb-card-body>
+</nb-card>
