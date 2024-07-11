@@ -13,7 +13,11 @@ public class WebConfig {
     return new WebMvcConfigurer() {
       @Override
       public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**").allowedOrigins("http://localhost:4200");
+        registry.addMapping("/**")
+          .allowedOrigins("http://localhost:4200") // Add your Angular application URL
+          .allowedMethods("GET", "POST", "PUT", "DELETE") // Add the HTTP methods you want to allow
+          .allowedHeaders("*") // Add the headers you want to allow
+          .allowCredentials(true); // Allow credentials like cookies (if any)
       }
     };
   }

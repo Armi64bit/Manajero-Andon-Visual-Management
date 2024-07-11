@@ -1,0 +1,47 @@
+<nb-card>
+  <nb-card-header class="bg-primary text-white">
+    <h4 style="color: white;">Reflective Observation (What)</h4>
+    <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <h5>{{ what.title }}</h5>
+    <div class="text-image-container">
+      <div class="text-container">
+        <p>  <strong>{{ what.subpoint1 }}:</strong> {{ what.content1 }}</p>
+      </div>
+      <div class="image-container">
+        <img [src]="what.image1" alt="Early Defect Detection" class="responsive-image">
+      </div>
+    </div>
+    <div class="text-image-container">
+      <div class="image-container">
+        <img [src]="what.image2" alt="Early Defect Detection" class="responsive-image">
+      </div>
+      <div class="text-container">
+        <p>
+          <strong>{{ what.subpoint2 }}:</strong> {{ what.content2 }} </p>
+      </div>
+    </div>
+    <div class="text-image-container">
+      <div class="text-container">
+        <p>
+          <strong>{{ what.subpoint3 }}:</strong> {{ what.content3 }} </p>
+      </div>
+      <div class="image-container">
+        <img [src]="what.image3" alt="Early Defect Detection" class="responsive-image">
+      </div>
+    </div>
+    <div class="text-image-container">
+      <div class="image-container">
+        <img [src]="what.image4" alt="Early Defect Detection" class="responsive-image">
+      </div>
+      <div class="text-container">
+        <p>
+          <strong>{{ what.subpoint4 }}:</strong> {{ what.content4 }}</p>
+      </div>
+    </div>
+
+
+  </nb-card-body>
+
+</nb-card>

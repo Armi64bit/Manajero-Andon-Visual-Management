@@ -1,0 +1,82 @@
+<nb-card>
+  <nb-card-header class="bg-primary text-white">
+    <h4 style="color: white;">Concrete Experience (Why)</h4>
+    <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <h5>{{ whys.title }}</h5>
+
+    <div class="text-image-container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="image-container">
+            <img [src]="whys.image1" alt="Image 1" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="text-container">
+            <p>
+              <nb-icon icon="plus-outline" style="color: green; font-size: 2rem; font-weight: bold;"></nb-icon>
+              <strong>{{ whys.subpoint1 }}:</strong> {{ whys.content1 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-image-container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0 order-md-2">
+          <div class="image-container">
+            <img [src]="whys.image2" alt="Image 2" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-8 order-md-1">
+          <div class="text-container">
+            <p>
+              <nb-icon icon="plus-outline" style="color: green; font-size: 2rem; font-weight: bold;"></nb-icon>
+              <strong>{{ whys.subpoint2 }}:</strong> {{ whys.content2 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-image-container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="image-container">
+            <img [src]="whys.image3" alt="Image 3" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="text-container">
+            <p>
+              <nb-icon icon="plus-outline" style="color: green; font-size: 2rem; font-weight: bold;"></nb-icon>
+              <strong>{{ whys.subpoint3 }}:</strong> {{ whys.content3 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-image-container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0 order-md-2">
+          <div class="image-container">
+            <img [src]="whys.image4" alt="Image 4" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-8 order-md-1">
+          <div class="text-container">
+            <p>
+              <nb-icon icon="plus-outline" style="color: green; font-size: 2rem; font-weight: bold;"></nb-icon>
+              <strong>{{ whys.subpoint4 }}:</strong> {{ whys.content4 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nb-card-body>
+</nb-card>

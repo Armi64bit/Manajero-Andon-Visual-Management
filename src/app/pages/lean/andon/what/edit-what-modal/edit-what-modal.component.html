@@ -1,0 +1,93 @@
+<nb-card>
+  <nb-card-header>Edit What</nb-card-header>
+  <nb-card-body>
+    <div class="scrollable-body">
+      <form class="edit-form">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <!-- Column 1 -->
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.title" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+              <label>Subpoint 1</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.subpoint1" name="subpoint1" placeholder="Subpoint 1">
+            </div>
+            <div class="form-group">
+              <label>Content 1</label>
+              <textarea class="form-control" [(ngModel)]="whatData.content1" name="content1" rows="3" placeholder="Content 1"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Image 1 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.image1" name="image1" placeholder="Image 1 URL">
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Column 2 -->
+            <div class="form-group">
+              <label>Subpoint 2</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.subpoint2" name="subpoint2" placeholder="Subpoint 2">
+            </div>
+            <div class="form-group">
+              <label>Content 2</label>
+              <textarea class="form-control" [(ngModel)]="whatData.content2" name="content2" rows="3" placeholder="Content 2"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Image 2 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.image2" name="image2" placeholder="Image 2 URL">
+            </div>
+            <div class="form-group">
+              <label>Subpoint 3</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.subpoint3" name="subpoint3" placeholder="Subpoint 3">
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Column 3 -->
+            <div class="form-group">
+              <label>Content 3</label>
+              <textarea class="form-control" [(ngModel)]="whatData.content3" name="content3" rows="3" placeholder="Content 3"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Image 3 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.image3" name="image3" placeholder="Image 3 URL">
+            </div>
+            <div class="form-group">
+              <label>Subpoint 4</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.subpoint4" name="subpoint4" placeholder="Subpoint 4">
+            </div>
+            <div class="form-group">
+              <label>Content 4</label>
+              <textarea class="form-control" [(ngModel)]="whatData.content4" name="content4" rows="3" placeholder="Content 4"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Image 4 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="whatData.image4" name="image4" placeholder="Image 4 URL">
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons mt-3 text-right">
+          <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+          <span class="ml-2"></span>
+          <button nbButton outline status="danger" (click)="close()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>
