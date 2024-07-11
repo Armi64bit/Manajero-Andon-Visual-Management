@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Why, WhyService } from '../api/why.service';
+import { What, WhatService } from '../api/what.service';
+import { Whatif, WhatifService } from '../api/whatif.service';
+import { How, HowService } from '../api/how.service';
 
 @Component({
   selector: 'ngx-use-method',
@@ -16,5 +20,26 @@ export class UseMethodComponent {
     alert.status = 'Acknowledged';
     // Implement logic to send acknowledgment to backend
   }
-  
+
+
+  whys: Why[];
+  whats: What[];
+  whatifs: Whatif[];
+  hows: How[];
+  constructor(private whyService: WhyService,private whatService: WhatService,private whatifService: WhatifService,private howService: HowService) {}
+
+  ngOnInit() {
+    this.whyService.getAllWhys().subscribe(data => {
+      this.whys = data;
+    });
+    this.whatService.getAllWhats().subscribe(data => {
+      this.whats = data;
+    });
+    this.whatifService.getAllWhatifs().subscribe(data => {
+      this.whatifs = data;
+    });
+    this.howService.getAll().subscribe(data => {
+      this.hows = data;
+    });
+  }
 }

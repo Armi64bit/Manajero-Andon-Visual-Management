@@ -1,6 +1,7 @@
 package com.manajero.manajeroadnonbackend.Services;
 
-import com.manajero.manajeroadnonbackend.Repositories.WhyRepository;
+import com.manajero.manajeroadnonbackend.Repositories.HowRepository;
+import com.manajero.manajeroadnonbackend.Entities.How;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,29 +9,29 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WhyService {
+public class HowService {
 
-    @Autowired
-    private WhyRepository whyRepository;
+  @Autowired
+  private HowRepository howRepository;
 
-    public List<com.manajero.manajeroadnonbackend.Entities.Why> getAllWhys() {
-        return whyRepository.findAll();
-    }
+  public List<How> getAllHows() {
+    return howRepository.findAll();
+  }
 
-    public Optional<com.manajero.manajeroadnonbackend.Entities.Why> getWhyById(String id) {
-        return whyRepository.findById(id);
-    }
+  public Optional<How> getHowById(String id) {
+    return howRepository.findById(id);
+  }
 
-    public com.manajero.manajeroadnonbackend.Entities.Why createWhy(com.manajero.manajeroadnonbackend.Entities.Why why) {
-        return whyRepository.save(why);
-    }
+  public How createHow(How how) {
+    return howRepository.save(how);
+  }
 
-    public com.manajero.manajeroadnonbackend.Entities.Why updateWhy(String id, com.manajero.manajeroadnonbackend.Entities.Why why) {
-        why.setId(id);
-        return whyRepository.save(why);
-    }
+  public How updateHow(String id, How how) {
+    how.setId(id);
+    return howRepository.save(how);
+  }
 
-    public void deleteWhy(String id) {
-        whyRepository.deleteById(id);
-    }
+  public void deleteHow(String id) {
+    howRepository.deleteById(id);
+  }
 }

@@ -1,10 +1,117 @@
-<ngx-dashboard></ngx-dashboard>
+<!-- <ngx-dashboard></ngx-dashboard>
 <div class="alerts-issues-container">
   <ngx-alert-list></ngx-alert-list>
   <ngx-issue-list></ngx-issue-list>
 
+</div> -->
+<!-- <div *ngIf="whys">
+  <div *ngFor="let why of whys">
+    <h2>{{ why.title }}</h2>
+    <p>{{ why.subpoint1 }}: {{ why.content1 }}</p>
+    <img *ngIf="why.image1" [src]="why.image1" alt="Image 1">
+    <p>{{ why.subpoint2 }}: {{ why.content2 }}</p>
+    <img *ngIf="why.image2" [src]="why.image2" alt="Image 2">
+    <p>{{ why.subpoint3 }}: {{ why.content3 }}</p>
+    <img *ngIf="why.image3" [src]="why.image3" alt="Image 3">
+    <p>{{ why.subpoint4 }}: {{ why.content4 }}</p>
+    <img *ngIf="why.image4" [src]="why.image4" alt="Image 4">
+  </div>
 </div>
+<div *ngIf="whats">
+  <div *ngFor="let what of whats">
+    <h2>{{ what.title }}</h2>
+    <p>{{ what.subpoint1 }}: {{ what.content1 }}</p>
+    <img *ngIf="what.image1" [src]="what.image1" alt="Image 1">
+    <p>{{ what.subpoint2 }}: {{ what.content2 }}</p>
+    <img *ngIf="what.image2" [src]="what.image2" alt="Image 2">
+    <p>{{ what.subpoint3 }}: {{ what.content3 }}</p>
+    <img *ngIf="what.image3" [src]="what.image3" alt="Image 3">
+    <p>{{ what.subpoint4 }}: {{ what.content4 }}</p>
+    <img *ngIf="what.image4" [src]="what.image4" alt="Image 4">
+  </div>
+</div> -->
+<!-- <div *ngIf="whatifs">
+  <div *ngFor="let whatif of whatifs">
+    <h2>{{ whatif.title }}</h2>
+    <p>{{ whatif.subpoint1 }}: {{ whatif.content1 }}</p>
+    <p> {{whatif.image1}}</p>
+    <p>{{ whatif.subpoint2 }}: {{ whatif.content2 }}</p>
+    <p> {{whatif.image2}}</p>
+  </div>
+</div> -->
 
+
+<div *ngIf="hows && hows.length > 0">
+  <div *ngFor="let how of hows">
+    <h2>Step 1: {{ how.step1 }}</h2>
+    <img *ngIf="how.step1img" [src]="how.step1img" alt="Step 1 Image">
+
+    <h2>Step 2: {{ how.step2 }}</h2>
+    <p>{{ how.step2L }}</p>
+    <p>{{ how.step2B }}</p>
+
+    <h2>Step 3: {{ how.step3 }}</h2>
+    <p>{{ how.step3S }}</p>
+    <img *ngIf="how.step3img1" [src]="how.step3img1" alt="Step 3 Image 1">
+    <p>{{ how.step3L }}</p>
+    <img *ngIf="how.step3img2" [src]="how.step3img2" alt="Step 3 Image 2">
+    <p>{{ how.step3ID }}</p>
+    <img *ngIf="how.step3img3" [src]="how.step3img3" alt="Step 3 Image 3">
+
+    <h2>Step 4: {{ how.step4 }}</h2>
+    <p>{{ how.step4M }}</p>
+    <img *ngIf="how.step4img1" [src]="how.step4img1" alt="Step 4 Image 1">
+    <p>{{ how.step4A }}</p>
+    <img *ngIf="how.step4img2" [src]="how.step4img2" alt="Step 4 Image 2">
+
+    <h2>Step 5: {{ how.step5 }}</h2>
+    <p>{{ how.step5L }}</p>
+    <img *ngIf="how.step5img1" [src]="how.step5img1" alt="Step 5 Image 1">
+    <p>{{ how.step5B }}</p>
+    <img *ngIf="how.step5img2" [src]="how.step5img2" alt="Step 5 Image 2">
+
+    <h2>Step 6: {{ how.step6 }}</h2>
+    <p>{{ how.step6O }}</p>
+    <img *ngIf="how.step6img1" [src]="how.step6img1" alt="Step 6 Image 1">
+    <p>{{ how.step6R }}</p>
+    <img *ngIf="how.step6img2" [src]="how.step6img2" alt="Step 6 Image 2">
+
+    <h2>Step 7: {{ how.step7 }}</h2>
+    <p>{{ how.step7E }}</p>
+    <p>{{ how.step7R }}</p>
+    <img *ngIf="how.step7img1" [src]="how.step7img1" alt="Step 7 Image 1">
+    <img *ngIf="how.step7img2" [src]="how.step7img2" alt="Step 7 Image 2">
+
+    <h2>Step 8: {{ how.step8 }}</h2>
+    <p>{{ how.step8F }}</p>
+    <p>{{ how.step8M }}</p>
+    <p>{{ how.step8S }}</p>
+    <p>{{ how.step8T }}</p>
+    <img *ngIf="how.step8img1" [src]="how.step8img1" alt="Step 8 Image 1">
+    <img *ngIf="how.step8img2" [src]="how.step8img2" alt="Step 8 Image 2">
+    <img *ngIf="how.step8img3" [src]="how.step8img3" alt="Step 8 Image 3">
+
+    <h2>Step 9: {{ how.step9 }}</h2>
+    <p>{{ how.step9A }}</p>
+    <p>{{ how.step9T }}</p>
+    <p>{{ how.step9P }}</p>
+    <p>{{ how.step9C }}</p>
+    <img *ngIf="how.step9img1" [src]="how.step9img1" alt="Step 9 Image 1">
+    <img *ngIf="how.step9img2" [src]="how.step9img2" alt="Step 9 Image 2">
+    <img *ngIf="how.step9img3" [src]="how.step9img3" alt="Step 9 Image 3">
+    <img *ngIf="how.step9img4" [src]="how.step9img4" alt="Step 9 Image 4">
+
+    <h2>Step 10: {{ how.step10 }}</h2>
+    <p>{{ how.step10R }}</p>
+    <p>{{ how.step10K }}</p>
+    <p>{{ how.step10B }}</p>
+    <p>{{ how.step10D }}</p>
+    <img *ngIf="how.step10img1" [src]="how.step10img1" alt="Step 10 Image 1">
+    <img *ngIf="how.step10img2" [src]="how.step10img2" alt="Step 10 Image 2">
+    <img *ngIf="how.step10img3" [src]="how.step10img3" alt="Step 10 Image 3">
+    <img *ngIf="how.step10img4" [src]="how.step10img4" alt="Step 10 Image 4">
+  </div>
+</div>
 
 
 

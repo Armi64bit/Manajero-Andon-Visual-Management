@@ -8,6 +8,7 @@ import { ChartsModule } from '../../charts/charts.module';
 import { AlertListComponent } from './alert-list/alert-list.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NbLayoutModule,
     NbTabsetModule,
     ChartsModule,
-    
+    HttpClientModule
+
   ]
 })
 export class AndonModule { }

@@ -1,6 +1,7 @@
 package com.manajero.manajeroadnonbackend.Controllers;
 
-import com.manajero.manajeroadnonbackend.Services.WhyService;
+import com.manajero.manajeroadnonbackend.Services.HowService;
+import com.manajero.manajeroadnonbackend.Entities.How;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,41 +10,37 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/why")
-public class WhyController {
+@RequestMapping("/api/how")
+public class HowController {
 
-    @Autowired
-    private WhyService whyService;
+  @Autowired
+  private HowService howService;
 
-    @GetMapping
-    public List<com.manajero.manajeroadnonbackend.Entities.Why> getAllWhys() {
-        return whyService.getAllWhys();
-    }
+  @GetMapping
+  public List<How> getAllHows() {
+    return howService.getAllHows();
+  }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<com.manajero.manajeroadnonbackend.Entities.Why> getWhyById(@PathVariable String id) {
-        Optional<com.manajero.manajeroadnonbackend.Entities.Why> why = whyService.getWhyById(id);
-        if (why.isPresent()) {
-            return ResponseEntity.ok(why.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+  @GetMapping("/{id}")
+  public ResponseEntity<How> getHowById(@PathVariable String id) {
+    Optional<How> how = howService.getHowById(id);
+      return how.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+  }
 
-    @PostMapping
-    public com.manajero.manajeroadnonbackend.Entities.Why createWhy(@RequestBody com.manajero.manajeroadnonbackend.Entities.Why why) {
-        return whyService.createWhy(why);
-    }
+  @PostMapping
+  public How createHow(@RequestBody How how) {
+    return howService.createHow(how);
+  }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<com.manajero.manajeroadnonbackend.Entities.Why> updateWhy(@PathVariable String id, @RequestBody com.manajero.manajeroadnonbackend.Entities.Why why) {
-        com.manajero.manajeroadnonbackend.Entities.Why updatedWhy = whyService.updateWhy(id, why);
-        return ResponseEntity.ok(updatedWhy);
-    }
+  @PutMapping("/{id}")
+  public ResponseEntity<How> updateHow(@PathVariable String id, @RequestBody How how) {
+    How updatedHow = howService.updateHow(id, how);
+    return ResponseEntity.ok(updatedHow);
+  }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteWhy(@PathVariable String id) {
-        whyService.deleteWhy(id);
-        return ResponseEntity.noContent().build();
-    }
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteHow(@PathVariable String id) {
+    howService.deleteHow(id);
+    return ResponseEntity.noContent().build();
+  }
 }
