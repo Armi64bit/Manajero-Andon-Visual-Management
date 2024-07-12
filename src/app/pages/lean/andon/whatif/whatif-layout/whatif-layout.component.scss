@@ -52,7 +52,7 @@
 }
 .image-container img {
   display: block; /* Ensures the image behaves like a block element */
-  max-width: 50%; /* Ensures the image does not exceed its container */
+  max-width: 100%; /* Ensures the image does not exceed its container */
   height: auto; /* Maintains aspect ratio */
 }
 .full-screen-card {
@@ -119,3 +119,19 @@
   height: 100px;
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Add space between images */
+}
+
+.image-placeholder {
+  flex: 1;
+  text-align: center;
+}
+
+.image-full {
+  width: 100%;
+  height: auto;
+}

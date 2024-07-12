@@ -87,7 +87,8 @@ import { Step10editComponent } from './how/step10edit/step10edit.component';
     NbTabsetModule,
     ChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
 
   ]
 })

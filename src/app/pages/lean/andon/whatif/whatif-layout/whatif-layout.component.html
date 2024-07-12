@@ -2,18 +2,19 @@
   <nb-card-header class="bg-primary text-white">
     <h4 style="color: white;">Active Experimentation (What If)</h4>
     <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
-
   </nb-card-header>
   <nb-card-body>
     <h5>{{ whatif.title }}</h5>
-    <p>
-      {{ whatif.subpoint1 }}    </p>
-    <p>
-{{ whatif.content1 }}    </p>
+    <p>{{ whatif.subpoint1 }}</p>
+    <p>{{ whatif.content1 }}</p>
 
-    <div class="image-placeholder">
-      <img class="w-50 d-block mx-auto" [src]="whatif.image1" alt="Image description">
+    <div class="image-container">
+      <div class="image-placeholder">
+        <img class="image-full" [src]="whatif.image1" alt="Image description">
+      </div>
+      <div class="image-placeholder">
+        <img class="image-full" [src]="whatif.image2" alt="Image description">
+      </div>
     </div>
   </nb-card-body>
-
 </nb-card>

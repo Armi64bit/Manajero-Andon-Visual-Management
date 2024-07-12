@@ -24,6 +24,8 @@ export class EditWhyModalComponent {
     this.whyService.updateWhy(this.whyData.id, this.whyData).subscribe(updatedWhy => {
       console.log('Updated Why:', updatedWhy);
       this.ref.close(); // Close modal after saving changes
+      window.location.reload(); // Reload the page after saving changes
+
     }, error => {
       console.error('Error updating Why:', error);
       // Handle error scenario
