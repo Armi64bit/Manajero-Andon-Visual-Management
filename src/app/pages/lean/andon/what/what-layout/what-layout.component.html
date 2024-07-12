@@ -5,43 +5,91 @@
   </nb-card-header>
   <nb-card-body>
     <h5>{{ what.title }}</h5>
-    <div class="text-image-container">
-      <div class="text-container">
-        <p>  <strong>{{ what.subpoint1 }}:</strong> {{ what.content1 }}</p>
+
+    <!-- Text and Image Containers -->
+    <div class="text-image-container row">
+      <div class="col-md-6">
+        <!-- Subpoint 1 -->
+        <div class="text-container">
+          <p><strong>{{ what.subpoint1 }}:</strong> {{ what.content1 }}</p>
+        </div>
       </div>
-      <div class="image-container">
-        <img [src]="what.image1" alt="Early Defect Detection" class="responsive-image">
-      </div>
-    </div>
-    <div class="text-image-container">
-      <div class="image-container">
-        <img [src]="what.image2" alt="Early Defect Detection" class="responsive-image">
-      </div>
-      <div class="text-container">
-        <p>
-          <strong>{{ what.subpoint2 }}:</strong> {{ what.content2 }} </p>
-      </div>
-    </div>
-    <div class="text-image-container">
-      <div class="text-container">
-        <p>
-          <strong>{{ what.subpoint3 }}:</strong> {{ what.content3 }} </p>
-      </div>
-      <div class="image-container">
-        <img [src]="what.image3" alt="Early Defect Detection" class="responsive-image">
-      </div>
-    </div>
-    <div class="text-image-container">
-      <div class="image-container">
-        <img [src]="what.image4" alt="Early Defect Detection" class="responsive-image">
-      </div>
-      <div class="text-container">
-        <p>
-          <strong>{{ what.subpoint4 }}:</strong> {{ what.content4 }}</p>
+      <div class="col-md-6">
+        <!-- Image 1 -->
+        <div class="image-container">
+          <img [src]="what.image1" alt="Early Defect Detection" class="responsive-image">
+        </div>
       </div>
     </div>
 
+    <div class="text-image-container row">
+      <div class="col-md-6 order-md-2">
+        <!-- Subpoint 2 -->
+        <div class="text-container">
+          <p><strong>{{ what.subpoint2 }}:</strong> {{ what.content2 }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <!-- Image 2 -->
+        <div class="image-container">
+          <img [src]="what.image2" alt="Early Defect Detection" class="responsive-image">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-image-container row">
+      <div class="col-md-6">
+        <!-- Subpoint 3 -->
+        <div class="text-container">
+          <p><strong>{{ what.subpoint3 }}:</strong> {{ what.content3 }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <!-- Image 3 -->
+        <div class="image-container">
+          <img [src]="what.image3" alt="Early Defect Detection" class="responsive-image">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-image-container row">
+      <div class="col-md-6 order-md-2">
+        <!-- Subpoint 4 -->
+        <div class="text-container">
+          <p><strong>{{ what.subpoint4 }}:</strong> {{ what.content4 }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <!-- Image 4 -->
+        <div class="image-container">
+          <img [src]="what.image4" alt="Early Defect Detection" class="responsive-image">
+        </div>
+      </div>
+    </div>
 
   </nb-card-body>
-
 </nb-card>
+
+<style>
+  .text-image-container {
+    margin-bottom: 20px;
+  }
+
+  .text-container, .image-container {
+    padding: 10px;
+  }
+
+  .responsive-image {
+    max-width: 100%;
+    height: auto; /* Reset height to auto for responsive scaling */
+    display: block; /* Ensure images are displayed as block elements */
+    margin: 0 auto; /* Center images horizontally */
+  }
+
+  @media (max-width: 767px) {
+    .responsive-image {
+      max-width: 100%; /* Ensure images take full width on small screens */
+      height: auto; /* Ensure images maintain aspect ratio */
+    }
+  }
+</style>
