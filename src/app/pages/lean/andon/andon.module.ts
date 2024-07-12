@@ -29,6 +29,14 @@ import { Step9Component } from './how/step9/step9.component';
 import { Step10Component } from './how/step10/step10.component';
 import { Step1editComponent } from './how/step1edit/step1edit.component';
 import { Step2editComponent } from './how/step2edit/step2edit.component';
+import { Step3editComponent } from './how/step3edit/step3edit.component';
+import { Step4editComponent } from './how/step4edit/step4edit.component';
+import { Step5editComponent } from './how/step5edit/step5edit.component';
+import { Step6editComponent } from './how/step6edit/step6edit.component';
+import { Step7editComponent } from './how/step7edit/step7edit.component';
+import { Step8editComponent } from './how/step8edit/step8edit.component';
+import { Step9editComponent } from './how/step9edit/step9edit.component';
+import { Step10editComponent } from './how/step10edit/step10edit.component';
 
 
 @NgModule({
@@ -57,6 +65,14 @@ import { Step2editComponent } from './how/step2edit/step2edit.component';
     Step10Component,
     Step1editComponent,
     Step2editComponent,
+    Step3editComponent,
+    Step4editComponent,
+    Step5editComponent,
+    Step6editComponent,
+    Step7editComponent,
+    Step8editComponent,
+    Step9editComponent,
+    Step10editComponent,
 
 
   ],

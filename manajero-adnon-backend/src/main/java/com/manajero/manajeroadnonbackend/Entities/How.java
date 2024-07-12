@@ -58,7 +58,7 @@ public class How {
   String step7img1;
   String step7img2;
 
-    String step8;
+  String step8;
   String step8F;
   String step8M;
   String step8S;

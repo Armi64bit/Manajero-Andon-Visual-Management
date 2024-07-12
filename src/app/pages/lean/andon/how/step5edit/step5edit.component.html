@@ -1,0 +1,70 @@
+<nb-card>
+  <nb-card-header>Edit How</nb-card-header>
+  <nb-card-body>
+    <div class="scrollable-body">
+      <form class="edit-form">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 5 Content -->
+            <div class="form-group">
+              <label>Step 5 Content</label>
+              <textarea class="form-control" [(ngModel)]="howData.step5" name="step5" rows="3" placeholder="Step 5 Content"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 5 Subpoint L -->
+            <div class="form-group">
+              <label>Step 5 Subpoint L</label>
+              <textarea class="form-control" [(ngModel)]="howData.step5L" name="step5L" rows="3" placeholder="Step 5 Subpoint L"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 5 Image 1 URL -->
+            <div class="form-group">
+              <label>Step 5 Image 1 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="howData.step5img1" name="step5img1" placeholder="Step 5 Image 1 URL">
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 5 Subpoint B -->
+            <div class="form-group">
+              <label>Step 5 Subpoint B</label>
+              <textarea class="form-control" [(ngModel)]="howData.step5B" name="step5B" rows="3" placeholder="Step 5 Subpoint B"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 5 Image 2 URL -->
+            <div class="form-group">
+              <label>Step 5 Image 2 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="howData.step5img2" name="step5img2" placeholder="Step 5 Image 2 URL">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <!-- Buttons -->
+    <div class="buttons mt-3 text-right">
+      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+      <span class="ml-2"></span>
+      <button nbButton outline status="danger" (click)="close()">Cancel</button>
+    </div>
+  </nb-card-footer>
+</nb-card>
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>

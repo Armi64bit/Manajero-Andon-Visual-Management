@@ -1,0 +1,94 @@
+<nb-card>
+  <nb-card-header>Edit How</nb-card-header>
+  <nb-card-body>
+    <div class="scrollable-body">
+      <form class="edit-form">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Content -->
+            <div class="form-group">
+              <label>Step 8 Content</label>
+              <textarea class="form-control" [(ngModel)]="howData.step8" name="step8" rows="3" placeholder="Step 8 Content"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Subpoint F -->
+            <div class="form-group">
+              <label>Step 8 Subpoint F</label>
+              <textarea class="form-control" [(ngModel)]="howData.step8F" name="step8F" rows="3" placeholder="Step 8 Subpoint F"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Subpoint M -->
+            <div class="form-group">
+              <label>Step 8 Subpoint M</label>
+              <textarea class="form-control" [(ngModel)]="howData.step8M" name="step8M" rows="3" placeholder="Step 8 Subpoint M"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Subpoint S -->
+            <div class="form-group">
+              <label>Step 8 Subpoint S</label>
+              <textarea class="form-control" [(ngModel)]="howData.step8S" name="step8S" rows="3" placeholder="Step 8 Subpoint S"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Subpoint T -->
+            <div class="form-group">
+              <label>Step 8 Subpoint T</label>
+              <textarea class="form-control" [(ngModel)]="howData.step8T" name="step8T" rows="3" placeholder="Step 8 Subpoint T"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Image 1 URL -->
+            <div class="form-group">
+              <label>Step 8 Image 1 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="howData.step8img1" name="step8img1" placeholder="Step 8 Image 1 URL">
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Image 2 URL -->
+            <div class="form-group">
+              <label>Step 8 Image 2 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="howData.step8img2" name="step8img2" placeholder="Step 8 Image 2 URL">
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <!-- Step 8 Image 3 URL -->
+            <div class="form-group">
+              <label>Step 8 Image 3 URL</label>
+              <input type="text" class="form-control" [(ngModel)]="howData.step8img3" name="step8img3" placeholder="Step 8 Image 3 URL">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <!-- Buttons -->
+    <div class="buttons mt-3 text-right">
+      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+      <span class="ml-2"></span>
+      <button nbButton outline status="danger" (click)="close()">Cancel</button>
+    </div>
+  </nb-card-footer>
+</nb-card>
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>
