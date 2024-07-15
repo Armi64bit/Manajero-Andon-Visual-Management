@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { How, HowService } from '../../api/how.service';
 import { NbDialogService } from '@nebular/theme';
 import { Step1editComponent } from '../step1edit/step1edit.component';
@@ -8,7 +8,7 @@ import { Step1editComponent } from '../step1edit/step1edit.component';
   templateUrl: './step1.component.html',
   styleUrls: ['./step1.component.scss']
 })
-export class Step1Component {
+export class Step1Component implements OnInit {
   how: How;
 
   constructor(

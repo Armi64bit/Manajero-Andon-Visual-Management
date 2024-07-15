@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { NbIconConfig } from '@nebular/theme';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Why, WhyService } from '../api/why.service';
@@ -32,7 +32,7 @@ import { How, HowService } from '../api/how.service';
     }
   `],
 })
-export class WorkshopComponent implements AfterViewInit {
+export class WorkshopComponent implements AfterViewInit,OnInit {
   bellIconConfig: NbIconConfig = { icon: 'bell-outline', pack: 'eva' };
   isVisible = 'hidden';
 
