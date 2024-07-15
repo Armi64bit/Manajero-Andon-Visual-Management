@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Whatif, WhatifService } from '../../api/whatif.service';
 import { NbDialogService } from '@nebular/theme';
 import { EditWhatifModalComponent } from '../edit-whatif-modal/edit-whatif-modal.component';
@@ -8,7 +8,7 @@ import { EditWhatifModalComponent } from '../edit-whatif-modal/edit-whatif-modal
   templateUrl: './whatif-layout.component.html',
   styleUrls: ['./whatif-layout.component.scss']
 })
-export class WhatifLayoutComponent {
+export class WhatifLayoutComponent implements OnInit  {
   whatif: Whatif;
 
   constructor(
