@@ -5,8 +5,10 @@
   </nb-card-header>
   <nb-card-body>
     <h5>{{ whatif.title }}</h5>
-    <p>{{ whatif.subpoint1 }}</p>
-    <p>{{ whatif.content1 }}</p>
+    <!-- <p>{{ whatif.subpoint1 }}</p> -->
+    <div [innerHTML]="whatif.subpoint1"></div>
+
+    <div [innerHTML]="whatif.content1"></div>
 
     <div class="image-container">
       <div class="image-placeholder">

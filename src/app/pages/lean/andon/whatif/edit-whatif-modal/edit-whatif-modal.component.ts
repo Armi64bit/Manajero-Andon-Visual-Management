@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Whatif, WhatifService } from '../../api/whatif.service';
 import { NbDialogRef } from '@nebular/theme';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ngx-edit-whatif-modal',
@@ -9,10 +11,13 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class EditWhatifModalComponent {
   @Input() whatifData: Whatif;
+  public Editor = ClassicEditor;
+  public previewImage: string | ArrayBuffer | null = null;
 
   constructor(
     protected ref: NbDialogRef<EditWhatifModalComponent>,
     private whatifService: WhatifService // Inject WhyService
+    ,private http: HttpClient
   ) {}
 
   close() {
@@ -28,5 +33,25 @@ export class EditWhatifModalComponent {
       console.error('Error updating Whatif:', error);
       // Handle error scenario
     });
+  }
+  onFileChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      const file = inputElement.files[0];
+      const formData = new FormData();
+      formData.append('upload', file);
+
+      this.http.post<any>('http://localhost:8888/api/upload', formData).subscribe(
+        (response) => {
+          console.log('File uploaded successfully:', response);
+          this.whatifData.image1 = response.url; // Update image URL in data model
+          this.previewImage = URL.createObjectURL(file); // Preview uploaded image
+        },
+        (error) => {
+          console.error('Error uploading file:', error);
+          // Handle error as needed
+        }
+      );
+    }
   }
 }

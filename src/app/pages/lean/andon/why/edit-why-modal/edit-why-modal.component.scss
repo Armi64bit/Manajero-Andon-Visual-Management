@@ -3,3 +3,17 @@
   min-width: 1200px; /* Adjust max-width as needed */
   margin: 0 auto; /* Center the card horizontally */
 }
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Adds a background overlay */
+  z-index: 1050; /* Ensure it's above other content */
+}
+
+

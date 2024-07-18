@@ -37,6 +37,8 @@ import { Step7editComponent } from './how/step7edit/step7edit.component';
 import { Step8editComponent } from './how/step8edit/step8edit.component';
 import { Step9editComponent } from './how/step9edit/step9edit.component';
 import { Step10editComponent } from './how/step10edit/step10edit.component';
+import { CkeditorComponent } from './ckeditor/ckeditor.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -73,6 +75,7 @@ import { Step10editComponent } from './how/step10edit/step10edit.component';
     Step8editComponent,
     Step9editComponent,
     Step10editComponent,
+    CkeditorComponent,
 
 
   ],
@@ -88,7 +91,7 @@ import { Step10editComponent } from './how/step10edit/step10edit.component';
     ChartsModule,
     HttpClientModule,
     FormsModule,
-
+    CKEditorModule
 
   ]
 })
