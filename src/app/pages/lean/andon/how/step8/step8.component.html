@@ -5,21 +5,26 @@
   </nb-card-header>
   <nb-card-body>
     <div class="larger-text">
-      <p>
-        {{how.step8}}      </p>
+
+                   <div [innerHTML]="how.step8"></div>
+
       <ul>
         <li>
           <nb-icon icon="message-circle-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-          <strong>Feedback:</strong>  {{how.step8F}}</li>
+          <strong>Feedback:</strong>    <div [innerHTML]="how.step8F"></div>
+        </li>
         <li>
           <nb-icon icon="bar-chart-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-          <strong>Metrics:</strong> {{how.step8M}}</li>
+          <strong>Metrics:</strong>  <div [innerHTML]="how.step8M"></div>
+        </li>
         <li>
           <nb-icon icon="settings-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-          <strong>System Updates:</strong> {{how.step8S}}</li>
+          <strong>System Updates:</strong>  <div [innerHTML]="how.step8S"></div>
+        </li>
         <li>
           <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
-          <strong>Training:</strong>{{how.step8T}}</li>
+          <strong>Training:</strong> <div [innerHTML]="how.step8T"></div>
+        </li>
       </ul>
       <div class="container mt-5">
         <div class="row">

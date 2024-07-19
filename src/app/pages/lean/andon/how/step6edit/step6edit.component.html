@@ -1,61 +1,73 @@
-<nb-card>
-  <nb-card-header>Edit How</nb-card-header>
-  <nb-card-body>
-    <div class="scrollable-body">
-      <form class="edit-form">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
+<div class="modal-container">
+  <nb-card style="height: 83%; width: 63%;">
+    <nb-card-header>Edit How</nb-card-header>
+    <nb-card-body>
+      <div class="scrollable-body">
+        <form class="edit-form">
+          <div class="row">
             <!-- Step 6 Content -->
-            <div class="form-group">
-              <label>Step 6 Content</label>
-              <textarea class="form-control" [(ngModel)]="howData.step6" name="step6" rows="3" placeholder="Step 6 Content"></textarea>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 6 Content</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step6" name="step6"></ckeditor>
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
             <!-- Step 6 Subpoint O -->
-            <div class="form-group">
-              <label>Step 6 Subpoint O</label>
-              <textarea class="form-control" [(ngModel)]="howData.step6O" name="step6O" rows="3" placeholder="Step 6 Subpoint O"></textarea>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 6 Subpoint O</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step6O" name="step6O"></ckeditor>
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
             <!-- Step 6 Image 1 URL -->
-            <div class="form-group">
-              <label>Step 6 Image 1 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step6img1" name="step6img1" placeholder="Step 6 Image 1 URL">
-            </div>
-          </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 6 Image 1</label>
+                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
 
-          <div class="col-sm-12 col-md-4">
+                <input nbButton  style="display:none" status="primary" type="file" #fileInput1  (change)="onFileChange($event, 'step6img1')" accept="image/*" />
+                <div *ngIf="previewImages.step6img1" class="image-preview">
+                  <img [src]="previewImages.step6img1" class="responsive-img" />
+                </div>
+              </div>
+            </div>
+
             <!-- Step 6 Subpoint R -->
-            <div class="form-group">
-              <label>Step 6 Subpoint R</label>
-              <textarea class="form-control" [(ngModel)]="howData.step6R" name="step6R" rows="3" placeholder="Step 6 Subpoint R"></textarea>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 6 Subpoint R</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step6R" name="step6R"></ckeditor>
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
             <!-- Step 6 Image 2 URL -->
-            <div class="form-group">
-              <label>Step 6 Image 2 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step6img2" name="step6img2" placeholder="Step 6 Image 2 URL">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 6 Image 2</label>
+                <button nbButton  status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+
+                <input  nbButton style="display:none" status="primary" type="file" #fileInput2 (change)="onFileChange($event, 'step6img2')" accept="image/*" />
+                <div *ngIf="previewImages.step6img2" class="image-preview">
+                  <img [src]="previewImages.step6img2" class="responsive-img" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </nb-card-body>
-  <nb-card-footer>
-    <!-- Buttons -->
-    <div class="buttons mt-3 text-right">
-      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
-      <span class="ml-2"></span>
-      <button nbButton outline status="danger" (click)="close()">Cancel</button>
-    </div>
-  </nb-card-footer>
-</nb-card>
+        </form>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="buttons mt-3 text-right">
+        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <span class="ml-2"></span>
+        <button nbButton outline status="danger" (click)="close()">Cancel</button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
+
 
 <style>
   .scrollable-body {

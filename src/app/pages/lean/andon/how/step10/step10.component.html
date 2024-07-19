@@ -5,21 +5,22 @@
   </nb-card-header>
   <nb-card-body>
     <div class="larger-text">
-      <p>
-        {{how.step10}}      </p>
+
+              <div [innerHTML]="how.step10"></div>
+
       <ul>
         <li>
           <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-          <strong>Root Cause Analysis:</strong> {{how.step10R}}</li>
+          <strong>Root Cause Analysis:</strong>      <div [innerHTML]="how.step10R"></div></li>
         <li>
           <nb-icon icon="settings-2-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-          <strong>Kaizen:</strong> {{how.step10K}} </li>
+          <strong>Kaizen:</strong>      <div [innerHTML]="how.step10K"></div> </li>
         <li>
           <nb-icon icon="trending-up-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-          <strong>Benchmarking:</strong> {{how.step10B}}</li>
+          <strong>Benchmarking:</strong>     <div [innerHTML]="how.step10B"></div></li>
         <li>
           <nb-icon icon="file-text-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
-          <strong>Documentation:</strong> {{how.step10D}}</li>
+          <strong>Documentation:</strong>    <div [innerHTML]="how.step10D"></div></li>
       </ul>
       <div class="container mt-5">
         <div class="row">

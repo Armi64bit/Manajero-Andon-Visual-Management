@@ -1,77 +1,94 @@
-<nb-card>
-  <nb-card-header>Edit How</nb-card-header>
-  <nb-card-body>
-    <div class="scrollable-body">
-      <form class="edit-form">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Content -->
-            <div class="form-group">
-              <label>Step 3 Content</label>
-              <textarea class="form-control" [(ngModel)]="howData.step3" name="step3" rows="3" placeholder="Step 3 Content"></textarea>
+<div class="modal-container">
+  <nb-card style="height: 83%; width: 63%;">
+    <nb-card-header>Edit How</nb-card-header>
+    <nb-card-body>
+      <div class="scrollable-body">
+        <form class="edit-form">
+          <div class="row">
+            <div class="col-sm-12 col-md-4">
+              <!-- Step 3 Content -->
+              <div class="form-group">
+                <label>Step 3 Content</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step3" name="step3"></ckeditor>
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Subpoint S -->
-            <div class="form-group">
-              <label>Step 3 Subpoint S</label>
-              <textarea class="form-control" [(ngModel)]="howData.step3S" name="step3S" rows="3" placeholder="Step 3 Subpoint S"></textarea>
-            </div>
-          </div>
+            <div class="col-sm-12 col-md-4">
+              <!-- Step 3 Subpoint S -->
+              <div class="form-group">
+                <label>Step 3 Subpoint S</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step3S" name="step3S"></ckeditor>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Image 1 URL -->
-            <div class="form-group">
-              <label>Step 3 Image 1 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step3img1" name="step3img1" placeholder="Step 3 Image 1 URL">
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Subpoint L -->
-            <div class="form-group">
-              <label>Step 3 Subpoint L</label>
-              <textarea class="form-control" [(ngModel)]="howData.step3L" name="step3L" rows="3" placeholder="Step 3 Subpoint L"></textarea>
+            <div class="col-sm-12 col-md-4">
+              <!-- Image 1 -->
+              <div class="form-group">
+                <label>Image 1</label>
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput3.click()">Upload</button>
+                  <input #fileInput3 type="file" style="display: none;" (change)="onFileChange($event, 'step3img1')">
+                </div>
+                <img class="img-fluid responsive-img" [src]="howData.step3img1" alt="Image 1 description">
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Image 2 URL -->
-            <div class="form-group">
-              <label>Step 3 Image 2 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step3img2" name="step3img2" placeholder="Step 3 Image 2 URL">
-            </div>
-          </div>
+            <div class="col-sm-12 col-md-4">
+              <!-- Step 3 Subpoint L -->
+              <div class="form-group">
+                <label>Step 3 Subpoint L</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step3L" name="step3L"></ckeditor>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 ID -->
-            <div class="form-group">
-              <label>Step 3 ID</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step3ID" name="step3ID" placeholder="Step 3 ID">
+              </div>
             </div>
-          </div>
 
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 3 Image 3 URL -->
-            <div class="form-group">
-              <label>Step 3 Image 3 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step3img3" name="step3img3" placeholder="Step 3 Image 3 URL">
+            <div class="col-sm-12 col-md-4">
+              <!-- Image 2 -->
+              <div class="form-group">
+                <label>Image 2</label>
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput4.click()">Upload</button>
+                  <input #fileInput4 type="file" style="display: none;" (change)="onFileChange($event, 'step3img2')">
+                </div>
+                <img class="img-fluid responsive-img" [src]="howData.step3img2" alt="Image 2 description">
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+              <!-- Step 3 ID -->
+              <div class="form-group">
+                <label>Step 3 ID</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step3ID" name="step3ID"></ckeditor>
+
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+              <!-- Image 3 -->
+              <div class="form-group">
+                <label>Image 3</label>
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput5.click()">Upload</button>
+                  <input #fileInput5 type="file" style="display: none;" (change)="onFileChange($event, 'step3img3')">
+                </div>
+                <img class="img-fluid responsive-img" [src]="howData.step3img3" alt="Image 3 description">
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </nb-card-body>
-  <nb-card-footer>
-    <!-- Buttons -->
-    <div class="buttons mt-3 text-right">
-      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
-      <span class="ml-2"></span>
-      <button nbButton outline status="danger" (click)="close()">Cancel</button>
-    </div>
-  </nb-card-footer>
-</nb-card>
+        </form>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <!-- Buttons -->
+      <div class="buttons mt-3 text-right">
+        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <span class="ml-2"></span>
+        <button nbButton outline status="danger" (click)="close()">Cancel</button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
 
 <style>
   .scrollable-body {

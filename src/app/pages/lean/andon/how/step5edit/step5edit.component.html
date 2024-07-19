@@ -1,4 +1,5 @@
-<nb-card>
+<div class="modal-container">
+  <nb-card style="height: 83%; width: 63%;">
   <nb-card-header>Edit How</nb-card-header>
   <nb-card-body>
     <div class="scrollable-body">
@@ -8,7 +9,7 @@
             <!-- Step 5 Content -->
             <div class="form-group">
               <label>Step 5 Content</label>
-              <textarea class="form-control" [(ngModel)]="howData.step5" name="step5" rows="3" placeholder="Step 5 Content"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5" name="step5"></ckeditor>
             </div>
           </div>
 
@@ -16,15 +17,19 @@
             <!-- Step 5 Subpoint L -->
             <div class="form-group">
               <label>Step 5 Subpoint L</label>
-              <textarea class="form-control" [(ngModel)]="howData.step5L" name="step5L" rows="3" placeholder="Step 5 Subpoint L"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5L" name="step5L"></ckeditor>
             </div>
           </div>
 
           <div class="col-sm-12 col-md-4">
-            <!-- Step 5 Image 1 URL -->
+            <!-- Step 5 Image 1 -->
             <div class="form-group">
-              <label>Step 5 Image 1 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step5img1" name="step5img1" placeholder="Step 5 Image 1 URL">
+              <label>Step 5 Image 1</label>
+              <div class="input-group">
+                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
+                <input #fileInput1 type="file" style="display: none;" (change)="onFileChange($event, 'step5img1')">
+              </div>
+              <img class="img-fluid responsive-img" [src]="howData.step5img1" alt="Step 5 Image 1 description">
             </div>
           </div>
 
@@ -32,15 +37,19 @@
             <!-- Step 5 Subpoint B -->
             <div class="form-group">
               <label>Step 5 Subpoint B</label>
-              <textarea class="form-control" [(ngModel)]="howData.step5B" name="step5B" rows="3" placeholder="Step 5 Subpoint B"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5B" name="step5B"></ckeditor>
             </div>
           </div>
 
           <div class="col-sm-12 col-md-4">
-            <!-- Step 5 Image 2 URL -->
+            <!-- Step 5 Image 2 -->
             <div class="form-group">
-              <label>Step 5 Image 2 URL</label>
-              <input type="text" class="form-control" [(ngModel)]="howData.step5img2" name="step5img2" placeholder="Step 5 Image 2 URL">
+              <label>Step 5 Image 2</label>
+              <div class="input-group">
+                <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+                <input #fileInput2 type="file" style="display: none;" (change)="onFileChange($event, 'step5img2')">
+              </div>
+              <img class="img-fluid responsive-img" [src]="howData.step5img2" alt="Step 5 Image 2 description">
             </div>
           </div>
         </div>
@@ -55,7 +64,8 @@
       <button nbButton outline status="danger" (click)="close()">Cancel</button>
     </div>
   </nb-card-footer>
-</nb-card>
+</nb-card></div>
+
 
 <style>
   .scrollable-body {
