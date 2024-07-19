@@ -84,6 +84,7 @@
 
           <div class="step-content" [class.active]="currentStep === 4">
             <h2>Dashboard Preview</h2>
+            <ngx-dashboard></ngx-dashboard>
             <div class="preview-container" id="previewContainer">
                 <div *ngFor="let station of stations" class="preview-station">
                     <h3><i class="fas {{ station.icon }}"></i> {{ station.name }}</h3>
