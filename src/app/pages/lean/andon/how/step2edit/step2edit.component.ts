@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { How, HowService } from '../../api/how.service';
 import { NbDialogRef } from '@nebular/theme';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'ngx-step2edit',
@@ -9,6 +10,7 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class Step2editComponent {
   @Input() howData: How;
+  public Editor = ClassicEditor;
 
   constructor(
     protected ref: NbDialogRef<Step2editComponent>,

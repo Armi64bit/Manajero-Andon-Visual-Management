@@ -1,4 +1,4 @@
-<nb-card>
+<div class="modal-container"><nb-card style="height: 83%;width: 63%;" >
   <nb-card-header>Edit How</nb-card-header>
   <nb-card-body>
     <div class="scrollable-body">
@@ -8,7 +8,8 @@
             <!-- Step 2 Content -->
             <div class="form-group">
               <label>Step 2 Content</label>
-              <textarea class="form-control" [(ngModel)]="howData.step2" name="step2" rows="3" placeholder="Step 2 Content"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step2" name="step2" style="width: 200px;" ></ckeditor>
+
             </div>
           </div>
 
@@ -16,7 +17,8 @@
             <!-- Step 2 Subpoint L -->
             <div class="form-group">
               <label>Step 2 Subpoint L</label>
-              <textarea type="text" class="form-control" [(ngModel)]="howData.step2L" name="step2L" placeholder="Step 2 Subpoint L"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step2L" name="step2L" style="width: 200px;" ></ckeditor>
+
             </div>
           </div>
 
@@ -24,7 +26,8 @@
             <!-- Step 2 Subpoint B -->
             <div class="form-group">
               <label>Step 2 Subpoint B</label>
-              <textarea type="text" class="form-control" [(ngModel)]="howData.step2B" name="step2B" placeholder="Step 2 Subpoint B"></textarea>
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step2B" name="step2B" style="width: 200px;" ></ckeditor>
+
             </div>
           </div>
         </div>
@@ -39,7 +42,7 @@
       <button nbButton outline status="danger" (click)="close()">Cancel</button>
     </div>
   </nb-card-footer>
-</nb-card>
+</nb-card></div>
 
 <style>
   .scrollable-body {

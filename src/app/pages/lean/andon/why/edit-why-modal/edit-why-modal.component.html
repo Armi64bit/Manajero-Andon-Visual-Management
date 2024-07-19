@@ -25,7 +25,7 @@
                   <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
                   <input #fileInput1 type="file" style="display:none" (change)="onFileChange($event, 'image1')">
                 </div>
-                <img class="image-full" [src]="whyData.image1" alt="Image description" style="max-width: 300px; height: auto;">
+                <img class="img-fluid" [src]="whyData.image1" alt="Image description" style="max-width: 100%; height: auto;">
               </div>
             </div>
 
@@ -45,7 +45,7 @@
                   <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
                   <input #fileInput2 type="file" style="display:none" (change)="onFileChange($event, 'image2')">
                 </div>
-                <img class="image-full" [src]="whyData.image2" alt="Image description" style="max-width: 300px; height: auto;">
+                <img class="img-fluid" [src]="whyData.image2" alt="Image description" style="max-width: 100%; height: auto;">
               </div>
               <div class="form-group">
                 <label>Subpoint 3</label>
@@ -65,7 +65,7 @@
                   <button nbButton status="primary" type="button" (click)="fileInput3.click()">Upload</button>
                   <input #fileInput3 type="file" style="display:none" (change)="onFileChange($event, 'image3')">
                 </div>
-                <img class="image-full" [src]="whyData.image3" alt="Image description" style="max-width: 300px; height: auto;">
+                <img class="img-fluid" [src]="whyData.image3" alt="Image description" style="max-width: 100%; height: auto;">
               </div>
               <div class="form-group">
                 <label>Subpoint 4</label>
@@ -81,7 +81,7 @@
                   <button nbButton status="primary" type="button" (click)="fileInput4.click()">Upload</button>
                   <input #fileInput4 type="file" style="display:none" (change)="onFileChange($event, 'image4')">
                 </div>
-                <img class="image-full" [src]="whyData.image4" alt="Image description" style="max-width: 300px; height: auto;">
+                <img class="img-fluid" [src]="whyData.image4" alt="Image description" style="max-width: 100%; height: auto;">
               </div>
             </div>
           </div>
@@ -97,8 +97,8 @@
       </div>
     </nb-card-footer>
   </nb-card>
-
 </div>
+
 <style>
    .scrollable-body {
     max-height: 75vh; /* Adjust max height as needed */
