@@ -31,6 +31,7 @@ public class HowService {
     return howRepository.save(how);
   }
 
+
   public void deleteHow(String id) {
     howRepository.deleteById(id);
   }
