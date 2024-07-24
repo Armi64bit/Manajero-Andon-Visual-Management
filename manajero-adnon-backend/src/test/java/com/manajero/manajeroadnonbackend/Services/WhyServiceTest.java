@@ -83,9 +83,11 @@ class WhyServiceTest {
 
   @Test
   void updateWhy() {
+    // Mock the repository's findById and save methods
     when(whyRepository.findById(anyString())).thenReturn(Optional.of(why));
     when(whyRepository.save(any(Why.class))).thenReturn(why);
 
+    // Create an updated Why object with new values
     Why updatedWhy = new Why();
     updatedWhy.setId("1");
     updatedWhy.setTitle("Updated Title");
@@ -102,8 +104,10 @@ class WhyServiceTest {
     updatedWhy.setContent4("Updated Content4");
     updatedWhy.setImage4("Updated Image4");
 
+    // Call the service method to update the Why object
     Why result = whyService.updateWhy("1", updatedWhy);
 
+    // Verify the updates are reflected in the returned object
     assertNotNull(result);
     assertEquals("1", result.getId());
     assertEquals("Updated Title", result.getTitle());
@@ -120,6 +124,7 @@ class WhyServiceTest {
     assertEquals("Updated Content4", result.getContent4());
     assertEquals("Updated Image4", result.getImage4());
 
+    // Verify the save method was called
     verify(whyRepository, times(1)).save(any(Why.class));
   }
 
