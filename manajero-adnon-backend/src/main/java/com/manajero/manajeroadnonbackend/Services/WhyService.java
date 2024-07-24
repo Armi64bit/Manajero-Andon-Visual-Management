@@ -25,28 +25,11 @@ public class WhyService {
         return whyRepository.save(why);
     }
 
-
-  public com.manajero.manajeroadnonbackend.Entities.Why updateWhy(String id, com.manajero.manajeroadnonbackend.Entities.Why updatedWhy) {
-    Optional<com.manajero.manajeroadnonbackend.Entities.Why> existingWhyOptional = whyRepository.findById(id);
-    if (existingWhyOptional.isPresent()) {
-      com.manajero.manajeroadnonbackend.Entities.Why existingWhy = existingWhyOptional.get();
-      existingWhy.setTitle(updatedWhy.getTitle());
-      existingWhy.setSubpoint1(updatedWhy.getSubpoint1());
-      existingWhy.setContent1(updatedWhy.getContent1());
-      existingWhy.setImage1(updatedWhy.getImage1());
-      existingWhy.setSubpoint2(updatedWhy.getSubpoint2());
-      existingWhy.setContent2(updatedWhy.getContent2());
-      existingWhy.setImage2(updatedWhy.getImage2());
-      existingWhy.setSubpoint3(updatedWhy.getSubpoint3());
-      existingWhy.setContent3(updatedWhy.getContent3());
-      existingWhy.setImage3(updatedWhy.getImage3());
-      existingWhy.setSubpoint4(updatedWhy.getSubpoint4());
-      existingWhy.setContent4(updatedWhy.getContent4());
-      existingWhy.setImage4(updatedWhy.getImage4());
-      return whyRepository.save(existingWhy);
+    public com.manajero.manajeroadnonbackend.Entities.Why updateWhy(String id, com.manajero.manajeroadnonbackend.Entities.Why why) {
+        why.setId(id);
+        return whyRepository.save(why);
     }
-    return null; // or throw an exception
-  }
+
     public void deleteWhy(String id) {
         whyRepository.deleteById(id);
     }

@@ -13,7 +13,6 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Whatif {
@@ -33,7 +32,6 @@ public class Whatif {
     String image1;
 
     String image2;
-
 
 
 }

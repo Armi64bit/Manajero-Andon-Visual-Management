@@ -8,16 +8,16 @@
             <!-- Column 1 -->
             <div class="form-group">
               <label>Title</label>
-              <input required type="text" class="form-control" [(ngModel)]="whatData.title" name="title" placeholder="Title">
+              <input type="text" class="form-control" [(ngModel)]="whatData.title" name="title" placeholder="Title">
             </div>
             <div class="form-group">
               <label>Subpoint 1</label>
-              <input required type="text" class="form-control" [(ngModel)]="whatData.subpoint1" name="subpoint1" placeholder="Subpoint 1">
+              <input type="text" class="form-control" [(ngModel)]="whatData.subpoint1" name="subpoint1" placeholder="Subpoint 1">
 
             </div>
             <div class="form-group">
               <label>Content 1</label>
-              <ckeditor  required [editor]="Editor" [(ngModel)]="whatData.content1" name="subpoint1" ></ckeditor>
+              <ckeditor [editor]="Editor" [(ngModel)]="whatData.content1" name="subpoint1" ></ckeditor>
 
             </div>
             <div class="form-group">

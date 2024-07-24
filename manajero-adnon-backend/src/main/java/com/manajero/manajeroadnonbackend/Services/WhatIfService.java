@@ -27,23 +27,12 @@ public class WhatIfService {
         return whatIfRepository.save(whatIf);
     }
 
-  public Whatif updateWhatIf(String id, Whatif whatIf) {
-    Optional<Whatif> existingWhatIf = whatIfRepository.findById(id);
-    if (existingWhatIf.isPresent()) {
-      Whatif updatedWhatIf = existingWhatIf.get();
-      updatedWhatIf.setTitle(whatIf.getTitle());
-      updatedWhatIf.setSubpoint1(whatIf.getSubpoint1());
-      updatedWhatIf.setContent1(whatIf.getContent1());
-      updatedWhatIf.setImage1(whatIf.getImage1());
-      updatedWhatIf.setImage2(whatIf.getImage2());
-      return whatIfRepository.save(updatedWhatIf);
-    } else {
-      throw new RuntimeException("Whatif not found with id " + id);
+    public Whatif updateWhatIf(String id, Whatif whatIf) {
+        whatIf.setId(id);
+        return whatIfRepository.save(whatIf);
     }
-  }
 
-
-  public void deleteWhatIf(String id) {
+    public void deleteWhatIf(String id) {
         whatIfRepository.deleteById(id);
     }
 }
