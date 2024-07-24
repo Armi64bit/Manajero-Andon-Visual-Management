@@ -28,12 +28,10 @@ class HowServiceTest {
   @BeforeEach
   void setUp() {
     MockitoAnnotations.openMocks(this);
-    // Initialize test data
     how = new How();
     how.setId("1");
     how.setStep1("Step 1");
     how.setStep1img("step1img.png");
-    // Add other fields as needed
   }
 
   @Test
@@ -67,31 +65,22 @@ class HowServiceTest {
 
   @Test
   void updateHow() {
-    // Create an initial How object with known values
     How existingHow = new How();
     existingHow.setId("1");
     existingHow.setStep1("Step 1");
-    // Set other initial values as needed
 
-    // Create an updated How object with new values
     How updatedHow = new How();
     updatedHow.setId("1");
     updatedHow.setStep1("Updated Step 1");
-    // Set other updated values as needed
 
-    // Mock repository to return existingHow when findById is called
     when(howRepository.findById(anyString())).thenReturn(Optional.of(existingHow));
-    // Mock repository to return updatedHow when save is called
     when(howRepository.save(any(How.class))).thenReturn(updatedHow);
 
-    // Call the method under test
     How result = howService.updateHow("1", updatedHow);
 
-    // Verify that the result is as expected
     assertNotNull(result);
     assertEquals("1", result.getId());
     assertEquals("Updated Step 1", result.getStep1());
-    // Add additional assertions for other fields
   }
 
   @Test
