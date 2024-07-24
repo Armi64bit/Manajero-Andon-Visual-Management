@@ -51,11 +51,15 @@
               "node_modules/chart.js/dist/Chart.min.js"
             ],
             "allowedCommonJsDependencies": [
+              "lodash",
               "angular2-chartjs",
               "echarts",
-              "lodash",
+
               "zrender/lib/svg/svg",
-              "zrender/lib/vml/vml"
+              "zrender/lib/vml/vml",
+              "@nebular/eva-icons",
+              "@ckeditor/ckeditor5-build-classic",
+              "chart.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

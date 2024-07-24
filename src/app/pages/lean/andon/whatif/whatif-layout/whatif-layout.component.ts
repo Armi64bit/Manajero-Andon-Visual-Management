@@ -20,11 +20,20 @@ export class WhatifLayoutComponent implements OnInit  {
     this.loadWhyData(); // Load initial data
   }
 
-  loadWhyData() {
-    this.whatifService.getWhatifById("668fbed954d4c57710653c11").subscribe(data => {
-      this.whatif = data;
+  loadWhyData(): void {
+    this.whatifService.getAllWhatifs().subscribe(data => {
+      if (data.length > 0) {
+        this.whatif = data[0]; // Load the first item from the list
+      } else {
+        // Handle the case where no items are returned
+        console.log('No data found');
+      }
+    }, error => {
+      // Handle any errors that occur during the HTTP request
+      console.error('Error fetching data', error);
     });
   }
+
 
   openEditModal() {
     this.dialogService.open(EditWhatifModalComponent, {

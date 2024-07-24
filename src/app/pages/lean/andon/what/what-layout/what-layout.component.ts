@@ -17,12 +17,20 @@ export class WhatLayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadWhyData(); // Load initial data
+    this.loadWhatData(); // Load initial data
   }
 
-  loadWhyData() {
-    this.whatService.getWhatById("668fbc1a54d4c57710653c10").subscribe(data => {
-      this.what = data;
+  loadWhatData(): void {
+    this.whatService.getAllWhats().subscribe(data => {
+      if (data.length > 0) {
+        this.what = data[0]; // Load the first item from the list
+      } else {
+        // Handle the case where no items are returned
+        console.log('No data found');
+      }
+    }, error => {
+      // Handle any errors that occur during the HTTP request
+      console.error('Error fetching data', error);
     });
   }
 
@@ -34,7 +42,7 @@ export class WhatLayoutComponent implements OnInit {
     }).onClose.subscribe(updatedWhat => {
       if (updatedWhat) {
         this.what = updatedWhat; // Update whys if changes were saved
-        this.loadWhyData(); // Reload data to reflect changes
+        this.loadWhatData(); // Reload data to reflect changes
 
       }
     });

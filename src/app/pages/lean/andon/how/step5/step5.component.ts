@@ -20,9 +20,17 @@ export class Step5Component  implements OnInit{
     this.loadWhyData(); // Load initial data
   }
 
-  loadWhyData() {
-    this.howService.getById("1").subscribe(data => {
-      this.how = data;
+  loadWhyData(): void {
+    this.howService.getAll().subscribe(data => {
+      if (data.length > 0) {
+        this.how = data[0]; // Load the first item from the list
+      } else {
+        // Handle the case where no items are returned
+        console.log('No data found');
+      }
+    }, error => {
+      // Handle any errors that occur during the HTTP request
+      console.error('Error fetching data', error);
     });
   }
 
