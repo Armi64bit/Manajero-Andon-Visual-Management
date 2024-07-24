@@ -1,0 +1,53 @@
+<div class="modal-container"><nb-card style="height: 83%;width: 63%;" >
+  <nb-card-header>Edit How</nb-card-header>
+  <nb-card-body>
+    <div class="scrollable-body">
+      <form class="edit-form">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <!-- Step 1 -->
+            <div class="form-group">
+              <label>Step 1 Content</label>
+              <!-- <textarea class="form-control" [(ngModel)]="howData.step1" name="step1" rows="3" placeholder="Step 1 Content"></textarea> -->
+              <ckeditor [editor]="Editor" [(ngModel)]="howData.step1" name="step1"></ckeditor>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Step 1 Image URL</label>
+            <div class="input-group">
+              <!-- <input type="text" class="form-control" [(ngModel)]="whatifData.image1" name="image1" placeholder="Image 1 URL"> -->
+              <div class="input-group-append">
+                <button nbButton status="primary" type="button" (click)="fileInput.click()">Upload</button>
+                <input #fileInput type="file" style="display:none" (change)="onFileChange($event,'step1img')">
+              </div>
+            </div>
+            <!-- <img class="image-full w-25" [src]="whatifData.image1" alt="Image description" s> -->
+            <img *ngIf="previewImage" [src]="previewImage" alt="Image Preview" class="mt-2" style="width: 93%; height: auto;">
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <!-- Buttons -->
+    <div class="buttons mt-3 text-right">
+      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+      <span class="ml-2"></span>
+      <button nbButton outline status="danger" (click)="close()">Cancel</button>
+    </div>
+  </nb-card-footer>
+</nb-card></div>
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>

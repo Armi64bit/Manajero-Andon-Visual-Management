@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+  .nb-stepper-buttons {
+    /* Adjust button styles or layout for mobile */
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem; /* Adjust margin as needed */
+  }
+
+  .nb-stepper-buttons button {
+    /* Adjust button styles */
+    flex: 1; /* Each button takes equal space */
+    margin: 0.5rem; /* Adjust margin as needed */
+  }
+
+  /* Adjust other styles as necessary */
+}
+.nb-stepper-buttons button {
+  margin: 20px; // Adjust button spacing as needed
+}
+@media (min-width: 768px) {
+  .img-small {
+    max-width: 50%; /* Adjust as per your design needs */
+    margin-left: 10vh;
+  }
+}

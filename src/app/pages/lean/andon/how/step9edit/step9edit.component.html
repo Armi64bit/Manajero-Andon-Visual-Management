@@ -1,0 +1,120 @@
+<div class="modal-container">
+  <nb-card style="height: 83%; width: 63%;">
+    <nb-card-header>Edit How</nb-card-header>
+    <nb-card-body>
+      <div class="scrollable-body">
+        <form class="edit-form">
+          <div class="row">
+            <!-- Step 9 Content -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Content</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step9" name="step9"></ckeditor>
+              </div>
+            </div>
+
+            <!-- Step 9 Subpoint A -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Subpoint A</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step9A" name="step9A"></ckeditor>
+              </div>
+            </div>
+
+            <!-- Step 9 Subpoint T -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Subpoint T</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step9T" name="step9T"></ckeditor>
+              </div>
+            </div>
+
+            <!-- Step 9 Subpoint P -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Subpoint P</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step9P" name="step9P"></ckeditor>
+              </div>
+            </div>
+
+            <!-- Step 9 Subpoint C -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Subpoint C</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step9C" name="step9C"></ckeditor>
+              </div>
+            </div>
+
+            <!-- Step 9 Image 1 -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Image 1</label>
+                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
+                <input nbButton style="display: none" status="primary" type="file" #fileInput1 (change)="onFileChange($event, 'step9img1')" accept="image/*" />
+                <div *ngIf="previewImages.step9img1" class="image-preview">
+                  <img [src]="previewImages.step9img1" class="responsive-img" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 9 Image 2 -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Image 2</label>
+                <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+                <input nbButton style="display: none" status="primary" type="file" #fileInput2 (change)="onFileChange($event, 'step9img2')" accept="image/*" />
+                <div *ngIf="previewImages.step9img2" class="image-preview">
+                  <img [src]="previewImages.step9img2" class="responsive-img" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 9 Image 3 -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Image 3</label>
+                <button nbButton status="primary" type="button" (click)="fileInput3.click()">Upload</button>
+                <input nbButton style="display: none" status="primary" type="file" #fileInput3 (change)="onFileChange($event, 'step9img3')" accept="image/*" />
+                <div *ngIf="previewImages.step9img3" class="image-preview">
+                  <img [src]="previewImages.step9img3" class="responsive-img" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 9 Image 4 -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label>Step 9 Image 4</label>
+                <button nbButton status="primary" type="button" (click)="fileInput4.click()">Upload</button>
+                <input nbButton style="display: none" status="primary" type="file" #fileInput4 (change)="onFileChange($event, 'step9img4')" accept="image/*" />
+                <div *ngIf="previewImages.step9img4" class="image-preview">
+                  <img [src]="previewImages.step9img4" class="responsive-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="buttons mt-3 text-right">
+        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <span class="ml-2"></span>
+        <button nbButton outline status="danger" (click)="close()">Cancel</button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
+
+
+<style>
+  .scrollable-body {
+    max-height: 75vh; /* Adjust max height as needed */
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+  .scrollable-body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>

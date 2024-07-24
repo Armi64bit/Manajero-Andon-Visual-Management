@@ -1,0 +1,44 @@
+<nb-card class="full-screen-card">
+  <nb-card-header class="card-header bg-primary text-white">
+    <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
+    <h3 class="text-white">8. Monitor and Improve</h3>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="larger-text">
+
+                   <div [innerHTML]="how.step8"></div>
+
+      <ul>
+        <li>
+          <nb-icon icon="message-circle-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+          <strong>Feedback:</strong>    <div [innerHTML]="how.step8F"></div>
+        </li>
+        <li>
+          <nb-icon icon="bar-chart-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+          <strong>Metrics:</strong>  <div [innerHTML]="how.step8M"></div>
+        </li>
+        <li>
+          <nb-icon icon="settings-2-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+          <strong>System Updates:</strong>  <div [innerHTML]="how.step8S"></div>
+        </li>
+        <li>
+          <nb-icon icon="people-outline" [options]="{ animation: { type: 'pulse' } }" class="icon-large"></nb-icon>
+          <strong>Training:</strong> <div [innerHTML]="how.step8T"></div>
+        </li>
+      </ul>
+      <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img [src]="how.step8img1" class="img-fluid" alt="Image 1" class="img-fluid rounded img-small">
+            </div>
+            <div class="col-md-4">
+                <img [src]="how.step8img2" class="img-fluid" alt="Image 2" class="img-fluid rounded img-small">
+            </div>
+            <div class="col-md-4">
+                <img [src]="how.step8img3" class="img-fluid" alt="Image 3" class="img-fluid rounded img-small">
+            </div>
+        </div>
+    </div>
+    </div>
+  </nb-card-body>
+</nb-card>

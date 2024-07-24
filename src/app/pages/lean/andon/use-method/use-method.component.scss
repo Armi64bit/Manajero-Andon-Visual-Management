@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --background-color: #0c576a;
+    --text-color: #34495e;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    padding: 1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.wizard-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.wizard-steps {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 1rem;
+}
+
+.wizard-step {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wizard-step.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.wizard-content {
+    padding: 2rem;
+}
+
+.step-content {
+    display: none;
+}
+
+.step-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type='text'], input[type='number'], select {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type='text']:focus, input[type='number']:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.station-list {
+    margin-top: 1rem;
+}
+
+.station-item {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.station-item i {
+    margin-right: 0.5rem;
+}
+
+.remove-station {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.preview-container {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(230px, 25%)); /* Updated */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.preview-station {
+    background-color: rgb(148, 187, 241);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 85%;
+}
+
+.preview-station h3 {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.preview-station h3 i {
+    margin-right: 0.5rem;
+}
+
+.preview-metric {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.preview-status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.statistics-container {
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.statistics-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statistics-container th, .statistics-container td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.statistics-container th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .wizard-steps {
+        flex-direction: column;
+    }
+
+    .wizard-step {
+        margin-bottom: 0.5rem;
+    }
+}

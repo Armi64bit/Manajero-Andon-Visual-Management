@@ -1,0 +1,43 @@
+<nb-card class="full-screen-card">
+  <nb-card-header class="card-header bg-primary text-white">
+    <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
+    <h3 class="text-white">10. Integrate with Continuous Improvement</h3>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="larger-text">
+
+              <div [innerHTML]="how.step10"></div>
+
+      <ul>
+        <li>
+          <nb-icon icon="activity-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+          <strong>Root Cause Analysis:</strong>      <div [innerHTML]="how.step10R"></div></li>
+        <li>
+          <nb-icon icon="settings-2-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+          <strong>Kaizen:</strong>      <div [innerHTML]="how.step10K"></div> </li>
+        <li>
+          <nb-icon icon="trending-up-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+          <strong>Benchmarking:</strong>     <div [innerHTML]="how.step10B"></div></li>
+        <li>
+          <nb-icon icon="file-text-outline" class="icon-large" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+          <strong>Documentation:</strong>    <div [innerHTML]="how.step10D"></div></li>
+      </ul>
+      <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <img [src]="how.step10img1" class="img-fluid" alt="Image 1" class="img-fluid rounded img-small">
+            </div>
+            <div class="col-md-3">
+                <img [src]="how.step10img2" class="img-fluid" alt="Image 2" class="img-fluid rounded img-small">
+            </div>
+            <div class="col-md-3">
+                <img [src]="how.step10img3" class="img-fluid" alt="Image 3" class="img-fluid rounded img-small">
+            </div>
+            <div class="col-md-3">
+              <img [src]="how.step10img4" class="img-fluid" alt="Image 3" class="img-fluid rounded img-small">
+          </div>
+        </div>
+    </div>
+    </div>
+  </nb-card-body>
+</nb-card>

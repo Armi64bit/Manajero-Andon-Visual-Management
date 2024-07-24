@@ -1,0 +1,17 @@
+// @media (max-width: 576px) {
+//   .ckeditor-responsive .ck-toolbar {
+//     /* Adjust toolbar styles for mobile */
+//     padding: 6px; /* Example: Reduce padding */
+//   }
+
+//   .ckeditor-responsive .ck-toolbar .ck-button {
+//     /* Adjust individual button styles */
+//     padding: 8px 12px; /* Example: Reduce button padding */
+//     font-size: 14px; /* Example: Reduce font size */
+//   }
+// }
+.ckeditor-responsive {
+  height: 300px;
+  max-height: 300px; /* Ensure the editor does not exceed this height */
+  overflow: auto; /* Enable scrolling if content exceeds the height */
+}

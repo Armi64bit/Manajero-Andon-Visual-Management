@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="dashboard">
+    <h2 class="text-center mb-4">Production Dashboard</h2>
+
+    <!-- Metrics Section -->
+    <div class="row metrics mb-4">
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="metric">
+          <h5>Today's Issues</h5>
+          <div class="metric-icon" [ngClass]="getIssuesIndicatorClass()">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h4>{{ todayIssues }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="metric">
+          <canvas #pieChartCanvas></canvas>
+          <h4>{{ compliantLinesPercentage }}%</h4>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="metric">
+          <h5>Stop Hours / Work Hours</h5>
+          <div class="metric-icon clock-icon">
+            <i class="far fa-clock"></i>
+          </div>
+          <h4>{{ stopHours }} / {{ workHours }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="metric">
+          <h5>Stacking Delay Today</h5>
+          <div class="metric-icon" [ngClass]="getStackingDelayIndicatorClass()">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h4>{{ stackingDelay }}</h4>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-6 col-lg-3 mb-4">
+        <div class="metric">
+          <h5>Untracked Lines</h5>
+          <div class="metric-icon" [ngClass]="getUntrackedLinesIndicatorClass()">
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+          <h4>{{ untrackedLines }}</h4>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row charts">
+      <div class="col-4 mb-4">
+        <canvas #barChart></canvas>
+      </div>
+
+      <div class="col-4 mb-4">
+        <canvas #lineChart></canvas>
+      </div>
+
+      <div class="col-4">
+        <canvas #issuesChart></canvas>
+      </div>
+    </div>
+  </div>
+</div>

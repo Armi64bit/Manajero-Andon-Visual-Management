@@ -69,6 +69,10 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
+      path: 'lean/andon', // Ensure this path is correctly nested under 'pages'
+      loadChildren: () => import('./lean/andon/andon.module').then(m => m.AndonModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
@@ -77,6 +81,7 @@ const routes: Routes = [{
       path: '**',
       component: NotFoundComponent,
     },
+
   ],
 }];
 

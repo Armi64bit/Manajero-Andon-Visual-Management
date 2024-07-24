@@ -1,0 +1,23 @@
+<div class="issue-list">
+  <h2 class="text-center mb-4">Current Issues</h2>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Timestamp</th>
+        <th>Location</th>
+        <th>Severity</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues">
+        <td>{{ issue.timestamp | date }}</td>
+        <td>{{ issue.location }}</td>
+        <td><span class="badge badge-{{ getSeverityColor(issue.severity) }}">{{ issue.severity }}</span></td>
+        <td>{{ issue.assignedTo }}</td>
+        <td>{{ issue.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
