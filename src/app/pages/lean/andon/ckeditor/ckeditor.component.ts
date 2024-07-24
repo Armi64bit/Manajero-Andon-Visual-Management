@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HttpClient } from '@angular/common/http';
-import { FileLoader, UploadAdapter } from '@ckeditor/ckeditor5-upload';
+import { UploadAdapter } from '@ckeditor/ckeditor5-upload';
 
 @Component({
   selector: 'ngx-ckeditor',
@@ -55,11 +55,10 @@ export class CkeditorComponent implements OnInit, ControlValueAccessor {
     editor.ui.view.editable.element.style.height = '200px';
 
     editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
-        return new CustomUploadAdapter(loader, this.http);
+      return new CustomUploadAdapter(loader, this.http);
     };
+  }
 }
-}
-
 
 export class CustomUploadAdapter implements UploadAdapter {
   constructor(private loader: any, private http: HttpClient) {}
@@ -69,9 +68,9 @@ export class CustomUploadAdapter implements UploadAdapter {
       const data = new FormData();
       data.append('file', this.loader.file);
 
-      this.http.post('http://localhost:8888/api/uploads', data)
+      this.http.post<any>('http://localhost:8888/api/uploads', data)
         .subscribe(
-          (response: any) => {
+          (response) => {
             resolve({ default: response.url });
           },
           (error) => {

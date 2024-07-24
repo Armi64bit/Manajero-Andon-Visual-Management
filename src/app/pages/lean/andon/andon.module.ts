@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WhyLayoutComponent } from './why/why-layout/why-layout.component';
 import { EditWhyModalComponent } from './why/edit-why-modal/edit-why-modal.component';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { WhatLayoutComponent } from './what/what-layout/what-layout.component';
 import { EditWhatModalComponent } from './what/edit-what-modal/edit-what-modal.component';
 import { WhatifLayoutComponent } from './whatif/whatif-layout/whatif-layout.component';
@@ -91,7 +91,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ChartsModule,
     HttpClientModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    ReactiveFormsModule
 
   ]
 })

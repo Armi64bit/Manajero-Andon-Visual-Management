@@ -3,21 +3,30 @@
     <nb-card-header>Edit Why</nb-card-header>
     <nb-card-body>
       <div class="scrollable-body">
-        <form class="edit-form">
+        <form class="edit-form" #editForm="ngForm" novalidate>
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <!-- Column 1 -->
               <div class="form-group">
                 <label>Title</label>
-                <input type="text" class="form-control" [(ngModel)]="whyData.title" name="title" placeholder="Title">
+                <input type="text" class="form-control" [(ngModel)]="whyData.title" name="title" placeholder="Title" required #title="ngModel">
+                <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger">
+                  <nb-alert *ngIf="title.errors.required" status="danger">Title is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Subpoint 1</label>
-                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint1" name="subpoint1" placeholder="Subpoint 1">
+                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint1" name="subpoint1" placeholder="Subpoint 1" required #subpoint1="ngModel">
+                <div *ngIf="subpoint1.invalid && (subpoint1.dirty || subpoint1.touched)" class="text-danger">
+                  <nb-alert *ngIf="subpoint1.errors.required" status="danger">Subpoint 1 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Content 1</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content1" name="content1"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content1" name="content1" required #content1="ngModel"></ckeditor>
+                <div *ngIf="content1.invalid && (content1.dirty || content1.touched)" class="text-danger">
+                  <nb-alert *ngIf="content1.errors.required" status="danger">Content 1 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Image 1</label>
@@ -33,11 +42,17 @@
               <!-- Column 2 -->
               <div class="form-group">
                 <label>Subpoint 2</label>
-                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint2" name="subpoint2" placeholder="Subpoint 2">
+                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint2" name="subpoint2" placeholder="Subpoint 2" required #subpoint2="ngModel">
+                <div *ngIf="subpoint2.invalid && (subpoint2.dirty || subpoint2.touched)" class="text-danger">
+                  <nb-alert *ngIf="subpoint2.errors.required" status="danger">Subpoint 2 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Content 2</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content2" name="content2"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content2" name="content2" required #content2="ngModel"></ckeditor>
+                <div *ngIf="content2.invalid && (content2.dirty || content2.touched)" class="text-danger">
+                  <nb-alert *ngIf="content2.errors.required" status="danger">Content 2 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Image 2</label>
@@ -49,7 +64,10 @@
               </div>
               <div class="form-group">
                 <label>Subpoint 3</label>
-                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint3" name="subpoint3" placeholder="Subpoint 3">
+                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint3" name="subpoint3" placeholder="Subpoint 3" required #subpoint3="ngModel">
+                <div *ngIf="subpoint3.invalid && (subpoint3.dirty || subpoint3.touched)" class="text-danger">
+                  <nb-alert *ngIf="subpoint3.errors.required" status="danger">Subpoint 3 is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -57,7 +75,10 @@
               <!-- Column 3 -->
               <div class="form-group">
                 <label>Content 3</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content3" name="content3"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content3" name="content3" required #content3="ngModel"></ckeditor>
+                <div *ngIf="content3.invalid && (content3.dirty || content3.touched)" class="text-danger">
+                  <nb-alert *ngIf="content3.errors.required" status="danger">Content 3 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Image 3</label>
@@ -69,11 +90,17 @@
               </div>
               <div class="form-group">
                 <label>Subpoint 4</label>
-                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint4" name="subpoint4" placeholder="Subpoint 4">
+                <input type="text" class="form-control" [(ngModel)]="whyData.subpoint4" name="subpoint4" placeholder="Subpoint 4" required #subpoint4="ngModel">
+                <div *ngIf="subpoint4.invalid && (subpoint4.dirty || subpoint4.touched)" class="text-danger">
+                  <nb-alert *ngIf="subpoint4.errors.required" status="danger">Subpoint 4 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Content 4</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content4" name="content4"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="whyData.content4" name="content4" required #content4="ngModel"></ckeditor>
+                <div *ngIf="content4.invalid && (content4.dirty || content4.touched)" class="text-danger">
+                  <nb-alert *ngIf="content4.errors.required" status="danger">Content 4 is required!</nb-alert>
+                </div>
               </div>
               <div class="form-group">
                 <label>Image 4</label>
@@ -91,14 +118,35 @@
     <nb-card-footer>
       <!-- Buttons -->
       <div class="buttons mt-3 text-right">
-        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <!-- <button nbButton status="primary" (click)="saveChanges()" type="submit" [disabled]="editForm.invalid">Save Changes</button> -->
+        <button nbButton status="primary" (click)="openConfirmDialog()" type="button" [disabled]="editForm.invalid">Save Changes</button>
+
         <span class="ml-2"></span>
         <button nbButton outline status="danger" (click)="close()">Cancel</button>
       </div>
     </nb-card-footer>
   </nb-card>
 </div>
+<ng-template #confirmDialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirmation</nb-card-header>
+    <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+      <div *ngIf="!showCheckmark">Are you sure you want to save these changes?</div>
+      <div *ngIf="showCheckmark" class="checkmark">
+        <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+        </svg>
+        <p class="checkmark-text">Saved!</p>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirmSaveChanges(ref)">Yes</button>
+      <button nbButton status="danger" (click)="ref.close()">No</button>
+    </nb-card-footer>
+  </nb-card>
 
+
+</ng-template>
 <style>
    .scrollable-body {
     max-height: 75vh; /* Adjust max height as needed */

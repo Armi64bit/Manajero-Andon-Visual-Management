@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Why, WhyService } from '../../api/why.service';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HttpClient } from '@angular/common/http';
@@ -13,18 +13,32 @@ export class EditWhyModalComponent {
   @Input() whyData: Why;
   public Editor = ClassicEditor;
   public previewImage: string | ArrayBuffer | null = null;
+  @ViewChild('confirmDialog') confirmDialog: TemplateRef<any>;
+  showCheckmark = false; 
 
   constructor(
     protected ref: NbDialogRef<EditWhyModalComponent>,
     private whyService: WhyService // Inject WhyService
     ,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialogService: NbDialogService
+
   ) {}
 
   close() {
     this.ref.close();
   }
-
+  openConfirmDialog() {
+    this.dialogService.open(this.confirmDialog, { context: 'Are you sure you want to save these changes?' });
+  }
+  confirmSaveChanges(ref: NbDialogRef<any>) {
+    // Show checkmark and then close the dialog after animation
+    this.showCheckmark = true;
+    setTimeout(() => {
+      this.saveChanges(); // Call saveChanges after animation
+      ref.close();
+    }, 1000); // Adjust timing as needed
+  }
   saveChanges() {
     // Call updateWhy method from WhyService
     this.whyService.updateWhy(this.whyData.id, this.whyData).subscribe(updatedWhy => {
