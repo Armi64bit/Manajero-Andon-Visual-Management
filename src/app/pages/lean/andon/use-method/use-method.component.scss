@@ -142,10 +142,11 @@ button:hover {
 }
 
 .preview-station {
-    background-color: white;
+    background-color: rgb(148, 187, 241);
     border-radius: 8px;
     padding: 1rem;
     box-shadow: var(--box-shadow);
+    width: 85%;
 }
 
 .preview-station h3 {

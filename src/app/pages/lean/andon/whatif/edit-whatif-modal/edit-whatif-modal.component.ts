@@ -30,6 +30,8 @@ export class EditWhatifModalComponent {
     this.whatifService.updateWhatif(this.whatifData.id, this.whatifData).subscribe(updatedWhy => {
       console.log('Updated Whatif:', updatedWhy);
       this.ref.close(); // Close modal after saving changes
+      window.location.reload(); // Reload the entire page
+
     }, error => {
       console.error('Error updating Whatif:', error);
       // Handle error scenario

@@ -30,11 +30,14 @@ export class EditWhatModalComponent {
     this.whyService.updateWhat(this.whatData.id, this.whatData).subscribe(updatedWhy => {
       console.log('Updated What:', updatedWhy);
       this.ref.close(); // Close modal after saving changes
+      window.location.reload(); // Reload the entire page
+
     }, error => {
       console.error('Error updating What:', error);
       // Handle error scenario
     });
   }
+
   onFileChange(event: Event, imageField: string) {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length > 0) {
