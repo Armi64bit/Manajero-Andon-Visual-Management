@@ -12,6 +12,7 @@
                 <input type="text" class="form-control" [(ngModel)]="whyData.title" name="title" placeholder="Title" required #title="ngModel">
                 <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger">
                   <nb-alert *ngIf="title.errors.required" status="danger">Title is required!</nb-alert>
+
                 </div>
               </div>
               <div class="form-group">
