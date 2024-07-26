@@ -3,13 +3,16 @@
     <nb-card-header>Edit How</nb-card-header>
     <nb-card-body>
       <div class="scrollable-body">
-        <form class="edit-form">
+        <form class="edit-form" #editForm="ngForm" novalidate>
           <div class="row">
             <div class="col-sm-12 col-md-4">
               <!-- Step 4 Content -->
               <div class="form-group">
                 <label>Step 4 Content</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4" name="step4"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4" name="step4" required #step4="ngModel"></ckeditor>
+                <div *ngIf="step4.invalid && (step4.dirty || step4.touched)" class="text-danger">
+                  <nb-alert *ngIf="step4.errors.required" status="danger">Step 4 Content is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -17,7 +20,10 @@
               <!-- Step 4 Subpoint M -->
               <div class="form-group">
                 <label>Step 4 Subpoint M</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4M" name="step4M"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4M" name="step4M" required #step4M="ngModel"></ckeditor>
+                <div *ngIf="step4M.invalid && (step4M.dirty || step4M.touched)" class="text-danger">
+                  <nb-alert *ngIf="step4M.errors.required" status="danger">Step 4 Subpoint M is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -37,7 +43,10 @@
               <!-- Step 4 Subpoint A -->
               <div class="form-group">
                 <label>Step 4 Subpoint A</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4A" name="step4A"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step4A" name="step4A" required #step4A="ngModel"></ckeditor>
+                <div *ngIf="step4A.invalid && (step4A.dirty || step4A.touched)" class="text-danger">
+                  <nb-alert *ngIf="step4A.errors.required" status="danger">Step 4 Subpoint A is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -59,13 +68,32 @@
     <nb-card-footer>
       <!-- Buttons -->
       <div class="buttons mt-3 text-right">
-        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <button nbButton status="primary" (click)="openConfirmDialog()" type="button" [disabled]="editForm.invalid">Save Changes</button>
         <span class="ml-2"></span>
         <button nbButton outline status="danger" (click)="close()">Cancel</button>
       </div>
     </nb-card-footer>
   </nb-card>
 </div>
+
+<ng-template #confirmDialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirmation</nb-card-header>
+    <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+      <div *ngIf="!showCheckmark">Are you sure you want to save these changes?</div>
+      <div *ngIf="showCheckmark" class="checkmark">
+        <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+        </svg>
+        <p class="checkmark-text">Saved!</p>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirmSaveChanges(ref)">Yes</button>
+      <button nbButton status="danger" (click)="ref.close()">No</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
 
 <style>
   .scrollable-body {

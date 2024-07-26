@@ -10,3 +10,40 @@
   background: rgba(0, 0, 0, 0.5); /* Optional: Adds a background overlay */
   z-index: 1050; /* Ensure it's above other content */
 }
+
+
+.checkmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkmark-icon {
+  width: 50px;
+  height: 50px;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: checkmark-animation 1s ease forwards;
+}
+
+.checkmark-text {
+  font-size: 1.2rem;
+  color: #28a745;
+  margin-top: 10px;
+}
+
+@keyframes checkmark-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

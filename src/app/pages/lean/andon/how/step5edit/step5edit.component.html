@@ -1,70 +1,95 @@
 <div class="modal-container">
   <nb-card style="height: 83%; width: 63%;">
-  <nb-card-header>Edit How</nb-card-header>
-  <nb-card-body>
-    <div class="scrollable-body">
-      <form class="edit-form">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
+    <nb-card-header>Edit How</nb-card-header>
+    <nb-card-body>
+      <div class="scrollable-body">
+        <form class="edit-form" #editForm="ngForm" novalidate>
+          <div class="row">
             <!-- Step 5 Content -->
-            <div class="form-group">
-              <label>Step 5 Content</label>
-              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5" name="step5"></ckeditor>
+            <div class="col-sm-12 col-md-4">
+              <div class="form-group">
+                <label>Step 5 Content</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step5" name="step5" required #step5="ngModel"></ckeditor>
+                <div *ngIf="step5.invalid && (step5.dirty || step5.touched)" class="text-danger">
+                  <nb-alert *ngIf="step5.errors.required" status="danger">Step 5 Content is required!</nb-alert>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="col-sm-12 col-md-4">
             <!-- Step 5 Subpoint L -->
-            <div class="form-group">
-              <label>Step 5 Subpoint L</label>
-              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5L" name="step5L"></ckeditor>
+            <div class="col-sm-12 col-md-4">
+              <div class="form-group">
+                <label>Step 5 Subpoint L</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step5L" name="step5L" required #step5L="ngModel"></ckeditor>
+                <div *ngIf="step5L.invalid && (step5L.dirty || step5L.touched)" class="text-danger">
+                  <nb-alert *ngIf="step5L.errors.required" status="danger">Step 5 Subpoint L is required!</nb-alert>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="col-sm-12 col-md-4">
             <!-- Step 5 Image 1 -->
-            <div class="form-group">
-              <label>Step 5 Image 1</label>
-              <div class="input-group">
-                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
-                <input #fileInput1 type="file" style="display: none;" (change)="onFileChange($event, 'step5img1')">
+            <div class="col-sm-12 col-md-4">
+              <div class="form-group">
+                <label>Step 5 Image 1</label>
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
+                  <input #fileInput1 type="file" style="display: none;" (change)="onFileChange($event, 'step5img1')">
+                </div>
+                <img class="img-fluid responsive-img" [src]="howData.step5img1" alt="Step 5 Image 1 description">
               </div>
-              <img class="img-fluid responsive-img" [src]="howData.step5img1" alt="Step 5 Image 1 description">
             </div>
-          </div>
-
-          <div class="col-sm-12 col-md-4">
             <!-- Step 5 Subpoint B -->
-            <div class="form-group">
-              <label>Step 5 Subpoint B</label>
-              <ckeditor [editor]="Editor" [(ngModel)]="howData.step5B" name="step5B"></ckeditor>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-md-4">
-            <!-- Step 5 Image 2 -->
-            <div class="form-group">
-              <label>Step 5 Image 2</label>
-              <div class="input-group">
-                <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
-                <input #fileInput2 type="file" style="display: none;" (change)="onFileChange($event, 'step5img2')">
+            <div class="col-sm-12 col-md-4">
+              <div class="form-group">
+                <label>Step 5 Subpoint B</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step5B" name="step5B" required #step5B="ngModel"></ckeditor>
+                <div *ngIf="step5B.invalid && (step5B.dirty || step5B.touched)" class="text-danger">
+                  <nb-alert *ngIf="step5B.errors.required" status="danger">Step 5 Subpoint B is required!</nb-alert>
+                </div>
               </div>
-              <img class="img-fluid responsive-img" [src]="howData.step5img2" alt="Step 5 Image 2 description">
+            </div>
+            <!-- Step 5 Image 2 -->
+            <div class="col-sm-12 col-md-4">
+              <div class="form-group">
+                <label>Step 5 Image 2</label>
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+                  <input #fileInput2 type="file" style="display: none;" (change)="onFileChange($event, 'step5img2')">
+                </div>
+                <img class="img-fluid responsive-img" [src]="howData.step5img2" alt="Step 5 Image 2 description">
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </nb-card-body>
-  <nb-card-footer>
-    <!-- Buttons -->
-    <div class="buttons mt-3 text-right">
-      <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
-      <span class="ml-2"></span>
-      <button nbButton outline status="danger" (click)="close()">Cancel</button>
-    </div>
-  </nb-card-footer>
-</nb-card></div>
+        </form>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <!-- Buttons -->
+      <div class="buttons mt-3 text-right">
+        <button nbButton status="primary" (click)="openConfirmDialog()" type="button" [disabled]="editForm.invalid">Save Changes</button>
+        <span class="ml-2"></span>
+        <button nbButton outline status="danger" (click)="close()">Cancel</button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
+
+<ng-template #confirmDialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirmation</nb-card-header>
+    <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+      <div *ngIf="!showCheckmark">Are you sure you want to save these changes?</div>
+      <div *ngIf="showCheckmark" class="checkmark">
+        <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+        </svg>
+        <p class="checkmark-text">Saved!</p>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirmSaveChanges(ref)">Yes</button>
+      <button nbButton status="danger" (click)="ref.close()">No</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
 
 
 <style>
