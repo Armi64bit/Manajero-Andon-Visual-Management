@@ -1,3 +1,4 @@
+<!-- ckeditor.component.html -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
@@ -8,9 +9,15 @@
         [config]="{
           toolbar: [
             'heading', '|',
-            'bold', 'italic', 'link',
-            'bulletedList', 'numberedList', 'blockQuote'
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'link', 'blockQuote', 'insertTable', '|',
+            'imageUpload', 'mediaEmbed', '|',
+            'bulletedList', 'numberedList', 'todoList', '|',
+            'alignment:left', 'alignment:center', 'alignment:right', 'alignment:justify', '|',
+            'fontSize', 'fontColor', 'fontBackgroundColor', '|',
+            'removeFormat', 'undo', 'redo'
           ],
+
           image: {
             toolbar: [
               'imageTextAlternative', '|',
@@ -19,8 +26,146 @@
           },
           simpleUpload: {
             uploadUrl: 'http://localhost:8888/api/upload'
+          },fontSize: {
+            options: [
+              'tiny',
+              'default',
+              'big',
+              'huge'
+            ]
+          },
+          fontColor: {
+            colors: [
+              {
+                color: 'hsl(0, 0%, 0%)',
+                label: 'Black'
+              },
+              {
+                color: 'hsl(0, 0%, 30%)',
+                label: 'Dim grey'
+              },
+              {
+                color: 'hsl(0, 0%, 60%)',
+                label: 'Grey'
+              },
+              {
+                color: 'hsl(0, 0%, 90%)',
+                label: 'Light grey'
+              },
+              {
+                color: 'hsl(0, 0%, 100%)',
+                label: 'White',
+                hasBorder: true
+              },
+              {
+                color: 'hsl(0, 75%, 60%)',
+                label: 'Red'
+              },
+              {
+                color: 'hsl(30, 75%, 60%)',
+                label: 'Orange'
+              },
+              {
+                color: 'hsl(60, 75%, 60%)',
+                label: 'Yellow'
+              },
+              {
+                color: 'hsl(90, 75%, 60%)',
+                label: 'Light green'
+              },
+              {
+                color: 'hsl(120, 75%, 60%)',
+                label: 'Green'
+              },
+              {
+                color: 'hsl(150, 75%, 60%)',
+                label: 'Aquamarine'
+              },
+              {
+                color: 'hsl(180, 75%, 60%)',
+                label: 'Turquoise'
+              },
+              {
+                color: 'hsl(210, 75%, 60%)',
+                label: 'Light blue'
+              },
+              {
+                color: 'hsl(240, 75%, 60%)',
+                label: 'Blue'
+              },
+              {
+                color: 'hsl(270, 75%, 60%)',
+                label: 'Purple'
+              }
+            ]
+          },
+          fontBackgroundColor: {
+            colors: [
+              {
+                color: 'hsl(0, 0%, 0%)',
+                label: 'Black'
+              },
+              {
+                color: 'hsl(0, 0%, 30%)',
+                label: 'Dim grey'
+              },
+              {
+                color: 'hsl(0, 0%, 60%)',
+                label: 'Grey'
+              },
+              {
+                color: 'hsl(0, 0%, 90%)',
+                label: 'Light grey'
+              },
+              {
+                color: 'hsl(0, 0%, 100%)',
+                label: 'White',
+                hasBorder: true
+              },
+              {
+                color: 'hsl(0, 75%, 60%)',
+                label: 'Red'
+              },
+              {
+                color: 'hsl(30, 75%, 60%)',
+                label: 'Orange'
+              },
+              {
+                color: 'hsl(60, 75%, 60%)',
+                label: 'Yellow'
+              },
+              {
+                color: 'hsl(90, 75%, 60%)',
+                label: 'Light green'
+              },
+              {
+                color: 'hsl(120, 75%, 60%)',
+                label: 'Green'
+              },
+              {
+                color: 'hsl(150, 75%, 60%)',
+                label: 'Aquamarine'
+              },
+              {
+                color: 'hsl(180, 75%, 60%)',
+                label: 'Turquoise'
+              },
+              {
+                color: 'hsl(210, 75%, 60%)',
+                label: 'Light blue'
+              },
+              {
+                color: 'hsl(240, 75%, 60%)',
+                label: 'Blue'
+              },
+              {
+                color: 'hsl(270, 75%, 60%)',
+                label: 'Purple'
+              }
+            ]
           }
         }"
+        
         (ready)="onEditorReady($event)"
         (change)="onEditorChange($event)"
         class="ckeditor-responsive"

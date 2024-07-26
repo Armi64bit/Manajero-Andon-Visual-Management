@@ -11,6 +11,7 @@
         <div class="notification-details">
           <span class="notification-station">{{ notification.station }}:</span>
           <span class="notification-message">{{ notification.message }}</span>
+          <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status  }}</small>
           <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
         </div>
       </nb-list-item>
@@ -32,6 +33,7 @@
         <div class="notification-details">
           <span class="notification-station">{{ item.station }}:</span>
           <span class="notification-message">{{ item.message }}</span>
+          <small class="notification-status ml-2" [ngClass]="item.status">{{ item.status }}</small>
           <small class="text-muted notification-time">{{ item.timestamp | date:'short' }}</small>
         </div>
       </nb-list-item>

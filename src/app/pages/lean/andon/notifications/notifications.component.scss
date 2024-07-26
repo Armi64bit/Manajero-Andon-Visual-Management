@@ -71,3 +71,38 @@
   font-size: 0.875rem;
   width: 90%;
 }
+.notification-status {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff; /* Default text color */
+}
+
+.notification-status.new {
+  background-color: #007bff; /* Blue */
+}
+
+.notification-status.in-progress {
+  background-color: #ffc107; /* Yellow */
+  color: #212529; /* Dark text for better contrast */
+}
+
+.notification-status.resolved {
+  background-color: #28a745; /* Green */
+}
+:host ::ng-deep .nb-dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
+  z-index: 1000;
+}
+
+:host ::ng-deep .nb-dialog {
+  position: relative;
+  z-index: 1001; /* Ensure modal is on top */
+}

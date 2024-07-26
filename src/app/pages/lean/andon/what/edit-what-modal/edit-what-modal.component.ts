@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class EditWhatModalComponent {
   @Input() whatData: What;
   public Editor = ClassicEditor;
+  
   public previewImage: string | ArrayBuffer | null = null;
   @ViewChild('confirmDialog') confirmDialog: TemplateRef<any>;
   showCheckmark = false;

@@ -13,9 +13,22 @@
           <small class="text-muted">{{ notification.timestamp | date:'medium' }}</small>
         </div>
       </div>
+      <div class="mb-3">
+        <label for="status">Status:</label>
+        <nb-select id="status" [(ngModel)]="notification.status">
+          <nb-option value="new">New</nb-option>
+          <nb-option value="in-progress">In Progress</nb-option>
+          <nb-option value="resolved">Resolved</nb-option>
+        </nb-select>
+      </div>
+      <div class="mb-3">
+        <label for="note">Note:</label>
+        <textarea id="note" class="form-control" [(ngModel)]="notification.note"></textarea>
+      </div>
     </div>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-end">
-    <button nbButton status="primary" (click)="close()">Close</button>
+    <button nbButton status="primary" (click)="saveChanges()">Save Changes</button>
+    <button nbButton status="info" (click)="close()">Close</button>
   </nb-card-footer>
 </nb-card>

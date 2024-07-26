@@ -1,3 +1,4 @@
+// ckeditor.component.ts
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -60,24 +61,33 @@ export class CkeditorComponent implements OnInit, ControlValueAccessor {
   }
 }
 
+// CustomUploadAdapter
 export class CustomUploadAdapter implements UploadAdapter {
   constructor(private loader: any, private http: HttpClient) {}
 
   upload(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      const data = new FormData();
-      data.append('file', this.loader.file);
+    return this.loader.file
+      .then((file: any) => new Promise((resolve, reject) => {
+        const data = new FormData();
+        data.append('upload', file);
 
-      this.http.post<any>('http://localhost:8888/api/uploads', data)
-        .subscribe(
-          (response) => {
-            resolve({ default: response.url });
-          },
-          (error) => {
-            reject(error);
-          }
-        );
-    });
+        this.http.post<any>('http://localhost:8888/api/upload', data)
+          .subscribe(
+            (response) => {
+              // Ensure the response contains the URL
+              if (response && response.url) {
+                resolve({
+                  default: response.url
+                });
+              } else {
+                reject('Upload failed. The response does not contain the URL.');
+              }
+            },
+            (error) => {
+              reject(error);
+            }
+          );
+      }));
   }
 
   abort(): void {
