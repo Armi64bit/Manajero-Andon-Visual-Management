@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { How, HowService } from '../../api/how.service';
 import { NbDialogService } from '@nebular/theme';
 import { Step1editComponent } from '../step1edit/step1edit.component';
+import { ImgprevComponent } from '../../imgprev/imgprev.component';
 
 @Component({
   selector: 'ngx-step1',
@@ -34,7 +35,13 @@ export class Step1Component implements OnInit {
         console.error('Error fetching data', error);
       });
     }
-
+    openImagePreview(imageSrc: string) {
+      this.dialogService.open(ImgprevComponent, {
+        context: {
+          imageSrc: imageSrc
+        }
+      });
+    }
   openEditModal() {
     this.dialogService.open(Step1editComponent, {
       context: {

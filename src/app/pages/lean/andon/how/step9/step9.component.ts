@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { How, HowService } from '../../api/how.service';
 import { NbDialogService } from '@nebular/theme';
 import { Step9editComponent } from '../step9edit/step9edit.component';
+import { ImgprevComponent } from '../../imgprev/imgprev.component';
 
 @Component({
   selector: 'ngx-step9',
@@ -33,7 +34,13 @@ export class Step9Component implements OnInit {
       console.error('Error fetching data', error);
     });
   }
-
+  openImagePreview(imageSrc: string) {
+    this.dialogService.open(ImgprevComponent, {
+      context: {
+        imageSrc: imageSrc
+      }
+    });
+  }
   openEditModal() {
     this.dialogService.open(Step9editComponent, {
       context: {

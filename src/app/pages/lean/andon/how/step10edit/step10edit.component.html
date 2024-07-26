@@ -3,13 +3,16 @@
     <nb-card-header>Edit How</nb-card-header>
     <nb-card-body>
       <div class="scrollable-body">
-        <form class="edit-form">
+        <form class="edit-form" #editForm="ngForm" novalidate>
           <div class="row">
             <!-- Step 10 Content -->
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Content</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10" name="step10"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10" name="step10" required #step10="ngModel"></ckeditor>
+                <div *ngIf="step10.invalid && (step10.dirty || step10.touched)" class="text-danger">
+                  <nb-alert *ngIf="step10.errors.required" status="danger">Step 10 Content is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -17,7 +20,10 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Subpoint R</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10R" name="step10R"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10R" name="step10R" required #step10R="ngModel"></ckeditor>
+                <div *ngIf="step10R.invalid && (step10R.dirty || step10R.touched)" class="text-danger">
+                  <nb-alert *ngIf="step10R.errors.required" status="danger">Step 10 Subpoint R is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -25,7 +31,10 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Subpoint K</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10K" name="step10K"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10K" name="step10K" required #step10K="ngModel"></ckeditor>
+                <div *ngIf="step10K.invalid && (step10K.dirty || step10K.touched)" class="text-danger">
+                  <nb-alert *ngIf="step10K.errors.required" status="danger">Step 10 Subpoint K is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -33,7 +42,10 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Subpoint B</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10B" name="step10B"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10B" name="step10B" required #step10B="ngModel"></ckeditor>
+                <div *ngIf="step10B.invalid && (step10B.dirty || step10B.touched)" class="text-danger">
+                  <nb-alert *ngIf="step10B.errors.required" status="danger">Step 10 Subpoint B is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -41,7 +53,10 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Subpoint D</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10D" name="step10D"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step10D" name="step10D" required #step10D="ngModel"></ckeditor>
+                <div *ngIf="step10D.invalid && (step10D.dirty || step10D.touched)" class="text-danger">
+                  <nb-alert *ngIf="step10D.errors.required" status="danger">Step 10 Subpoint D is required!</nb-alert>
+                </div>
               </div>
             </div>
 
@@ -49,11 +64,11 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Image 1</label>
-                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
-                <input nbButton style="display: none" type="file" #fileInput1 (change)="onFileChange($event, 'step10img1')" accept="image/*" />
-                <div *ngIf="previewImages.step10img1" class="image-preview">
-                  <img [src]="previewImages.step10img1" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
+                  <input #fileInput1 type="file" style="display: none;" (change)="onFileChange($event, 'step10img1')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step10img1" alt="Step 10 Image 1 description">
               </div>
             </div>
 
@@ -61,11 +76,11 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Image 2</label>
-                <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
-                <input nbButton style="display: none" type="file" #fileInput2 (change)="onFileChange($event, 'step10img2')" accept="image/*" />
-                <div *ngIf="previewImages.step10img2" class="image-preview">
-                  <img [src]="previewImages.step10img2" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+                  <input #fileInput2 type="file" style="display: none;" (change)="onFileChange($event, 'step10img2')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step10img2" alt="Step 10 Image 2 description">
               </div>
             </div>
 
@@ -73,11 +88,11 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Image 3</label>
-                <button nbButton status="primary" type="button" (click)="fileInput3.click()">Upload</button>
-                <input nbButton style="display: none" type="file" #fileInput3 (change)="onFileChange($event, 'step10img3')" accept="image/*" />
-                <div *ngIf="previewImages.step10img3" class="image-preview">
-                  <img [src]="previewImages.step10img3" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput3.click()">Upload</button>
+                  <input #fileInput3 type="file" style="display: none;" (change)="onFileChange($event, 'step10img3')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step10img3" alt="Step 10 Image 3 description">
               </div>
             </div>
 
@@ -85,11 +100,11 @@
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <label>Step 10 Image 4</label>
-                <button nbButton status="primary" type="button" (click)="fileInput4.click()">Upload</button>
-                <input nbButton style="display: none" type="file" #fileInput4 (change)="onFileChange($event, 'step10img4')" accept="image/*" />
-                <div *ngIf="previewImages.step10img4" class="image-preview">
-                  <img [src]="previewImages.step10img4" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput4.click()">Upload</button>
+                  <input #fileInput4 type="file" style="display: none;" (change)="onFileChange($event, 'step10img4')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step10img4" alt="Step 10 Image 4 description">
               </div>
             </div>
           </div>
@@ -98,13 +113,32 @@
     </nb-card-body>
     <nb-card-footer>
       <div class="buttons mt-3 text-right">
-        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <button nbButton status="primary" (click)="openConfirmDialog()" type="button" [disabled]="editForm.invalid">Save Changes</button>
         <span class="ml-2"></span>
         <button nbButton outline status="danger" (click)="close()">Cancel</button>
       </div>
     </nb-card-footer>
   </nb-card>
 </div>
+
+<ng-template #confirmDialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirmation</nb-card-header>
+    <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+      <div *ngIf="!showCheckmark">Are you sure you want to save these changes?</div>
+      <div *ngIf="showCheckmark" class="checkmark">
+        <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+        </svg>
+        <p class="checkmark-text">Saved!</p>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirmSaveChanges(ref)">Yes</button>
+      <button nbButton status="danger" (click)="ref.close()">No</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
 
 
 <style>

@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 import { How, HowService } from '../../api/how.service';
-import { NbDialogRef } from '@nebular/theme';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { HttpClient } from '@angular/common/http';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -13,17 +13,29 @@ export class Step10editComponent {
   @Input() howData: How;
   public Editor = ClassicEditor;
   public previewImages: { [key: string]: string | ArrayBuffer | null } = {};
-
+  @ViewChild('confirmDialog') confirmDialog: TemplateRef<any>;
+  showCheckmark = false;
   constructor(
     protected ref: NbDialogRef<Step10editComponent>,
     private howService: HowService,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialogService: NbDialogService
   ) {}
 
   close() {
     this.ref.close();
   }
-
+  openConfirmDialog() {
+    this.dialogService.open(this.confirmDialog, { context: 'Are you sure you want to save these changes?' });
+  }
+  confirmSaveChanges(ref: NbDialogRef<any>) {
+    // Show checkmark and then close the dialog after animation
+    this.showCheckmark = true;
+    setTimeout(() => {
+      this.saveChanges(); // Call saveChanges after animation
+      ref.close();
+    }, 1000); // Adjust timing as needed
+  }
   saveChanges() {
     // Call updateWhy method from WhyService
     this.howService.update(this.howData.id, this.howData).subscribe(updatedhow => {

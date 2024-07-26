@@ -29,16 +29,20 @@
       <div class="container mt-5">
         <div class="row">
             <div class="col-md-3">
-                <img [src]="how.step9img1" class="img-fluid" alt="Image 1" class="img-fluid rounded img-small">
+              <img [src]="how.step9img1" class="img-fluid rounded img-small hover-pointer" alt="Image 1" (click)="openImagePreview(how.step9img1)">
+
             </div>
             <div class="col-md-3">
-                <img [src]="how.step9img2" class="img-fluid" alt="Image 2" class="img-fluid rounded img-small">
+              <img [src]="how.step9img2" class="img-fluid rounded img-small hover-pointer" alt="Image 2" (click)="openImagePreview(how.step9img2)">
+
             </div>
             <div class="col-md-3">
-                <img [src]="how.step9img3" class="img-fluid" alt="Image 3" class="img-fluid rounded img-small">
+                <img [src]="how.step9img3" class="img-fluid rounded img-small hover-pointer" alt="Image 3" (click)="openImagePreview(how.step9img3)">
+
             </div>
             <div class="col-md-3">
-              <img [src]="how.step9img4" class="img-fluid" alt="Image 3" class="img-fluid rounded img-small">
+              <img [src]="how.step9img4" class="img-fluid rounded img-small hover-pointer" alt="Image 4" (click)="openImagePreview(how.step9img4)">
+
           </div>
         </div>
     </div>

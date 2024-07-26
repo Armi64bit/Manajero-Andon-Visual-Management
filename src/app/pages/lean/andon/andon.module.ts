@@ -39,6 +39,7 @@ import { Step9editComponent } from './how/step9edit/step9edit.component';
 import { Step10editComponent } from './how/step10edit/step10edit.component';
 import { CkeditorComponent } from './ckeditor/ckeditor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ImgprevComponent } from './imgprev/imgprev.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     Step9editComponent,
     Step10editComponent,
     CkeditorComponent,
+    ImgprevComponent,
 
 
   ],

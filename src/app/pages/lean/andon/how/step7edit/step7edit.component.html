@@ -3,53 +3,58 @@
     <nb-card-header>Edit How</nb-card-header>
     <nb-card-body>
       <div class="scrollable-body">
-        <form class="edit-form">
+        <form class="edit-form" #editForm="ngForm" novalidate>
           <div class="row">
             <!-- Step 7 Content -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <label>Step 7 Content</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7" name="step7"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7" name="step7" required #step7="ngModel"></ckeditor>
+                <div *ngIf="step7.invalid && (step7.dirty || step7.touched)" class="text-danger">
+                  <nb-alert *ngIf="step7.errors.required" status="danger">Step 7 Content is required!</nb-alert>
+                </div>
               </div>
             </div>
-
             <!-- Step 7 Subpoint E -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <label>Step 7 Subpoint E</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7E" name="step7E"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7E" name="step7E" required #step7E="ngModel"></ckeditor>
+                <div *ngIf="step7E.invalid && (step7E.dirty || step7E.touched)" class="text-danger">
+                  <nb-alert *ngIf="step7E.errors.required" status="danger">Step 7 Subpoint E is required!</nb-alert>
+                </div>
               </div>
             </div>
-
             <!-- Step 7 Image 1 -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <label>Step 7 Image 1</label>
-                <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
-                <input nbButton style="display: none" status="primary" type="file" #fileInput1 (change)="onFileChange($event, 'step7img1')" accept="image/*" />
-                <div *ngIf="previewImages.step7img1" class="image-preview">
-                  <img [src]="previewImages.step7img1" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput1.click()">Upload</button>
+                  <input #fileInput1 type="file" style="display: none;" (change)="onFileChange($event, 'step7img1')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step7img1" alt="Step 7 Image 1 description">
               </div>
             </div>
-
             <!-- Step 7 Subpoint R -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <label>Step 7 Subpoint R</label>
-                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7R" name="step7R"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="howData.step7R" name="step7R" required #step7R="ngModel"></ckeditor>
+                <div *ngIf="step7R.invalid && (step7R.dirty || step7R.touched)" class="text-danger">
+                  <nb-alert *ngIf="step7R.errors.required" status="danger">Step 7 Subpoint R is required!</nb-alert>
+                </div>
               </div>
             </div>
-
             <!-- Step 7 Image 2 -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-4">
               <div class="form-group">
                 <label>Step 7 Image 2</label>
-                <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
-                <input nbButton style="display: none" status="primary" type="file" #fileInput2 (change)="onFileChange($event, 'step7img2')" accept="image/*" />
-                <div *ngIf="previewImages.step7img2" class="image-preview">
-                  <img [src]="previewImages.step7img2" class="responsive-img" />
+                <div class="input-group">
+                  <button nbButton status="primary" type="button" (click)="fileInput2.click()">Upload</button>
+                  <input #fileInput2 type="file" style="display: none;" (change)="onFileChange($event, 'step7img2')">
                 </div>
+                <img class="img-fluid responsive-img" [src]="howData.step7img2" alt="Step 7 Image 2 description">
               </div>
             </div>
           </div>
@@ -57,14 +62,34 @@
       </div>
     </nb-card-body>
     <nb-card-footer>
+      <!-- Buttons -->
       <div class="buttons mt-3 text-right">
-        <button nbButton status="primary" (click)="saveChanges()" type="submit">Save Changes</button>
+        <button nbButton status="primary" (click)="openConfirmDialog()" type="button" [disabled]="editForm.invalid">Save Changes</button>
         <span class="ml-2"></span>
         <button nbButton outline status="danger" (click)="close()">Cancel</button>
       </div>
     </nb-card-footer>
   </nb-card>
 </div>
+
+<ng-template #confirmDialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirmation</nb-card-header>
+    <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+      <div *ngIf="!showCheckmark">Are you sure you want to save these changes?</div>
+      <div *ngIf="showCheckmark" class="checkmark">
+        <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+        </svg>
+        <p class="checkmark-text">Saved!</p>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirmSaveChanges(ref)">Yes</button>
+      <button nbButton status="danger" (click)="ref.close()">No</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
 
 
 <style>
