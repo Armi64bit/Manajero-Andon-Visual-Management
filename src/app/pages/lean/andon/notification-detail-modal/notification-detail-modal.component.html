@@ -1,0 +1,21 @@
+<nb-card class="notification-detail-card">
+  <nb-card-header class="d-flex justify-content-between align-items-center">
+    <h3>Notification Details</h3>
+    <button nbButton status="info" (click)="close()" class="btn-close" aria-label="Close"></button>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="notification-detail-content">
+      <div class="d-flex align-items-center mb-3">
+        <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon-large me-3"></nb-icon>
+        <div>
+          <h4 class="mb-1">{{ notification.station }}</h4>
+          <p class="mb-2">{{ notification.message }}</p>
+          <small class="text-muted">{{ notification.timestamp | date:'medium' }}</small>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer class="d-flex justify-content-end">
+    <button nbButton status="primary" (click)="close()">Close</button>
+  </nb-card-footer>
+</nb-card>

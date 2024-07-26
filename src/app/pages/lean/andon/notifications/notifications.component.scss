@@ -1,0 +1,73 @@
+.notification-card,
+.notification-history-card {
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden; /* Hide overflow in card itself */
+}
+
+.nb-card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.nb-card-body {
+  padding: 1rem;
+}
+
+.nb-card-footer {
+  text-align: right;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, transform 0.2s; /* Adjusted transition for smoother effect */
+  box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+  max-width: 90%;
+}
+
+.notification-item:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transform: translateX(2px); /* Slight shift to the right */
+}
+
+.notification-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.notification-item:hover .notification-icon {
+  color: var(--nb-theme-color-primary);
+}
+
+.notification-details {
+  flex: 1;
+}
+
+.notification-station {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.notification-message {
+  font-size: 1rem;
+}
+
+.notification-time {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.875rem;
+  width: 90%;
+}

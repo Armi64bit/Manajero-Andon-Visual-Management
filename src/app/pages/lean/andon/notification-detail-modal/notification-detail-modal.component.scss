@@ -1,0 +1,50 @@
+.notification-detail-card {
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden; /* Hide overflow in card itself */
+
+
+  .notification-icon-large {
+    font-size: 3rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    // Adding a pulse effect
+    animation: pulse 2s infinite;
+  }
+
+  .notification-detail-content {
+    .notification-station {
+      font-weight: bold;
+    }
+
+    .notification-message {
+      font-size: 1.1rem;
+    }
+  }
+
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--nb-theme-color-primary);
+    transition: color 0.3s ease;
+  }
+
+  .btn-close:hover {
+    color: var(--nb-theme-color-primary-dark);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    color: var(--nb-theme-color-primary);
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--nb-theme-color-primary-light);
+  }
+  100% {
+    transform: scale(1);
+    color: var(--nb-theme-color-primary);
+  }
+}

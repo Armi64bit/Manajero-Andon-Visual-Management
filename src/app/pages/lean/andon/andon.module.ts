@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbStepperModule, NbTabsetModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbListModule, NbStepperModule, NbTabsetModule } from '@nebular/theme';
 import { AndonRoutingModule } from './andon-routing.module';
 import { WorkshopComponent } from './workshop/workshop.component';
 import { UseMethodComponent } from './use-method/use-method.component';
@@ -40,6 +40,8 @@ import { Step10editComponent } from './how/step10edit/step10edit.component';
 import { CkeditorComponent } from './ckeditor/ckeditor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ImgprevComponent } from './imgprev/imgprev.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationDetailModalComponent } from './notification-detail-modal/notification-detail-modal.component';
 
 
 @NgModule({
@@ -78,6 +80,8 @@ import { ImgprevComponent } from './imgprev/imgprev.component';
     Step10editComponent,
     CkeditorComponent,
     ImgprevComponent,
+    NotificationsComponent,
+    NotificationDetailModalComponent,
 
 
   ],
@@ -94,7 +98,9 @@ import { ImgprevComponent } from './imgprev/imgprev.component';
     HttpClientModule,
     FormsModule,
     CKEditorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NbListModule,
+
 
   ]
 })

@@ -1,0 +1,43 @@
+<nb-card class="notification-card">
+  <nb-card-header>
+    <h3>Station Notifications</h3>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let notification of notifications"
+                    class="notification-item "
+                    (click)="openDetails(notification)">
+        <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon"></nb-icon>
+        <div class="notification-details">
+          <span class="notification-station">{{ notification.station }}:</span>
+          <span class="notification-message">{{ notification.message }}</span>
+          <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+        </div>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" (click)="showHistory()">View History</button>
+  </nb-card-footer>
+</nb-card>
+
+<nb-card *ngIf="showHistoryFlag" class="notification-history-card">
+  <nb-card-header>
+    <h3>Notification History</h3>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let item of notificationHistory" class="notification-item">
+        <nb-icon [icon]="getLevelIcon(item.level)" [ngClass]="getLevelColor(item.level)" class="notification-icon"></nb-icon>
+        <div class="notification-details">
+          <span class="notification-station">{{ item.station }}:</span>
+          <span class="notification-message">{{ item.message }}</span>
+          <small class="text-muted notification-time">{{ item.timestamp | date:'short' }}</small>
+        </div>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="success" (click)="hideHistory()">Hide History</button>
+  </nb-card-footer>
+</nb-card>
