@@ -2,8 +2,10 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import { HttpClient } from '@angular/common/http';
 import { UploadAdapter } from '@ckeditor/ckeditor5-upload';
+import InlineEditor from '@ckeditor/ckeditor5-build-inline';
 
 @Component({
   selector: 'ngx-ckeditor',
@@ -20,7 +22,7 @@ import { UploadAdapter } from '@ckeditor/ckeditor5-upload';
 export class CkeditorComponent implements OnInit, ControlValueAccessor {
   @Input() initialData: string;
 
-  public Editor = ClassicEditor;
+  public Editor = InlineEditor;
   public editorData: string;
 
   private onChange: (value: any) => void;

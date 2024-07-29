@@ -44,6 +44,8 @@
     "@ckeditor/ckeditor5-adapter-ckfinder": "^42.0.1",
     "@ckeditor/ckeditor5-angular": "^8.0.0",
     "@ckeditor/ckeditor5-build-classic": "^42.0.1",
+    "@ckeditor/ckeditor5-build-inline": "^42.0.2",
+    "@ckeditor/ckeditor5-font": "^42.0.2",
     "@ckeditor/ckeditor5-upload": "^42.0.1",
     "@nebular/auth": "11.0.1",
     "@nebular/eva-icons": "11.0.1",
