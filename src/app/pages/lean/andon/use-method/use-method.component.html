@@ -1,101 +1,35 @@
-
 <div class="header">
   <h1><i class="fas fa-project-diagram"></i> LeanFlowMaster</h1>
   <p>Custom Andon Dashboard Builder</p>
 </div>
-<ngx-notifications></ngx-notifications>
-<div class="container">
-  <div class="wizard-container">
-      <div class="wizard-steps">
-          <div class="wizard-step" [class.active]="currentStep === 1" (click)="nextStep(1)">
-              <i class="fas fa-cog"></i> Dashboard Settings
-          </div>
-          <div class="wizard-step" [class.active]="currentStep === 2" (click)="nextStep(2)">
-              <i class="fas fa-plus-circle"></i> Add Stations
-          </div>
-          <div class="wizard-step" [class.active]="currentStep === 3" (click)="nextStep(3)">
-              <i class="fas fa-sliders-h"></i> Configure Thresholds
-          </div>
-          <div class="wizard-step" [class.active]="currentStep === 4" (click)="nextStep(4)">
-              <i class="fas fa-eye"></i> Preview
-          </div>
-      </div>
 
-      <div class="wizard-content">
-          <div class="step-content" [class.active]="currentStep === 1">
-              <h2>Dashboard Settings</h2>
-              <div class="form-group">
-                  <label for="dashboardName">Dashboard Name:</label>
-                  <input type="text" id="dashboardName" placeholder="Enter dashboard name" [(ngModel)]="dashboardName">
-              </div>
-              <div class="form-group">
-                  <label for="refreshRate">Refresh Rate (seconds):</label>
-                  <input type="number" id="refreshRate" min="1" [(ngModel)]="refreshRate">
-              </div>
-              <button (click)="nextStep(2)">Next <i class="fas fa-arrow-right"></i></button>
-          </div>
-
-          <div class="step-content" [class.active]="currentStep === 2">
-              <h2>Add Stations</h2>
-              <div class="form-group">
-                  <label for="stationName">Station Name:</label>
-                  <input type="text" id="stationName" placeholder="Enter station name" [(ngModel)]="stationName">
-              </div>
-              <div class="form-group">
-                  <label for="metricName">Metric Name:</label>
-                  <input type="text" id="metricName" placeholder="Enter metric name" [(ngModel)]="metricName">
-              </div>
-              <div class="form-group">
-                  <label for="targetValue">Target Value:</label>
-                  <input type="number" id="targetValue" min="0" placeholder="Enter target value" [(ngModel)]="targetValue">
-              </div>
-              <div class="form-group">
-                  <label for="icon">Icon:</label>
-                  <select id="icon" [(ngModel)]="selectedIcon">
-                      <option value="fa-cog">Cog</option>
-                      <option value="fa-box">Box</option>
-                      <option value="fa-truck">Truck</option>
-                      <option value="fa-clipboard-check">Clipboard</option>
-                      <option value="fa-industry">Industry</option>
-                  </select>
-              </div>
-              <button (click)="addStation()">Add Station</button>
-              <div class="station-list" id="stationList">
-                  <div *ngFor="let station of stations; let index = index" class="station-item">
-                      <span><i class="fas {{ station.icon }}"></i> {{ station.name }} - {{ station.metric }}</span>
-                      <button class="remove-station" (click)="removeStation(index)">Remove</button>
-                  </div>
-              </div>
-              <button (click)="nextStep(3)">Next <i class="fas fa-arrow-right"></i></button>
-          </div>
-
-          <div class="step-content" [class.active]="currentStep === 3">
-              <h2>Configure Thresholds</h2>
-              <div class="form-group">
-                  <label for="warningThreshold">Warning Threshold (%):</label>
-                  <input type="number" id="warningThreshold" min="0" max="100" [(ngModel)]="warningThreshold">
-              </div>
-              <div class="form-group">
-                  <label for="criticalThreshold">Critical Threshold (%):</label>
-                  <input type="number" id="criticalThreshold" min="0" max="100" [(ngModel)]="criticalThreshold">
-              </div>
-              <button (click)="nextStep(4)">Preview Dashboard <i class="fas fa-eye"></i></button>
-          </div>
-
-          <div class="step-content" [class.active]="currentStep === 4">
-            <h2>Dashboard Preview</h2>
-            <ngx-dashboard></ngx-dashboard>
-            <div class="preview-container" id="previewContainer">
-                <div *ngFor="let station of stations" class="preview-station">
-                    <h3><i class="fas {{ station.icon }}"></i> {{ station.name }}</h3>
-                    <p>{{ station.metric }}</p>
-                    <div class="preview-metric">0</div>
-                    <div class="preview-status">Normal</div>
-                </div>
-            </div>
-            <button (click)="generateDashboard()">Generate Dashboard <i class="fas fa-check"></i></button>
-        </div>
-
-      </div>
+<div class="container" *ngIf="selectedDashboard; else selectDashboard">
+  <h2>{{ selectedDashboard.name }}</h2>
+  <p>Refresh Rate: {{ selectedDashboard.refreshRate }} seconds</p>
+  <div class="button-group">
+    <button nbButton status="info" (click)="onBackToSelection()">Back to Selection</button>
+    <button nbButton status="danger" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
   </div>
+  <div class="preview-container" id="previewContainer">
+    <div *ngFor="let station of selectedDashboard.stations" class="preview-station">
+      <h3><i class="fas {{ station.icon }}"></i> {{ station.name }}</h3>
+      <p>{{ station.metric_name }}</p>
+      <div class="preview-metric">{{ station.target_value }}</div>
+      <div class="preview-status">Normal</div>
+    </div>
+  </div>
+  <ngx-notifications [dashboard]="selectedDashboard"></ngx-notifications>
 </div>
+
+<ng-template #selectDashboard>
+  <div class="container">
+    <h2>Select a Dashboard</h2>
+    <div class="dashboard-list">
+      <div *ngFor="let dashboard of dashboards" class="dashboard-item">
+        <h3>{{ dashboard.name }}</h3>
+        <p>Refresh Rate: {{ dashboard.refreshRate }} seconds</p>
+        <button nbButton status="primary" (click)="onSelectDashboard(dashboard)">Open Dashboard</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

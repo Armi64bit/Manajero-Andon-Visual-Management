@@ -42,7 +42,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ImgprevComponent } from './imgprev/imgprev.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationDetailModalComponent } from './notification-detail-modal/notification-detail-modal.component';
-
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,8 +82,7 @@ import { NotificationDetailModalComponent } from './notification-detail-modal/no
     ImgprevComponent,
     NotificationsComponent,
     NotificationDetailModalComponent,
-
-
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,

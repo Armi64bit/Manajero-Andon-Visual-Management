@@ -32,7 +32,7 @@ class WhatIfServiceTest {
   @BeforeEach
   void setUp() {
     whatIf = new Whatif();
-    whatIf.setId("1");
+
     whatIf.setTitle("Sample Title");
     whatIf.setSubpoint1("Sample Subpoint1");
     whatIf.setContent1("Sample Content1");

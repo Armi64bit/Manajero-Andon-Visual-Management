@@ -1,0 +1,16 @@
+<nb-card>
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body class="text-center px-3 px-sm-4 py-3 py-sm-4">
+    <div *ngIf="!showCheckmark">{{ message }}</div>
+    <div *ngIf="showCheckmark" class="checkmark">
+      <svg viewBox="0 0 24 24" class="checkmark-icon" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L19 7"/>
+      </svg>
+      <p class="checkmark-text">Saved!</p>
+    </div>
+  </nb-card-body>
+  <nb-card-footer class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+    <button nbButton status="success" class="mb-2 mb-sm-0 mr-sm-2" (click)="confirm()">Yes</button>
+    <button nbButton status="danger" (click)="cancel()">No</button>
+  </nb-card-footer>
+</nb-card>

@@ -1,14 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { NotificationDetailModalComponent } from '../notification-detail-modal/notification-detail-modal.component';
+import { Dashboard } from '../api/dashboard.model'; // Ensure this matches your actual path
 
+// Define the Notification interface
+export interface Notification {
+  id: string;
+  type: string;
+  message: string;
+  timestamp: string;
+  dataSource: string;
+}
+
+// Update StationNotification to match the expected display format
 interface StationNotification {
   station: string;
   message: string;
   level: 'info' | 'warning' | 'critical';
-  status: 'resolved' | 'in-progress' | 'new'; // Add status property
+  status: 'resolved' | 'in-progress' | 'new';
   timestamp: Date;
-  note?: string; // Add optional note property
+  note?: string;
 }
 
 @Component({
@@ -16,29 +27,59 @@ interface StationNotification {
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnChanges {
+  @Input() dashboard: Dashboard | null = null;
 
-  notifications: StationNotification[] = [
-    { station: 'Station 1', message: 'Temperature exceeded threshold', level: 'warning', status: 'new', timestamp: new Date() },
-    { station: 'Station 2', message: 'Sensor failure detected', level: 'critical', status: 'new', timestamp: new Date() },
-    { station: 'Station 3', message: 'Normal operation', level: 'info', status: 'resolved', timestamp: new Date() },
-  ];
-
-  notificationHistory: StationNotification[] = [
-    { station: 'Station 1', message: 'Routine maintenance completed', level: 'info', status: 'resolved', timestamp: new Date() },
-    { station: 'Station 2', message: 'Calibration adjusted', level: 'info', status: 'resolved', timestamp: new Date() },
-  ];
-
+  notifications: StationNotification[] = [];
   showHistoryFlag = false;
 
   constructor(private dialogService: NbDialogService) {}
 
-  showHistory() {
-    this.showHistoryFlag = true;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.dashboard && this.dashboard) {
+      this.loadNotifications();
+    }
   }
 
-  hideHistory() {
-    this.showHistoryFlag = false;
+  loadNotifications(): void {
+    if (this.dashboard) {
+      this.notifications = this.dashboard.notifications.map(notification => ({
+        station: this.getStationName(notification.dataSource),
+        message: notification.message,
+        level: this.mapNotificationLevel(notification.type),
+        status: 'new', // Set default status or implement a way to determine it
+        timestamp: new Date(notification.timestamp)
+      }));
+
+      // Sort notifications by timestamp in descending order (most recent first)
+      this.notifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+    }
+  }
+
+  getStationName(dataSource: string): string {
+    // Implement a method to map dataSource to station name if needed
+    return dataSource;
+  }
+
+  mapNotificationLevel(type: string): 'info' | 'warning' | 'critical' {
+    switch (type.toLowerCase()) {
+      case 'info':
+        return 'info';
+      case 'warning':
+        return 'warning';
+      case 'critical':
+        return 'critical';
+      default:
+        return 'info'; // Default to 'info' if the type doesn't match
+    }
+  }
+
+  getDisplayedNotifications(): StationNotification[] {
+    return this.showHistoryFlag ? this.notifications : this.notifications.slice(0, 2);
+  }
+
+  toggleHistory(): void {
+    this.showHistoryFlag = !this.showHistoryFlag;
   }
 
   openDetails(notification: StationNotification) {
@@ -48,7 +89,6 @@ export class NotificationsComponent {
       }
     }).onClose.subscribe((updatedNotification: StationNotification) => {
       if (updatedNotification) {
-        // Update the notification with the new status and note
         const index = this.notifications.findIndex(n => n.station === updatedNotification.station && n.timestamp.getTime() === updatedNotification.timestamp.getTime());
         if (index > -1) {
           this.notifications[index] = updatedNotification;
