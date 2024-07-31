@@ -5,31 +5,67 @@
 
 <div class="container" *ngIf="selectedDashboard; else selectDashboard">
   <h2>{{ selectedDashboard.name }}</h2>
-  <p>Refresh Rate: {{ selectedDashboard.refreshRate }} seconds</p>
-  <div class="button-group">
-    <button nbButton status="info" (click)="onBackToSelection()">Back to Selection</button>
-    <button nbButton status="danger" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
-  </div>
-  <div class="preview-container" id="previewContainer">
-    <div *ngFor="let station of selectedDashboard.stations" class="preview-station">
-      <h3><i class="fas {{ station.icon }}"></i> {{ station.name }}</h3>
-      <p>{{ station.metric_name }}</p>
-      <div class="preview-metric">{{ station.target_value }}</div>
-      <div class="preview-status">Normal</div>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="alert alert-info d-flex align-items-center">
+          <i class="fas fa-sync-alt fa-2x me-3"></i>
+          <div>
+            <h5 class="mb-1">Refresh Rate</h5>
+            <p class="mb-0">
+              <span class="badge bg-primary whi">{{ selectedDashboard.refreshRate }} seconds</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+    <div class="button-group">
+    <button class="mx-5" nbButton status="info" (click)="onBackToSelection()">Back to Selection</button>
+    <button nbButton status="danger" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
+  </div>
+  <div class="container mt-4">
+    <div class="row" id="previewContainer">
+      <div *ngFor="let station of selectedDashboard.stations" class="col-md-4 mb-4">
+        <div class="card border-primary" [nbTooltip]="station.name"
+         nbTooltipStatus="info">
+          <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="fas {{ station.icon }} fa-2x me-2"></i>
+            <h5 class="mb-0 text-truncate" style="max-width: calc(100% - 3rem);">{{ station.name }}</h5>
+          </div>
+          <div class="card-body">
+            <!-- <h6 class="card-title text-truncate" >{{ station.metric_name }}</h6> -->
+            <p class="card-text text-truncate" style="font-size: 1.5rem; white-space: normal; overflow-wrap: break-word;">
+              {{ station.target_value }}
+            </p>
+          </div>
+          <div class="card-footer bg-light text-center">
+            <span class="badge bg-success">Normal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <ngx-notifications [dashboard]="selectedDashboard"></ngx-notifications>
 </div>
 
 <ng-template #selectDashboard>
-  <div class="container">
-    <h2>Select a Dashboard</h2>
-    <div class="dashboard-list">
-      <div *ngFor="let dashboard of dashboards" class="dashboard-item">
-        <h3>{{ dashboard.name }}</h3>
-        <p>Refresh Rate: {{ dashboard.refreshRate }} seconds</p>
-        <button nbButton status="primary" (click)="onSelectDashboard(dashboard)">Open Dashboard</button>
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Select a Dashboard</h2>
+    <div class="row">
+      <div *ngFor="let dashboard of dashboards" class="col-md-4 mb-3">
+        <div class="card dashboard-card">
+          <div class="card-body d-flex flex-column align-items-center">
+            <nb-icon icon="settings-outline" pack="eva" class="dashboard-icon mb-3" size="96"></nb-icon> <!-- Bigger Icon -->
+            <h4 class="card-title mb-2 text-center">{{ dashboard.name }}</h4>
+            <p class="card-text text-center mb-3"><strong> Rate:</strong> {{ dashboard.refreshRate }} seconds</p>
+            <button nbButton status="primary" (click)="onSelectDashboard(dashboard)" class="btn-block">Open Dashboard</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </ng-template>
+

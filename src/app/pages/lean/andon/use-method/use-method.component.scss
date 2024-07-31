@@ -146,7 +146,6 @@ button:hover {
     border-radius: 8px;
     padding: 1rem;
     box-shadow: var(--box-shadow);
-    width: 85%;
 }
 
 .preview-station h3 {
@@ -229,4 +228,47 @@ button:hover {
     .wizard-step {
         margin-bottom: 0.5rem;
     }
+}
+.dashboard-list {
+  .card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+}
+.dashboard-card {
+  border-radius: 8px; // Rounded corners
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
+  height: 100%; // Ensure cards take full height of the column
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
+    transform: translateY(-4px); // Slight lift effect on hover
+  }
+}
+
+.dashboard-icon {
+  color: #007bff; // Primary color for the icon
+}
+
+.card-body {
+  text-align: center;
 }

@@ -3,17 +3,53 @@
     <h3>Station Notifications</h3>
   </nb-card-header>
   <nb-card-body>
-    <nb-list>
-      <nb-list-item *ngFor="let notification of getDisplayedNotifications()" class="notification-item" (click)="openDetails(notification)">
-        <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon"></nb-icon>
-        <div class="notification-details">
-          <span class="notification-station">{{ notification.station }}:</span>
-          <span class="notification-message">{{ notification.message }}</span>
-          <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
-          <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
-        </div>
-      </nb-list-item>
-    </nb-list>
+
+    <!-- New Notifications -->
+    <ng-container *ngIf="newNotifications.length > 0">
+      <h4>New</h4>
+      <nb-list>
+        <nb-list-item *ngFor="let notification of newNotifications" class="notification-item" (click)="openDetails(notification)">
+          <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon"></nb-icon>
+          <div class="notification-details">
+            <span class="notification-station">{{ notification.station }}:</span>
+            <span class="notification-message">{{ notification.message }}</span>
+            <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
+            <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+          </div>
+        </nb-list-item>
+      </nb-list>
+    </ng-container>
+ <!-- In-Progress Notifications -->
+ <ng-container *ngIf="inProgressNotifications.length > 0">
+  <h4>In Progress</h4>
+  <nb-list>
+    <nb-list-item *ngFor="let notification of inProgressNotifications" class="notification-item" (click)="openDetails(notification)">
+      <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon"></nb-icon>
+      <div class="notification-details">
+        <span class="notification-station">{{ notification.station }}:</span>
+        <span class="notification-message">{{ notification.message }}</span>
+        <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
+        <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+      </div>
+    </nb-list-item>
+  </nb-list>
+</ng-container>
+
+    <!-- Resolved Notifications -->
+    <ng-container *ngIf="resolvedNotifications.length > 0">
+      <h4>Resolved</h4>
+      <nb-list>
+        <nb-list-item *ngFor="let notification of resolvedNotifications" class="notification-item" (click)="openDetails(notification)">
+          <nb-icon [icon]="getLevelIcon(notification.level)" [ngClass]="getLevelColor(notification.level)" class="notification-icon"></nb-icon>
+          <div class="notification-details">
+            <span class="notification-station">{{ notification.station }}:</span>
+            <span class="notification-message">{{ notification.message }}</span>
+            <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
+            <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+          </div>
+        </nb-list-item>
+      </nb-list>
+    </ng-container>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton status="primary" (click)="toggleHistory()">

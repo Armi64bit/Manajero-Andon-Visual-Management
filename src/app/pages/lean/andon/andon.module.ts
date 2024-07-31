@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbListModule, NbSelectModule, NbStepperModule, NbTabsetModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbLayoutModule, NbListModule, NbSelectModule, NbStepperModule, NbTabsetModule, NbTooltipModule } from '@nebular/theme';
 import { AndonRoutingModule } from './andon-routing.module';
 import { WorkshopComponent } from './workshop/workshop.component';
 import { UseMethodComponent } from './use-method/use-method.component';
@@ -99,7 +99,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     CKEditorModule,
     ReactiveFormsModule,
     NbListModule,
-    NbSelectModule
+    NbSelectModule,
+    NbTooltipModule
 
 
   ]

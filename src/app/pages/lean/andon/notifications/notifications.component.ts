@@ -33,7 +33,9 @@ export class NotificationsComponent implements OnChanges {
 
   notifications: StationNotification[] = [];
   showHistoryFlag = false;
-
+  inProgressNotifications: StationNotification[] = [];
+  newNotifications: StationNotification[] = [];
+  resolvedNotifications: StationNotification[] = [];
   constructor(private dialogService: NbDialogService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -45,19 +47,28 @@ export class NotificationsComponent implements OnChanges {
   loadNotifications(): void {
     if (this.dashboard) {
       this.notifications = this.dashboard.notifications.map(notification => ({
-        id: notification.id, // Ensure id is included
-        station: this.getStationName(notification.dataSource),
+        id: notification.id,
+        station: this.getStationName(notification.station),
         message: notification.message,
-        level: this.mapNotificationLevel(notification.type),
-        status: 'new', // Set default status or implement a way to determine it
+        level: this.mapNotificationLevel(notification.level),
+        status: notification.status ?? 'new',
         timestamp: new Date(notification.timestamp),
-        note: notification.note // Include note if available
+        note: notification.note
       }));
 
-      // Sort notifications by timestamp in descending order (most recent first)
-      this.notifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+      // Categorize notifications
+      this.inProgressNotifications = this.notifications.filter(n => n.status === 'in-progress');
+      this.newNotifications = this.notifications.filter(n => n.status === 'new');
+      this.resolvedNotifications = this.notifications.filter(n => n.status === 'resolved');
+
+      // Sort notifications by timestamp in descending order
+      this.inProgressNotifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+      this.newNotifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+      this.resolvedNotifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
     }
   }
+
+
 
 
   getStationName(dataSource: string): string {
@@ -93,16 +104,30 @@ export class NotificationsComponent implements OnChanges {
       }
     }).onClose.subscribe((updatedNotification: StationNotification) => {
       if (updatedNotification) {
+        // Ensure timestamp is a Date object
+        if (!(updatedNotification.timestamp instanceof Date)) {
+          updatedNotification.timestamp = new Date(updatedNotification.timestamp);
+        }
+
         // Update the notification in the list
         const index = this.notifications.findIndex(n => n.id === updatedNotification.id);
         if (index > -1) {
+          // Ensure existing notifications have valid Date objects for sorting
+          this.notifications.forEach(n => {
+            if (!(n.timestamp instanceof Date)) {
+              n.timestamp = new Date(n.timestamp);
+            }
+          });
+
           this.notifications[index] = updatedNotification;
+
           // Optional: Sort the notifications if needed
           this.notifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
         }
       }
     });
   }
+
 
 
 
