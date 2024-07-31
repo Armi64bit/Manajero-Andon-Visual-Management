@@ -1,14 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-
-interface StationNotification {
-  station: string;
-  message: string;
-  level: 'info' | 'warning' | 'critical';
-  status: 'resolved' | 'in-progress' | 'new';
-  timestamp: Date;
-  note?: string;
-}
+import { Notification } from '../api/dashboard.model';
+import { NotificationService } from '../api/notifications.service';
 
 @Component({
   selector: 'ngx-notification-detail-modal',
@@ -16,19 +9,39 @@ interface StationNotification {
   styleUrls: ['./notification-detail-modal.component.scss']
 })
 export class NotificationDetailModalComponent {
-  notification: StationNotification;
+  notification: Notification;
 
-  constructor(protected dialogRef: NbDialogRef<NotificationDetailModalComponent>) {}
+  constructor(
+    protected dialogRef: NbDialogRef<NotificationDetailModalComponent>,
+    private notificationService: NotificationService, // Inject NotificationService
+    private cdr: ChangeDetectorRef
+  ) {}
 
   close() {
     this.dialogRef.close();
   }
 
   saveChanges() {
-    // Handle saving changes, e.g., update the notification status and note
-    console.log('Changes saved:', this.notification);
-    this.dialogRef.close(this.notification); // Pass the updated notification back
+    console.log('Saving notification:', this.notification);
+
+    if (this.notification && this.notification.id) {
+      this.notificationService.updateNotification(this.notification.id, this.notification).subscribe(
+        updatedNotification => {
+          console.log('Notification updated successfully:', updatedNotification);
+          this.dialogRef.close(updatedNotification); // Close and return updated notification
+          
+        },
+        error => {
+          console.error('Error updating notification:', error);
+        }
+      );
+    } else {
+      console.error('Notification is missing an ID');
+    }
+    this.cdr.detectChanges(); // Ensure the view is updated
   }
+
+
 
   getLevelColor(level: 'info' | 'warning' | 'critical'): string {
     switch (level) {

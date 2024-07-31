@@ -31,6 +31,27 @@
 
   .btn-close:hover {
     color: var(--nb-theme-color-primary-dark);
+  }/* Custom styles for select element */
+  select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--nb-theme-color-basic-400); /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: var(--nb-theme-color-basic-200); /* Background color */
+    font-size: 1rem;
+    color: var(--nb-theme-color-basic-800); /* Text color */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  select:focus {
+    border-color: var(--nb-theme-color-primary); /* Border color on focus */
+    background-color: var(--nb-theme-color-basic-100); /* Background color on focus */
+    outline: none; /* Remove default outline */
+  }
+
+  /* Custom styles for option elements */
+  option {
+    background-color: var(--nb-theme-color-basic-200); /* Option background color */
+    color: var(--nb-theme-color-basic-800); /* Option text color */
   }
 }
 

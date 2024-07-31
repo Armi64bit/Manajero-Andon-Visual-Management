@@ -9,10 +9,23 @@ export interface Alert {
 
 export interface Notification {
   id: string;
-  type: string;
+  station: string;
   message: string;
-  timestamp: string;
-  dataSource: string;
+  level: 'info' | 'warning' | 'critical';
+  status: 'resolved' | 'in-progress' | 'new';
+  timestamp: Date;
+  note?: string;
+  type?: string; // Optional
+  dataSource?: string; // Optional
+}
+export interface StationNotification {
+  id: string;
+  station: string;
+  message: string;
+  level: 'info' | 'warning' | 'critical';
+  status: 'resolved' | 'in-progress' | 'new';
+  timestamp: Date;
+  note?: string;
 }
 
 export interface Station {
@@ -30,7 +43,7 @@ export interface Threshold {
 }
 
 export interface Dashboard {
-  id: string; 
+  id: string;
   name: string;
   refreshRate: number;
   alerts: Alert[];

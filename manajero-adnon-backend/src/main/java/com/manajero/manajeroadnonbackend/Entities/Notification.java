@@ -15,10 +15,16 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Notification {
   @Id
+
   String id;
-  String type;
+  String station;
   String message;
+  String level;
+  String status;
+
   LocalDateTime timestamp;
+  String note;
+  String type; // Optional
   String dataSource;
 
 

@@ -14,6 +14,7 @@ export interface Notification {
 
 // Update StationNotification to match the expected display format
 interface StationNotification {
+  id: string;
   station: string;
   message: string;
   level: 'info' | 'warning' | 'critical';
@@ -44,11 +45,13 @@ export class NotificationsComponent implements OnChanges {
   loadNotifications(): void {
     if (this.dashboard) {
       this.notifications = this.dashboard.notifications.map(notification => ({
+        id: notification.id, // Ensure id is included
         station: this.getStationName(notification.dataSource),
         message: notification.message,
         level: this.mapNotificationLevel(notification.type),
         status: 'new', // Set default status or implement a way to determine it
-        timestamp: new Date(notification.timestamp)
+        timestamp: new Date(notification.timestamp),
+        note: notification.note // Include note if available
       }));
 
       // Sort notifications by timestamp in descending order (most recent first)
@@ -56,13 +59,14 @@ export class NotificationsComponent implements OnChanges {
     }
   }
 
+
   getStationName(dataSource: string): string {
     // Implement a method to map dataSource to station name if needed
     return dataSource;
   }
 
   mapNotificationLevel(type: string): 'info' | 'warning' | 'critical' {
-    switch (type.toLowerCase()) {
+    switch (type) {
       case 'info':
         return 'info';
       case 'warning':
@@ -89,13 +93,18 @@ export class NotificationsComponent implements OnChanges {
       }
     }).onClose.subscribe((updatedNotification: StationNotification) => {
       if (updatedNotification) {
-        const index = this.notifications.findIndex(n => n.station === updatedNotification.station && n.timestamp.getTime() === updatedNotification.timestamp.getTime());
+        // Update the notification in the list
+        const index = this.notifications.findIndex(n => n.id === updatedNotification.id);
         if (index > -1) {
           this.notifications[index] = updatedNotification;
+          // Optional: Sort the notifications if needed
+          this.notifications.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
         }
       }
     });
   }
+
+
 
   getLevelColor(level: 'info' | 'warning' | 'critical'): string {
     switch (level) {

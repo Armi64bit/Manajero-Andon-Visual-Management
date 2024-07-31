@@ -15,11 +15,11 @@
       </div>
       <div class="mb-3">
         <label for="status">Status:</label>
-        <nb-select id="status" [(ngModel)]="notification.status">
-          <nb-option value="new">New</nb-option>
-          <nb-option value="in-progress">In Progress</nb-option>
-          <nb-option value="resolved">Resolved</nb-option>
-        </nb-select>
+        <select id="status" [(ngModel)]="notification.status">
+          <option value="new">New</option>
+          <option value="in-progress">In Progress</option>
+          <option value="resolved">Resolved</option>
+        </select>
       </div>
       <div class="mb-3">
         <label for="note">Note:</label>
