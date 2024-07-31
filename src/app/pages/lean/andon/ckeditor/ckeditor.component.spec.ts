@@ -11,12 +11,10 @@ describe('CkeditorComponent', () => {
       declarations: [ CkeditorComponent ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(CkeditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
