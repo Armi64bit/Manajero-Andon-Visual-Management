@@ -4,21 +4,21 @@
     <nb-icon icon="edit-outline" (click)="openEditModal()" style="font-size: 2rem; cursor: pointer;"></nb-icon>
   </nb-card-header>
   <nb-card-body>
-    <h5>{{ what.title }}</h5>
+    <h5>{{ what?.title }}</h5>
 
     <!-- Text and Image Containers -->
     <div class="text-image-container row">
       <div class="col-md-6">
         <!-- Subpoint 1 -->
         <div class="text-container">
-          <strong>{{ what.subpoint1 }}:</strong>     <div [innerHTML]="what.content1"></div>
+          <strong>{{ what?.subpoint1 }}:</strong>     <div [innerHTML]="what?.content1"></div>
 
         </div>
       </div>
       <div class="col-md-6">
         <!-- Image 1 -->
         <div class="image-container">
-          <img [src]="what.image1" alt="Early Defect Detection" class="responsive-image">
+          <img [src]="what?.image1" alt="Early Defect Detection" class="responsive-image">
         </div>
       </div>
     </div>
@@ -27,13 +27,13 @@
       <div class="col-md-6 order-md-2">
         <!-- Subpoint 2 -->
         <div class="text-container">
-          <strong>{{ what.subpoint2 }}:</strong>  <div [innerHTML]="what.content2"></div>
+          <strong>{{ what?.subpoint2 }}:</strong>  <div [innerHTML]="what?.content2"></div>
         </div>
       </div>
       <div class="col-md-6 order-md-1">
         <!-- Image 2 -->
         <div class="image-container">
-          <img [src]="what.image2" alt="Early Defect Detection" class="responsive-image">
+          <img [src]="what?.image2" alt="Early Defect Detection" class="responsive-image">
         </div>
       </div>
     </div>
@@ -42,13 +42,13 @@
       <div class="col-md-6">
         <!-- Subpoint 3 -->
         <div class="text-container">
-          <strong>{{ what.subpoint3 }}:</strong> <div [innerHTML]="what.content3"></div>
+          <strong>{{ what?.subpoint3 }}:</strong> <div [innerHTML]="what?.content3"></div>
         </div>
       </div>
       <div class="col-md-6">
         <!-- Image 3 -->
         <div class="image-container">
-          <img [src]="what.image3" alt="Early Defect Detection" class="responsive-image">
+          <img [src]="what?.image3" alt="Early Defect Detection" class="responsive-image">
         </div>
       </div>
     </div>
@@ -57,13 +57,13 @@
       <div class="col-md-6 order-md-2">
         <!-- Subpoint 4 -->
         <div class="text-container">
-          <strong>{{ what.subpoint4 }}:</strong> <div [innerHTML]="what.content4"></div>
+          <strong>{{ what?.subpoint4 }}:</strong> <div [innerHTML]="what?.content4"></div>
         </div>
       </div>
       <div class="col-md-6 order-md-1">
         <!-- Image 4 -->
         <div class="image-container">
-          <img [src]="what.image4" alt="Early Defect Detection" class="responsive-image">
+          <img [src]="what?.image4" alt="Early Defect Detection" class="responsive-image">
         </div>
       </div>
     </div>

@@ -13,11 +13,12 @@
           <div class="notification-details">
             <span class="notification-station">{{ notification.station }}:</span>
             <span class="notification-message">{{ notification.message }}</span>
-            <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
-            <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+            <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}"></small>
+            <small class="notification-status float-right" [ngClass]="notification.status">{{ notification.status }}</small>
           </div>
         </nb-list-item>
       </nb-list>
+
     </ng-container>
  <!-- In-Progress Notifications -->
  <ng-container *ngIf="inProgressNotifications.length > 0">
@@ -28,8 +29,8 @@
       <div class="notification-details">
         <span class="notification-station">{{ notification.station }}:</span>
         <span class="notification-message">{{ notification.message }}</span>
-        <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
-        <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+        <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}"></small>
+        <small class="notification-status float-right" [ngClass]="notification.status">{{ notification.status }}</small>
       </div>
     </nb-list-item>
   </nb-list>
@@ -44,16 +45,17 @@
           <div class="notification-details">
             <span class="notification-station">{{ notification.station }}:</span>
             <span class="notification-message">{{ notification.message }}</span>
-            <small class="notification-status ml-2" [ngClass]="notification.status">{{ notification.status }}</small>
             <small class="text-muted notification-time">{{ notification.timestamp | date:'short' }}</small>
+            <small class="notification-status float-right" [ngClass]="notification.status">{{ notification.status }}</small>
           </div>
         </nb-list-item>
       </nb-list>
+
     </ng-container>
   </nb-card-body>
-  <nb-card-footer>
+  <!-- <nb-card-footer>
     <button nbButton status="primary" (click)="toggleHistory()">
       {{ showHistoryFlag ? 'Show Less' : 'View History' }}
     </button>
-  </nb-card-footer>
+  </nb-card-footer> -->
 </nb-card>

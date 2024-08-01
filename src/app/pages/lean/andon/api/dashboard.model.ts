@@ -34,6 +34,7 @@ export interface Station {
   metric_name: string;
   target_value: string;
   icon: string;
+  status:string,
 }
 
 export interface Threshold {

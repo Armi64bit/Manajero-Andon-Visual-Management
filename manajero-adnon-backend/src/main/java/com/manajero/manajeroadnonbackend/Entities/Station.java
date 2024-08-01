@@ -18,5 +18,5 @@ public class Station {
   String metric_name;
   String target_value;
   String icon;
-
+  String status;
 }

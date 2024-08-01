@@ -38,13 +38,15 @@ public class StationController {
 
   @PutMapping("/{id}")
   public ResponseEntity<Station> updateStation(@PathVariable String id, @RequestBody Station station) {
-    if (stationService.getStationById(id).isPresent()) {
+    Optional<Station> existingStation = stationService.getStationById(id);
+    if (existingStation.isPresent()) {
       Station updatedStation = stationService.updateStation(id, station);
       return ResponseEntity.ok(updatedStation);
     } else {
       return ResponseEntity.notFound().build();
     }
   }
+
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteStation(@PathVariable String id) {
