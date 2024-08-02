@@ -250,20 +250,20 @@ button:hover {
     width: 100%;
   }
 }
-// .dashboard-card {
-//   border-radius: 8px; // Rounded corners
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
-//   height: 100%; // Ensure cards take full height of the column
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   transition: box-shadow 0.3s ease, transform 0.3s ease;
+.dashboard-card {
+  border-radius: 8px; // Rounded corners
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
+  height: 100%; // Ensure cards take full height of the column
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 
-//   &:hover {
-//     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
-//     transform: translateY(-4px); // Slight lift effect on hover
-//   }
-// }
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
+    transform: translateY(-4px); // Slight lift effect on hover
+  }
+}
 
 .dashboard-card {
   border-radius: 12px;
