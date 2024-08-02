@@ -1,9 +1,8 @@
-/* Styling for the dropdown button */
 .dropdown-toggle {
   display: flex;
   align-items: center;
-  border-radius: .375rem;
-  padding: .375rem .75rem;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
   background-color: #f8f9fa; /* Matches modal background */
   color: #495057; /* Darker text color */
   border: 1px solid #ced4da; /* Border color */
@@ -12,8 +11,8 @@
 
 /* Dropdown menu styling */
 .dropdown-menu {
-  border-radius: .375rem;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075); /* Matches modal shadow */
+  border-radius: 0.375rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Matches modal shadow */
   background-color: #ffffff; /* White background to match modal */
   border: 1px solid #ced4da; /* Border color to match button */
 }
@@ -22,7 +21,7 @@
 .dropdown-item {
   display: flex;
   align-items: center;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   color: #495057; /* Darker text color */
   text-decoration: none; /* Remove underline */
 }
@@ -34,5 +33,5 @@
 
 /* Align icons properly */
 .dropdown-item nb-icon {
-  margin-right: .5rem; /* Space between icon and text */
+  margin-right: 0.5rem; /* Space between icon and text */
 }
