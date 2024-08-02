@@ -43,6 +43,8 @@ import { ImgprevComponent } from './imgprev/imgprev.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationDetailModalComponent } from './notification-detail-modal/notification-detail-modal.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { StationDetailsComponent } from './station-details/station-details.component';
+import { CreateDashboardComponent } from './create-dashboard/create-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ImgprevComponent,
     NotificationsComponent,
     NotificationDetailModalComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    StationDetailsComponent,
+    CreateDashboardComponent
   ],
   imports: [
     CommonModule,

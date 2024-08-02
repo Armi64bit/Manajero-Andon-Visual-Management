@@ -92,6 +92,7 @@ input[type='text']:focus, input[type='number']:focus, select:focus {
 }
 
 button {
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.7rem 1.2rem;
@@ -141,10 +142,11 @@ button:hover {
 }
 
 .preview-station {
-    background-color:rgb(190 197 205);
+    background-color: rgb(148, 187, 241);
     border-radius: 8px;
     padding: 1rem;
     box-shadow: var(--box-shadow);
+    width: 85%;
 }
 
 .preview-station h3 {
@@ -227,134 +229,4 @@ button:hover {
     .wizard-step {
         margin-bottom: 0.5rem;
     }
-}
-.dashboard-list {
-  .card {
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  }
-
-  .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .card-text {
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .btn-block {
-    width: 100%;
-  }
-}
-// .dashboard-card {
-//   border-radius: 8px; // Rounded corners
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
-//   height: 100%; // Ensure cards take full height of the column
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   transition: box-shadow 0.3s ease, transform 0.3s ease;
-
-//   &:hover {
-//     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
-//     transform: translateY(-4px); // Slight lift effect on hover
-//   }
-// }
-
-.dashboard-card {
-  border-radius: 12px;
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-}
-
-.dashboard-card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-
-.dashboard-icon {
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-right: 0.5rem;
-}
-
-// .station-metric {
-//   font-size: 2rem;
-//   font-weight: bold;
-//   margin: 1rem 0;
-// }
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.animated-target {
-  animation: fadeInOut 1s ease-in-out;
-}
-
-/* Unique styling for the target_value */
-.station-metric {
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.station-metric-updated {
-  color: #f39c12; /* Highlight color when updated */
-}
-.nb-card-header {
-  background-color: var(--background-color);
-  color: white;
-  padding: 1rem;
-}
-
-.nb-card-body {
-  padding: 1rem;
-}
-
-.nb-card-footer {
-  padding: 1rem;
-}
-
-.bg-success {
-  background-color: var(--secondary-color) !important;
-}
-
-.bg-warning {
-  background-color: var(--warning-color) !important;
-}
-
-.bg-danger {
-  background-color: var(--danger-color) !important;
-}
-
-.badge {
-  font-size: 1.25rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-}
-
-.card-body {
-  text-align: center;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-
-
-.badge-large {
-  font-size: 1.5rem; // Larger font size for a bigger badge
-  padding: 0.5rem .75rem; // Larger padding
 }

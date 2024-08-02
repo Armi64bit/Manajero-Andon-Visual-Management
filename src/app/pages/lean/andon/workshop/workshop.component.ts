@@ -1,10 +1,11 @@
-import { Component, AfterViewInit, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { NbIconConfig } from '@nebular/theme';
+import { Component, AfterViewInit, ChangeDetectionStrategy, OnInit, ViewChild } from '@angular/core';
+import { NbIconConfig, NbTabsetComponent } from '@nebular/theme';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Why, WhyService } from '../api/why.service';
 import { What, WhatService } from '../api/what.service';
 import { Whatif, WhatifService } from '../api/whatif.service';
 import { How, HowService } from '../api/how.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ngx-workshop',
@@ -35,7 +36,8 @@ import { How, HowService } from '../api/how.service';
 export class WorkshopComponent implements AfterViewInit,OnInit {
   bellIconConfig: NbIconConfig = { icon: 'bell-outline', pack: 'eva' };
   isVisible = 'hidden';
-
+  selectedIndex = 0;
+  @ViewChild(NbTabsetComponent) tabset: NbTabsetComponent;
   ngAfterViewInit() {
     setTimeout(() => {
       this.isVisible = 'visible';
@@ -46,9 +48,18 @@ export class WorkshopComponent implements AfterViewInit,OnInit {
   whats: What[];
   whatifs: Whatif[];
   hows: How[];
-  constructor(private whyService: WhyService,private whatService: WhatService,private whatifService: WhatifService,private howService: HowService) {}
+  constructor(private route: ActivatedRoute,private whyService: WhyService,private whatService: WhatService,private whatifService: WhatifService,private howService: HowService) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const tab = params['tab'];
+      if (tab === 'use') {
+        setTimeout(() => {
+          this.selectUseTab();
+        });
+      }
+    });
+
     this.whyService.getAllWhys().subscribe(data => {
       this.whys = data;
     });
@@ -61,5 +72,8 @@ export class WorkshopComponent implements AfterViewInit,OnInit {
     this.howService.getAll().subscribe(data => {
       this.hows = data;
     });
+  } selectUseTab() {
+    const useTab = this.tabset.tabs.find(tab => tab.tabTitle.toLowerCase() === 'use');
+    this.tabset.selectTab(useTab);
   }
 }

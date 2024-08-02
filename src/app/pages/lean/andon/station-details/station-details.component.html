@@ -1,0 +1,62 @@
+<div class="card mb-3">
+  <div class="card-header d-flex align-items-center">
+    <nb-icon [icon]="station.icon" pack="eva" class="me-2"></nb-icon>
+    <h5 class="mb-0">{{ station.name }}</h5>
+  </div>
+  <div class="card-body">
+    <ng-container *ngIf="!isEditing; else editTemplate">
+      <p><strong>Name:</strong> {{ station.name }}</p>
+      <p><strong>Metric Name:</strong> {{ station.metric_name }}</p>
+      <p><strong>Target Value:</strong> {{ station.target_value }}</p>
+      <p><strong>Status:</strong> {{ station.status }}</p>
+    </ng-container>
+
+    <ng-template #editTemplate>
+      <form (ngSubmit)="saveChanges()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" [(ngModel)]="station.name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="metricName" class="form-label">Metric Name</label>
+          <input type="text" id="metricName" class="form-control" [(ngModel)]="station.metric_name" name="metric_name" required>
+        </div>
+        <div class="mb-3">
+          <label for="targetValue" class="form-label">Target Value</label>
+          <input type="text" id="targetValue" class="form-control" [(ngModel)]="station.target_value" name="target_value" required>
+        </div>
+        <div class="mb-3">
+          <label for="icon" class="form-label">Icon</label>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="iconDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <nb-icon [icon]="station.icon" pack="eva" size="24" class="me-2"></nb-icon> {{ getIconName(station.icon) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="iconDropdown">
+              <li *ngFor="let icon of icons">
+                <a class="dropdown-item" (click)="selectIcon(icon)">
+                  <nb-icon [icon]="icon.value" pack="eva" size="24" class="me-2"></nb-icon> {{ icon.name }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select id="status" class="form-select" [(ngModel)]="station.status" name="status" required>
+            <option value="normal">Normal</option>
+            <option value="warning">Warning</option>
+            <option value="critical">Critical</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success me-2">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+      </form>
+    </ng-template>
+  </div>
+  <div class="card-footer text-end">
+    <button *ngIf="!isEditing" class="btn btn-primary me-2" (click)="editStation()">Edit</button>
+    <button class="btn btn-secondary" (click)="close()">Close</button>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import { Dashboard, Station } from '../api/dashboard.model';
 import { DashboardService } from '../api/dashboard.service';
 import { NbDialogService } from '@nebular/theme';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { StationDetailsComponent } from '../station-details/station-details.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-use-method',
@@ -16,7 +18,8 @@ export class UseMethodComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private dialogService: NbDialogService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +44,10 @@ export class UseMethodComponent implements OnInit {
       this.loadDashboardData(dashboard.id);
     }
   }
+  onCreateDashboard() {
 
+    this.router.navigate(['/pages/lean/andon/create-dashboard']); // Replace with your actual route
+  }
   onBackToSelection(): void {
     this.selectedDashboard = null;
   }
@@ -93,5 +99,12 @@ export class UseMethodComponent implements OnInit {
         console.error('Error loading dashboard data:', error);
       }
     );
+  }
+  openStationDetails(station: any) {
+    this.dialogService.open(StationDetailsComponent, {
+      context: {
+        station: station
+      }
+    });
   }
 }

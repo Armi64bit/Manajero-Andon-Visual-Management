@@ -2,7 +2,11 @@
   <h1><i class="fas fa-project-diagram"></i> LeanFlowMaster</h1>
   <p>Custom Andon Dashboard Builder</p>
 </div>
-
+<div class="container mt-4">
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-success" (click)="onCreateDashboard()">Create Dashboard</button>
+  </div>
+</div>
 <div class="container" *ngIf="selectedDashboard; else selectDashboard">
   <h2>{{ selectedDashboard.name }}</h2>
   <div class="container mt-4">
@@ -37,7 +41,7 @@
 
     <div class="row" id="previewContainer">
       <div *ngFor="let station of selectedDashboard.stations" class="col-md-4 mb-4">
-        <nb-card [nbTooltip]="station.name" nbTooltipStatus="info" class="dashboard-card">
+        <nb-card [nbTooltip]="station.name" nbTooltipStatus="info" class="dashboard-card" (click)="openStationDetails(station)">
           <nb-card-header class="d-flex align-items-center">
             <i class="fas {{ station.icon }} dashboard-icon me-2"></i>
             <h5 class="mb-0 text-truncate">{{ station.name }}</h5>
