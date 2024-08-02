@@ -8,25 +8,19 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-12">
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <button class=" btn-info m-3" (click)="onBackToSelection()">Back to Selection</button>
-          <button class=" btn-danger m-3" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-4">
-
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="alert alert-info d-flex align-items-center">
-          <i class="fas fa-sync-alt fa-2x mr-5"></i>
-          <div>
-            <h5 class="mb-1">Refresh Rate</h5>
-            <p class="mb-0">
-              <span class="badge bg-primary text-white">{{ selectedDashboard.refreshRate }} seconds</span>
-            </p>
+        <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+          <div class="d-flex flex-column flex-md-row gap-3">
+            <button class="btn btn-info m-3" (click)="onBackToSelection()">Back to Selection</button>
+            <button class="btn btn-danger m-3" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
+          </div>
+          <div class="alert alert-info d-flex align-items-center m-3">
+            <i class="fas fa-sync-alt fa-2x mr-5"></i>
+            <div>
+              <h5 class="mb-1">Refresh Rate</h5>
+              <p class="mb-0">
+                <span class="badge bg-primary text-white">{{ selectedDashboard.refreshRate }} seconds</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -34,12 +28,13 @@
   </div>
 
 
+
   <div class="container mt-4">
     <ngx-dashboard [dashboard]="selectedDashboard" ></ngx-dashboard>
 
     <div class="row" id="previewContainer">
       <div *ngFor="let station of selectedDashboard.stations" class="col-md-4 mb-4">
-        <nb-card [nbTooltip]="station.name" nbTooltipStatus="info" class="dashboard-card" (click)="openStationDetails(station)">
+        <nb-card [nbTooltip]="station.name"  class="dashboard-card" (click)="openStationDetails(station)">
           <nb-card-header class="d-flex align-items-center">
             <i class="fas {{ station.icon }} dashboard-icon me-2"></i>
             <h5 class="mb-0 text-truncate">{{ station.name }}</h5>
