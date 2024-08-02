@@ -2,14 +2,22 @@
   <h1><i class="fas fa-project-diagram"></i> LeanFlowMaster</h1>
   <p>Custom Andon Dashboard Builder</p>
 </div>
-<div class="container mt-4">
-  <div class="d-flex justify-content-end mb-3">
-    <button class="btn btn-success" (click)="onCreateDashboard()">Create Dashboard</button>
-  </div>
-</div>
+
 <div class="container" *ngIf="selectedDashboard; else selectDashboard">
   <h2>{{ selectedDashboard.name }}</h2>
   <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <button class=" btn-info m-3" (click)="onBackToSelection()">Back to Selection</button>
+          <button class=" btn-danger m-3" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+
     <div class="row">
       <div class="col-12 col-md-6">
         <div class="alert alert-info d-flex align-items-center">
@@ -25,16 +33,6 @@
     </div>
   </div>
 
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-12">
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <button class=" btn-info m-3" (click)="onBackToSelection()">Back to Selection</button>
-          <button class=" btn-danger m-3" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="container mt-4">
     <ngx-dashboard [dashboard]="selectedDashboard" ></ngx-dashboard>
@@ -74,7 +72,12 @@
 
 <ng-template #selectDashboard>
   <div class="container mt-4">
-    <h2 class="text-center mb-4">Select a Dashboard</h2>
+    <h2 class="text-center mb-4">Select a Dashboard Or create a new Dashboard</h2>
+    <div class="container mt-4">
+      <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-success" (click)="onCreateDashboard()">Create Dashboard</button>
+      </div>
+    </div>
     <div class="row">
       <div *ngFor="let dashboard of dashboards" class="col-md-4 mb-3">
         <div class="card dashboard-card">
