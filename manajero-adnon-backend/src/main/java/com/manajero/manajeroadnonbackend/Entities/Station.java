@@ -19,4 +19,5 @@ public class Station {
   String target_value;
   String icon;
   String status;
+  private String dashboardId;
 }

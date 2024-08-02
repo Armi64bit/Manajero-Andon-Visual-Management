@@ -92,7 +92,6 @@ input[type='text']:focus, input[type='number']:focus, select:focus {
 }
 
 button {
-    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.7rem 1.2rem;
@@ -250,39 +249,101 @@ button:hover {
     width: 100%;
   }
 }
-.dashboard-card {
-  border-radius: 8px; // Rounded corners
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
-  height: 100%; // Ensure cards take full height of the column
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+// .dashboard-card {
+//   border-radius: 8px; // Rounded corners
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
+//   height: 100%; // Ensure cards take full height of the column
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   transition: box-shadow 0.3s ease, transform 0.3s ease;
 
-  &:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
-    transform: translateY(-4px); // Slight lift effect on hover
-  }
+//   &:hover {
+//     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Darker shadow on hover
+//     transform: translateY(-4px); // Slight lift effect on hover
+//   }
+// }
+
+.dashboard-card {
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
 .dashboard-icon {
-  color: #007bff; // Primary color for the icon
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+// .station-metric {
+//   font-size: 2rem;
+//   font-weight: bold;
+//   margin: 1rem 0;
+// }
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animated-target {
+  animation: fadeInOut 1s ease-in-out;
+}
+
+/* Unique styling for the target_value */
+.station-metric {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.station-metric-updated {
+  color: #f39c12; /* Highlight color when updated */
+}
+.nb-card-header {
+  background-color: var(--background-color);
+  color: white;
+  padding: 1rem;
+}
+
+.nb-card-body {
+  padding: 1rem;
+}
+
+.nb-card-footer {
+  padding: 1rem;
+}
+
+.bg-success {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-warning {
+  background-color: var(--warning-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--danger-color) !important;
+}
+
+.badge {
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
 }
 
 .card-body {
   text-align: center;
 }
-.bg-success {
-  background-color: #28a745 !important; /* Bootstrap success color */
-}
 
-.bg-warning {
-  background-color: #ffc107 !important; /* Bootstrap warning color */
-}
-
-.bg-danger {
-  background-color: #dc3545 !important; /* Bootstrap danger color */
-}
 .card-footer {
   display: flex;
   justify-content: center;
@@ -290,11 +351,7 @@ button:hover {
   padding: 1rem;
 }
 
-.badge {
-  font-size: 1.5rem; // Adjust font size for better visibility
-  padding: 0.75rem 1.25rem; // Increase padding for a larger badge
-  border-radius: 0.5rem; // Rounded corners for the badge
-}
+
 
 .badge-large {
   font-size: 1.5rem; // Larger font size for a bigger badge

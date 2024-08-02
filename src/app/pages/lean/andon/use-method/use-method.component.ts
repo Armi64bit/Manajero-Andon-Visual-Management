@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Dashboard } from '../api/dashboard.model';
+import { Dashboard, Station } from '../api/dashboard.model';
 import { DashboardService } from '../api/dashboard.service';
 import { NbDialogService } from '@nebular/theme';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
@@ -16,7 +16,7 @@ export class UseMethodComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private dialogService: NbDialogService,
-    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -24,12 +24,10 @@ export class UseMethodComponent implements OnInit {
   }
 
   loadDashboards(): void {
-    console.log('Loading dashboards...');
     this.dashboardService.getAllDashboards().subscribe(
       (dashboards: Dashboard[]) => {
         this.dashboards = dashboards;
-        this.cdr.detectChanges(); // Force change detection
-        console.log('Loaded dashboards:', this.dashboards);
+        this.cdr.detectChanges();
       },
       (error) => {
         console.error('Error loading dashboards:', error);
@@ -37,10 +35,11 @@ export class UseMethodComponent implements OnInit {
     );
   }
 
-
   onSelectDashboard(dashboard: Dashboard): void {
     this.selectedDashboard = dashboard;
-    console.log('Selected dashboard:', this.selectedDashboard);
+    if (dashboard) {
+      this.loadDashboardData(dashboard.id);
+    }
   }
 
   onBackToSelection(): void {
@@ -59,11 +58,9 @@ export class UseMethodComponent implements OnInit {
         if (confirmed) {
           this.dashboardService.deleteDashboard(dashboard.id).subscribe(
             () => {
-              console.log('Dashboard deleted');
               this.selectedDashboard = null;
-              this.loadDashboards(); // Reload dashboard list
-              this.cdr.detectChanges(); // Force change detection
-
+              this.loadDashboards();
+              this.cdr.detectChanges();
             },
             (error) => {
               console.error('Error deleting dashboard:', error);
@@ -71,5 +68,30 @@ export class UseMethodComponent implements OnInit {
           );
         }
       });
+  }
+
+  updateStationData(newData: Station[]): void {
+    if (this.selectedDashboard) {
+      this.selectedDashboard.stations.forEach(station => {
+        const newStation = newData.find(s => s.id === station.id);
+        if (newStation) {
+          station.target_value = newStation.target_value;
+          station.updated = true;
+          setTimeout(() => station.updated = false, 1000);
+        }
+      });
+      this.cdr.detectChanges();
+    }
+  }
+
+  loadDashboardData(dashboardId: string): void {
+    this.dashboardService.getDashboardData(dashboardId).subscribe(
+      (data: Station[]) => {
+        this.updateStationData(data); // data should be of type Station[]
+      },
+      (error) => {
+        console.error('Error loading dashboard data:', error);
+      }
+    );
   }
 }

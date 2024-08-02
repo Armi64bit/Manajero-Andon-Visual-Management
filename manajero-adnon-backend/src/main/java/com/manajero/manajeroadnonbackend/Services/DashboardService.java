@@ -31,23 +31,18 @@ public class DashboardService {
   }
 
   public Dashboard createDashboard(Dashboard dashboard) {
-    // Handle alerts
     List<Alert> savedAlerts = handleAlerts(dashboard.getAlerts());
     dashboard.setAlerts(savedAlerts);
 
-    // Handle stations
     List<Station> savedStations = handleStations(dashboard.getStations());
     dashboard.setStations(savedStations);
 
-    // Handle notifications
     List<Notification> savedNotifications = handleNotifications(dashboard.getNotifications());
     dashboard.setNotifications(savedNotifications);
 
-    // Handle thresholds
     List<Threshold> savedThresholds = handleThresholds(dashboard.getThresholds());
     dashboard.setThresholds(savedThresholds);
 
-    // Save the dashboard
     return dashboardRepository.save(dashboard);
   }
 
@@ -57,27 +52,21 @@ public class DashboardService {
       return null; // or throw an exception
     }
 
-    // Update fields
     existingDashboard.setName(updatedDashboard.getName());
     existingDashboard.setRefreshRate(updatedDashboard.getRefreshRate());
 
-    // Handle alerts
     List<Alert> savedAlerts = handleAlerts(updatedDashboard.getAlerts());
     existingDashboard.setAlerts(savedAlerts);
 
-    // Handle stations
     List<Station> savedStations = handleStations(updatedDashboard.getStations());
     existingDashboard.setStations(savedStations);
 
-    // Handle notifications
     List<Notification> savedNotifications = handleNotifications(updatedDashboard.getNotifications());
     existingDashboard.setNotifications(savedNotifications);
 
-    // Handle thresholds
     List<Threshold> savedThresholds = handleThresholds(updatedDashboard.getThresholds());
     existingDashboard.setThresholds(savedThresholds);
 
-    // Save the updated dashboard
     return dashboardRepository.save(existingDashboard);
   }
 
@@ -90,11 +79,11 @@ public class DashboardService {
         Optional<Alert> existingAlert = alertRepository.findById(alert.getId());
         if (existingAlert.isPresent()) {
           Alert alertToUpdate = existingAlert.get();
-          // Update fields as necessary
           alertToUpdate.setAlertType(alert.getAlertType());
           alertToUpdate.setStatus(alert.getStatus());
-          alertRepository.save(alertToUpdate);
-          savedAlerts.add(alertToUpdate);
+          savedAlerts.add(alertRepository.save(alertToUpdate));
+        } else {
+          savedAlerts.add(alertRepository.save(alert));
         }
       }
     }
@@ -110,13 +99,13 @@ public class DashboardService {
         Optional<Station> existingStation = stationRepository.findById(station.getId());
         if (existingStation.isPresent()) {
           Station stationToUpdate = existingStation.get();
-          // Update fields as necessary
           stationToUpdate.setName(station.getName());
           stationToUpdate.setMetric_name(station.getMetric_name());
           stationToUpdate.setTarget_value(station.getTarget_value());
           stationToUpdate.setIcon(station.getIcon());
-          stationRepository.save(stationToUpdate);
-          savedStations.add(stationToUpdate);
+          savedStations.add(stationRepository.save(stationToUpdate));
+        } else {
+          savedStations.add(stationRepository.save(station));
         }
       }
     }
@@ -127,10 +116,8 @@ public class DashboardService {
     List<Notification> savedNotifications = new ArrayList<>();
     for (Notification notification : notifications) {
       if (notification.getId() == null) {
-        // If ID is null, save as new
         savedNotifications.add(notificationRepository.save(notification));
       } else {
-        // Otherwise, update the existing notification
         Optional<Notification> existingNotification = notificationRepository.findById(notification.getId());
         if (existingNotification.isPresent()) {
           Notification notificationToUpdate = existingNotification.get();
@@ -140,7 +127,6 @@ public class DashboardService {
           notificationToUpdate.setDataSource(notification.getDataSource());
           savedNotifications.add(notificationRepository.save(notificationToUpdate));
         } else {
-          // If the notification does not exist, save it as new
           savedNotifications.add(notificationRepository.save(notification));
         }
       }
@@ -157,11 +143,11 @@ public class DashboardService {
         Optional<Threshold> existingThreshold = thresholdRepository.findById(threshold.getId());
         if (existingThreshold.isPresent()) {
           Threshold thresholdToUpdate = existingThreshold.get();
-          // Update fields as necessary
           thresholdToUpdate.setWarning(threshold.getWarning());
           thresholdToUpdate.setCritiacl(threshold.getCritiacl());
-          thresholdRepository.save(thresholdToUpdate);
-          savedThresholds.add(thresholdToUpdate);
+          savedThresholds.add(thresholdRepository.save(thresholdToUpdate));
+        } else {
+          savedThresholds.add(thresholdRepository.save(threshold));
         }
       }
     }
@@ -169,6 +155,49 @@ public class DashboardService {
   }
 
   public void deleteDashboard(String id) {
-    dashboardRepository.deleteById(id);
+    Dashboard dashboard = dashboardRepository.findById(id).orElse(null);
+    if (dashboard != null) {
+      deleteAlerts(dashboard.getAlerts());
+      deleteStations(dashboard.getStations());
+      deleteNotifications(dashboard.getNotifications());
+      deleteThresholds(dashboard.getThresholds());
+      dashboardRepository.deleteById(id);
+    }
+  }
+
+  private void deleteAlerts(List<Alert> alerts) {
+    for (Alert alert : alerts) {
+      if (alert.getId() != null) {
+        alertRepository.deleteById(alert.getId());
+      }
+    }
+  }
+
+  private void deleteStations(List<Station> stations) {
+    for (Station station : stations) {
+      if (station.getId() != null) {
+        stationRepository.deleteById(station.getId());
+      }
+    }
+  }
+
+  private void deleteNotifications(List<Notification> notifications) {
+    for (Notification notification : notifications) {
+      if (notification.getId() != null) {
+        notificationRepository.deleteById(notification.getId());
+      }
+    }
+  }
+
+  private void deleteThresholds(List<Threshold> thresholds) {
+    for (Threshold threshold : thresholds) {
+      if (threshold.getId() != null) {
+        thresholdRepository.deleteById(threshold.getId());
+      }
+    }
+  }
+
+  public List<Station> getStationsByDashboardId(String dashboardId) {
+    return stationRepository.findByDashboardId(dashboardId);
   }
 }

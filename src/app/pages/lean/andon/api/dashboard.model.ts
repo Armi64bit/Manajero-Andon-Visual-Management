@@ -35,6 +35,7 @@ export interface Station {
   target_value: string;
   icon: string;
   status:string,
+  updated?: boolean; 
 }
 
 export interface Threshold {

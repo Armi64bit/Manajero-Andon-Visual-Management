@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Dashboard } from './dashboard.model';
+import { Dashboard, Station } from './dashboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,8 @@ export class DashboardService {
 
   deleteDashboard(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  getDashboardData(dashboardId: string): Observable<Station[]> {
+    return this.http.get<Station[]>(`${this.apiUrl}/dashboards/${dashboardId}/stations`);
   }
 }
