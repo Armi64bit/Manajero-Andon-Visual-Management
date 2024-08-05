@@ -27,8 +27,13 @@ public class NotificationService {
   }
 
   public Notification updateNotification(String id, Notification notification) {
-    notification.setId(id);
-    return notificationRepository.save(notification);
+    Optional<Notification> existingNotification = notificationRepository.findById(id);
+    if (existingNotification.isPresent()) {
+      notification.setId(id);
+      return notificationRepository.save(notification);
+    } else {
+      throw new IllegalArgumentException("Notification with ID " + id + " not found.");
+    }
   }
 
   public void deleteNotification(String id) {

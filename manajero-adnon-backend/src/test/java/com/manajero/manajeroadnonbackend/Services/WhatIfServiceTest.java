@@ -32,7 +32,7 @@ class WhatIfServiceTest {
   @BeforeEach
   void setUp() {
     whatIf = new Whatif();
-
+    whatIf.setId("id1");
     whatIf.setTitle("Sample Title");
     whatIf.setSubpoint1("Sample Subpoint1");
     whatIf.setContent1("Sample Content1");
@@ -55,11 +55,11 @@ class WhatIfServiceTest {
   void getWhatIfById() {
     when(whatIfRepository.findById(anyString())).thenReturn(Optional.of(whatIf));
 
-    Optional<Whatif> result = whatIfService.getWhatIfById("1");
+    Optional<Whatif> result = whatIfService.getWhatIfById("id1");
 
     assertTrue(result.isPresent());
-    assertEquals("1", result.get().getId());
-    verify(whatIfRepository, times(1)).findById("1");
+    assertEquals("id1", result.get().getId());
+    verify(whatIfRepository, times(1)).findById("id1");
   }
 
   @Test
@@ -69,7 +69,7 @@ class WhatIfServiceTest {
     Whatif result = whatIfService.createWhatIf(whatIf);
 
     assertNotNull(result);
-    assertEquals("1", result.getId());
+    assertEquals("id1", result.getId());
     verify(whatIfRepository, times(1)).save(whatIf);
   }
 
@@ -79,17 +79,17 @@ class WhatIfServiceTest {
     when(whatIfRepository.save(any(Whatif.class))).thenReturn(whatIf);
 
     Whatif updatedWhatIf = new Whatif();
-    updatedWhatIf.setId("1");
+    updatedWhatIf.setId("id1");
     updatedWhatIf.setTitle("Updated Title");
     updatedWhatIf.setSubpoint1("Updated Subpoint1");
     updatedWhatIf.setContent1("Updated Content1");
     updatedWhatIf.setImage1("Updated Image1");
     updatedWhatIf.setImage2("Updated Image2");
 
-    Whatif result = whatIfService.updateWhatIf("1", updatedWhatIf);
+    Whatif result = whatIfService.updateWhatIf("id1", updatedWhatIf);
 
     assertNotNull(result);
-    assertEquals("1", result.getId());
+    assertEquals("id1", result.getId());
     assertEquals("Updated Title", result.getTitle());
     assertEquals("Updated Subpoint1", result.getSubpoint1());
     assertEquals("Updated Content1", result.getContent1());
@@ -102,8 +102,8 @@ class WhatIfServiceTest {
   void deleteWhatIf() {
     doNothing().when(whatIfRepository).deleteById(anyString());
 
-    whatIfService.deleteWhatIf("1");
+    whatIfService.deleteWhatIf("id1");
 
-    verify(whatIfRepository, times(1)).deleteById("1");
+    verify(whatIfRepository, times(1)).deleteById("id1");
   }
 }

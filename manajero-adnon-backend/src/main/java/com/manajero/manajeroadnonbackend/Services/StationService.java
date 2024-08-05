@@ -27,8 +27,13 @@ public class StationService {
   }
 
   public Station updateStation(String id, Station station) {
-    station.setId(id);
-    return stationRepository.save(station);
+    Optional<Station> existingStation = stationRepository.findById(id);
+    if (existingStation.isPresent()) {
+      station.setId(id);
+      return stationRepository.save(station);
+    } else {
+      throw new RuntimeException("Station not found with id: " + id);
+    }
   }
 
   public void deleteStation(String id) {
