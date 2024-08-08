@@ -12,6 +12,8 @@
           <div class="d-flex flex-column flex-md-row gap-3">
             <button class="btn btn-info m-3" (click)="onBackToSelection()">Back to Selection</button>
             <button class="btn btn-danger m-3" (click)="onDeleteDashboard(selectedDashboard)">Delete Dashboard</button>
+            <button class="btn btn-warning m-3" (click)="onEditDashboard(selectedDashboard.id)">Edit Dashboard</button>
+
           </div>
           <div class="alert alert-info d-flex align-items-center m-3">
             <i class="fas fa-sync-alt fa-2x mr-5"></i>
@@ -73,18 +75,18 @@
         <button class="btn btn-success" (click)="onCreateDashboard()">Create Dashboard</button>
       </div>
     </div>
-    <div class="row">
-      <div *ngFor="let dashboard of dashboards" class="col-md-4 mb-3">
-        <div class="card dashboard-card">
-          <div class="card-body d-flex flex-column align-items-center">
-            <nb-icon icon="settings-outline" pack="eva" class="dashboard-icon mb-3" size="96"></nb-icon> <!-- Bigger Icon -->
-            <h4 class="card-title mb-2 text-center">{{ dashboard.name }}</h4>
-            <p class="card-text text-center mb-3"><strong> Rate:</strong> {{ dashboard.refreshRate }} seconds</p>
-            <button nbButton status="primary" (click)="onSelectDashboard(dashboard)" class="btn-block">Open Dashboard</button>
+      <div class="row">
+        <div *ngFor="let dashboard of dashboards" class="col-md-4 mb-3">
+          <div class="card dashboard-card">
+            <div class="card-body d-flex flex-column align-items-center">
+              <nb-icon icon="settings-outline" pack="eva" class="dashboard-icon mb-3" size="96"></nb-icon> <!-- Bigger Icon -->
+              <h4 class="card-title mb-2 text-center">{{ dashboard.name }}</h4>
+              <p class="card-text text-center mb-3"><strong> Rate:</strong> {{ dashboard.refreshRate }} seconds</p>
+              <button nbButton status="primary" (click)="onSelectDashboard(dashboard)" class="btn-block">Open Dashboard</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 </ng-template>
 

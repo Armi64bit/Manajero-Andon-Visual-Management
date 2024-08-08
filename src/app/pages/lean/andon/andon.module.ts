@@ -45,6 +45,7 @@ import { NotificationDetailModalComponent } from './notification-detail-modal/no
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { StationDetailsComponent } from './station-details/station-details.component';
 import { CreateDashboardComponent } from './create-dashboard/create-dashboard.component';
+import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { CreateDashboardComponent } from './create-dashboard/create-dashboard.co
     NotificationDetailModalComponent,
     ConfirmationDialogComponent,
     StationDetailsComponent,
-    CreateDashboardComponent
+    CreateDashboardComponent,
+    EditDashboardComponent
   ],
   imports: [
     CommonModule,

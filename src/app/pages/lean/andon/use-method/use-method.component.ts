@@ -44,6 +44,9 @@ export class UseMethodComponent implements OnInit {
       this.loadDashboardData(dashboard.id);
     }
   }
+  onEditDashboard(dashboardId: string) {
+    this.router.navigate(['/pages/lean/andon/updateDash', dashboardId]);
+  }
   onCreateDashboard() {
 
     this.router.navigate(['/pages/lean/andon/create-dashboard']); // Replace with your actual route

@@ -35,7 +35,7 @@ export interface Station {
   target_value: string;
   icon: string;
   status:string,
-  updated?: boolean; 
+  updated?: boolean;
 }
 
 export interface Threshold {
@@ -45,7 +45,7 @@ export interface Threshold {
 }
 
 export interface Dashboard {
-  id: string;
+  id?: string;
   name: string;
   refreshRate: number;
   alerts: Alert[];

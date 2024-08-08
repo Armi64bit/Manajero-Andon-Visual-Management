@@ -1,7 +1,11 @@
 <h1 class="text-center mb-4">Andon Visual Management Method</h1>
-
+<button class="mb-3 btn btn-info" (click)="navigateToUseMethod()">
+  <i class="fas fa-arrow-right"></i> Go to Use Method
+</button>
 <nb-card>
-  <nb-tabset #tabset>
+
+  <nb-tabset #tabset >
+
     <nb-tab tabTitle="Why" tabIcon="question-mark-outline" responsive>
       <ngx-why-layout></ngx-why-layout>
     </nb-tab>
@@ -16,9 +20,7 @@
     <nb-tab tabTitle="What if" tabIcon="bulb-outline" responsive>
       <ngx-whatif-layout></ngx-whatif-layout>
     </nb-tab>
-    <nb-tab tabTitle="use" tabIcon="question-mark-outline" responsive>
-      <ngx-use-method></ngx-use-method>
-    </nb-tab>
+
   </nb-tabset>
 
 

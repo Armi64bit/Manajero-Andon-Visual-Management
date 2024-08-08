@@ -3,7 +3,9 @@
     <h3>Station Notifications</h3>
   </nb-card-header>
   <nb-card-body>
-
+    <ng-container *ngIf="newNotifications.length === 0 && inProgressNotifications.length === 0 && resolvedNotifications.length === 0">
+      <p>There are no notifications yet.</p>
+    </ng-container>
     <!-- New Notifications -->
     <ng-container *ngIf="newNotifications.length > 0">
       <h4>New</h4>

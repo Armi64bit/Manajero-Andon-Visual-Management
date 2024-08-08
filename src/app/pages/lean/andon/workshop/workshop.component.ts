@@ -5,7 +5,7 @@ import { Why, WhyService } from '../api/why.service';
 import { What, WhatService } from '../api/what.service';
 import { Whatif, WhatifService } from '../api/whatif.service';
 import { How, HowService } from '../api/how.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-workshop',
@@ -48,7 +48,7 @@ export class WorkshopComponent implements AfterViewInit,OnInit {
   whats: What[];
   whatifs: Whatif[];
   hows: How[];
-  constructor(private route: ActivatedRoute,private whyService: WhyService,private whatService: WhatService,private whatifService: WhatifService,private howService: HowService) {}
+  constructor(private router: Router,private route: ActivatedRoute,private whyService: WhyService,private whatService: WhatService,private whatifService: WhatifService,private howService: HowService) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -75,5 +75,9 @@ export class WorkshopComponent implements AfterViewInit,OnInit {
   } selectUseTab() {
     const useTab = this.tabset.tabs.find(tab => tab.tabTitle.toLowerCase() === 'use');
     this.tabset.selectTab(useTab);
+  }
+
+  navigateToUseMethod() {
+    this.router.navigate(['/pages/lean/andon/use']);
   }
 }

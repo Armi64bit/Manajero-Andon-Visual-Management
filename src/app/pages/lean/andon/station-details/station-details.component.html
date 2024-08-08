@@ -4,6 +4,7 @@
     <h5 class="mb-0">{{ station.name }}</h5>
   </div>
   <div class="card-body">
+    <!-- Display Information or Edit Form -->
     <ng-container *ngIf="!isEditing; else editTemplate">
       <p><strong>Name:</strong> {{ station.name }}</p>
       <p><strong>Metric Name:</strong> {{ station.metric_name }}</p>
@@ -27,21 +28,12 @@
         </div>
         <div class="mb-3">
           <label for="icon" class="form-label">Icon</label>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="iconDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <nb-icon [icon]="station.icon" pack="eva" size="24" class="me-2"></nb-icon> {{ getIconName(station.icon) }}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="iconDropdown">
-              <li *ngFor="let icon of icons">
-                <a class="dropdown-item" (click)="selectIcon(icon)">
-                  <nb-icon [icon]="icon.value" pack="eva" size="24" class="me-2"></nb-icon> {{ icon.name }}
-                </a>
-              </li>
-            </ul>
-          </div>
+          <select id="icon" class="form-select" [(ngModel)]="station.icon" name="icon" required>
+            <option *ngFor="let icon of icons" [value]="icon.value">
+              <nb-icon [icon]="icon.value" pack="eva" size="24" class="me-2"></nb-icon> {{ icon.name }}
+            </option>
+          </select>
         </div>
-
-
         <div class="mb-3">
           <label for="status" class="form-label">Status</label>
           <select id="status" class="form-select" [(ngModel)]="station.status" name="status" required>
@@ -50,13 +42,15 @@
             <option value="critical">Critical</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-success me-2">Save</button>
-        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-success me-2  mr-2">Save</button>
+          <button type="button" class="btn btn-secondary  ml-2" (click)="cancelEdit()">Cancel</button>
+        </div>
       </form>
     </ng-template>
   </div>
   <div class="card-footer text-end">
-    <button *ngIf="!isEditing" class="btn btn-primary me-2" (click)="editStation()">Edit</button>
-    <button class="btn btn-secondary" (click)="close()">Close</button>
+    <button *ngIf="!isEditing" class="btn btn-primary me-2 mr-2" (click)="editStation()">Edit</button>
+    <button class="btn btn-secondary ml-2" (click)="close()">Close</button>
   </div>
 </div>

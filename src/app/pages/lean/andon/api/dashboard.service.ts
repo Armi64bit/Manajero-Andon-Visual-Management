@@ -29,4 +29,7 @@ export class DashboardService {
   getDashboardData(dashboardId: string): Observable<Station[]> {
     return this.http.get<Station[]>(`${this.apiUrl}/dashboards/${dashboardId}/stations`);
   }
+  updateDashboard(id: string, dashboard: Dashboard): Observable<Dashboard> {
+    return this.http.put<Dashboard>(`${this.apiUrl}/${id}`, dashboard);
+  }
 }
