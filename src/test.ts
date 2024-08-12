@@ -31,5 +31,9 @@ getTestBed().initTestEnvironment(
     teardown: { destroyAfterEach: false },
 },
 );
+// Find and load all the test files dynamically.
+import './app/pages/lean/andon/confirmation-dialog/confirmation-dialog.component.spec';
+import './app/pages/lean/andon/api/dashboard.service.spec';
+
 // Finally, start Karma to run the tests.
 __karma__.start();
