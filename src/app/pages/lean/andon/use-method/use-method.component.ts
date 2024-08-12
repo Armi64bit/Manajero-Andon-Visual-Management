@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Dashboard, Notification, Station } from '../api/dashboard.model';
 import { DashboardService } from '../api/dashboard.service';
 import { NbDialogService } from '@nebular/theme';
@@ -12,7 +12,7 @@ import { Subscription, timer } from 'rxjs';
   templateUrl: './use-method.component.html',
   styleUrls: ['./use-method.component.scss'],
 })
-export class UseMethodComponent implements OnInit {
+export class UseMethodComponent implements OnInit, OnDestroy {
   dashboards: Dashboard[] = [];
   selectedDashboard: Dashboard | null = null;
   private stationStatusCheck$: Subscription | null = null;
@@ -28,6 +28,12 @@ export class UseMethodComponent implements OnInit {
     this.loadDashboards();
   }
 
+  ngOnDestroy(): void {
+    if (this.stationStatusCheck$) {
+      this.stationStatusCheck$.unsubscribe();
+    }
+  }
+
   loadDashboards(): void {
     this.dashboardService.getAllDashboards().subscribe(
       (dashboards: Dashboard[]) => {
@@ -41,19 +47,30 @@ export class UseMethodComponent implements OnInit {
   }
 
   onSelectDashboard(dashboard: Dashboard): void {
+    if (this.selectedDashboard) {
+      // Stop monitoring the previous dashboard
+      this.stopMonitoringStations();
+    }
+
     this.selectedDashboard = dashboard;
     if (dashboard) {
       this.loadDashboardData(dashboard.id);
+      this.startMonitoringStations(dashboard.id);
     }
   }
+
   onEditDashboard(dashboardId: string) {
     this.router.navigate(['/pages/lean/andon/updateDash', dashboardId]);
   }
-  onCreateDashboard() {
 
+  onCreateDashboard() {
     this.router.navigate(['/pages/lean/andon/create-dashboard']); // Replace with your actual route
   }
+
   onBackToSelection(): void {
+    if (this.selectedDashboard) {
+      this.stopMonitoringStations();
+    }
     this.selectedDashboard = null;
   }
 
@@ -69,6 +86,9 @@ export class UseMethodComponent implements OnInit {
         if (confirmed) {
           this.dashboardService.deleteDashboard(dashboard.id).subscribe(
             () => {
+              if (this.selectedDashboard && this.selectedDashboard.id === dashboard.id) {
+                this.stopMonitoringStations();
+              }
               this.selectedDashboard = null;
               this.loadDashboards();
               this.cdr.detectChanges();
@@ -86,6 +106,9 @@ export class UseMethodComponent implements OnInit {
       this.selectedDashboard.stations.forEach(station => {
         const newStation = newData.find(s => s.id === station.id);
         if (newStation) {
+          if (this.isStatusChanged(station, newStation)) {
+            this.addNotification(newStation);
+          }
           station.target_value = newStation.target_value;
           station.updated = true;
           setTimeout(() => station.updated = false, 1000);
@@ -105,12 +128,15 @@ export class UseMethodComponent implements OnInit {
       }
     );
   }
+
   isStatusChanged(oldStation: Station, newStation: Station): boolean {
     return oldStation.status !== newStation.status &&
            (newStation.status === 'warning' || newStation.status === 'critical');
   }
 
   addNotification(station: Station): void {
+    if (!this.selectedDashboard) return;
+
     const notification: Notification = {
       station: station.name,
       message: `Station ${station.name} has changed to ${station.status} status.`,
@@ -132,6 +158,13 @@ export class UseMethodComponent implements OnInit {
     this.stationStatusCheck$ = timer(0, 60000).subscribe(() => {
       this.loadDashboardData(dashboardId);
     });
+  }
+
+  stopMonitoringStations(): void {
+    if (this.stationStatusCheck$) {
+      this.stationStatusCheck$.unsubscribe();
+      this.stationStatusCheck$ = null;
+    }
   }
 
   openStationDetails(station: any) {
