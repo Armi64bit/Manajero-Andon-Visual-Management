@@ -1,10 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Dashboard, Station } from '../api/dashboard.model';
+import { Dashboard, Notification, Station } from '../api/dashboard.model';
 import { DashboardService } from '../api/dashboard.service';
 import { NbDialogService } from '@nebular/theme';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { StationDetailsComponent } from '../station-details/station-details.component';
 import { Router } from '@angular/router';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'ngx-use-method',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class UseMethodComponent implements OnInit {
   dashboards: Dashboard[] = [];
   selectedDashboard: Dashboard | null = null;
+  private stationStatusCheck$: Subscription | null = null;
 
   constructor(
     private dashboardService: DashboardService,
@@ -103,6 +105,35 @@ export class UseMethodComponent implements OnInit {
       }
     );
   }
+  isStatusChanged(oldStation: Station, newStation: Station): boolean {
+    return oldStation.status !== newStation.status &&
+           (newStation.status === 'warning' || newStation.status === 'critical');
+  }
+
+  addNotification(station: Station): void {
+    const notification: Notification = {
+      station: station.name,
+      message: `Station ${station.name} has changed to ${station.status} status.`,
+      level: 'info',
+      status: 'new',
+      timestamp: new Date(),
+      note: '',
+      type: 'STATUS_CHANGE',
+      dataSource: 'System'
+    };
+
+    this.dashboardService.addNotificationToDashboard(this.selectedDashboard.id, notification).subscribe(
+      () => console.log('Notification added'),
+      (error) => console.error('Error adding notification:', error)
+    );
+  }
+
+  startMonitoringStations(dashboardId: string): void {
+    this.stationStatusCheck$ = timer(0, 60000).subscribe(() => {
+      this.loadDashboardData(dashboardId);
+    });
+  }
+
   openStationDetails(station: any) {
     this.dialogService.open(StationDetailsComponent, {
       context: {

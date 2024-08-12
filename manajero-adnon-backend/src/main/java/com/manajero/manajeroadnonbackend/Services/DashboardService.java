@@ -29,6 +29,25 @@ public class DashboardService {
   public Dashboard getDashboardById(String id) {
     return dashboardRepository.findById(id).orElse(null);
   }
+  public Dashboard addNotificationToDashboard(String dashboardId, Notification notification) {
+    Dashboard dashboard = dashboardRepository.findById(dashboardId).orElse(null);
+    if (dashboard == null) {
+      return null; // or throw an exception
+    }
+
+    // Save the notification
+    Notification savedNotification = notificationRepository.save(notification);
+
+    // Add the notification to the dashboard
+    List<Notification> notifications = dashboard.getNotifications();
+    if (notifications == null) {
+      notifications = new ArrayList<>();
+    }
+    notifications.add(savedNotification);
+    dashboard.setNotifications(notifications);
+
+    return dashboardRepository.save(dashboard);
+  }
 
   public Dashboard createDashboard(Dashboard dashboard) {
     List<Alert> savedAlerts = handleAlerts(dashboard.getAlerts());

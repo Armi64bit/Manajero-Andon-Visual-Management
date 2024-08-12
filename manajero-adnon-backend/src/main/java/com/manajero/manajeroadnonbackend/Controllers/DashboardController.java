@@ -1,6 +1,7 @@
   package com.manajero.manajeroadnonbackend.Controllers;
 
   import com.manajero.manajeroadnonbackend.Entities.Dashboard;
+  import com.manajero.manajeroadnonbackend.Entities.Notification;
   import com.manajero.manajeroadnonbackend.Entities.Station;
   import com.manajero.manajeroadnonbackend.Services.DashboardService;
   import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,17 @@
       List<Station> stations = dashboardService.getStationsByDashboardId(id);
       if (stations != null) {
         return ResponseEntity.ok(stations);
+      } else {
+        return ResponseEntity.notFound().build();
+      }
+    }
+    @PostMapping("/{id}/addnotification")
+    public ResponseEntity<Dashboard> addNotificationToDashboard(
+      @PathVariable String id,
+      @RequestBody Notification notification) {
+      Dashboard updatedDashboard = dashboardService.addNotificationToDashboard(id, notification);
+      if (updatedDashboard != null) {
+        return ResponseEntity.ok(updatedDashboard);
       } else {
         return ResponseEntity.notFound().build();
       }

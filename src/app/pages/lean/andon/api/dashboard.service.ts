@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Dashboard, Station } from './dashboard.model';
+import { Dashboard, Notification, Station } from './dashboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +32,13 @@ export class DashboardService {
   updateDashboard(id: string, dashboard: Dashboard): Observable<Dashboard> {
     return this.http.put<Dashboard>(`${this.apiUrl}/${id}`, dashboard);
   }
+  addNotificationToDashboard(dashboardId: string, notification: Notification): Observable<Dashboard> {
+    const url = `${this.apiUrl}/${dashboardId}/addnotification`;
+    return this.http.post<Dashboard>(url, notification, this.httpOptions);
+  }
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 }

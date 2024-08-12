@@ -8,7 +8,7 @@ export interface Alert {
 }
 
 export interface Notification {
-  id: string;
+  id?: string;
   station: string;
   message: string;
   level: 'info' | 'warning' | 'critical';
