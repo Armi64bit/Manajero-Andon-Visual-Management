@@ -4,12 +4,15 @@ import { WorkshopComponent } from './workshop/workshop.component'; // Adjust the
 import { CreateDashboardComponent } from './create-dashboard/create-dashboard.component';
 import { UseMethodComponent } from './use-method/use-method.component';
 import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
+import { KpiComponent } from './kpi/kpi.component';
 
 const routes: Routes = [
   { path: '', component: WorkshopComponent },
   { path: 'create-dashboard', component: CreateDashboardComponent },
   { path: 'use', component: UseMethodComponent },
   { path: 'updateDash/:id', component: EditDashboardComponent },
+  { path: 'kpi', component: KpiComponent },
+
 
 
 ];

@@ -46,6 +46,10 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { StationDetailsComponent } from './station-details/station-details.component';
 import { CreateDashboardComponent } from './create-dashboard/create-dashboard.component';
 import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
+import { KpiComponent } from './kpi/kpi.component';
+import { ChartModule } from 'angular2-chartjs';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -88,7 +92,8 @@ import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.componen
     ConfirmationDialogComponent,
     StationDetailsComponent,
     CreateDashboardComponent,
-    EditDashboardComponent
+    EditDashboardComponent,
+    KpiComponent
   ],
   imports: [
     CommonModule,
@@ -106,8 +111,9 @@ import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.componen
     ReactiveFormsModule,
     NbListModule,
     NbSelectModule,
-    NbTooltipModule
-
+    NbTooltipModule,
+    NgxChartsModule,
+    NgxEchartsModule
 
   ]
 })

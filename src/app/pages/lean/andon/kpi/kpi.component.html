@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <!-- Pie Chart for Notifications -->
+    <div class="col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Notifications Breakdown
+        </div>
+        <div class="card-body">
+          <div echarts [options]="totalNotificationsOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+<!-- Line Chart for Notifications -->
+<div class="col-md-12 mb-4">
+  <div class="card">
+    <div class="card-header">
+      Notifications Over Time
+    </div>
+    <div class="card-body">
+      <div echarts [options]="notificationsLineOption" class="chart"></div>
+    </div>
+  </div>
+</div>
+
+    <!-- Bar Chart for Total Notifications -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Total Notifications
+        </div>
+        <div class="card-body">
+          <div echarts [options]="totalNotificationsBarOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar Chart for Stations Status -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Stations by Status
+        </div>
+        <div class="card-body">
+          <div echarts [options]="stationsStatusBarOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Chart for Alerts -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Alerts Breakdown
+        </div>
+        <div class="card-body">
+          <div echarts [options]="alertsPieOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gauge Chart for Average Downtime Percentage -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Average Downtime Percentage
+        </div>
+        <div class="card-body">
+          <div echarts [options]="averageDowntimeOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gauge Chart for Average Uptime Percentage -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Average Uptime Percentage
+        </div>
+        <div class="card-body">
+          <div echarts [options]="averageUptimeOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
