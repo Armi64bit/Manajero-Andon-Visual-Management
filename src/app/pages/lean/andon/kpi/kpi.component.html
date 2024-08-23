@@ -1,7 +1,81 @@
 <div class="container">
-  <div class="row">
-    <!-- Pie Chart for Notifications -->
-    <div class="col-md-12 mb-4">
+  <!-- KPI Cards -->
+  <div class="row mb-4">
+    <!-- Average Uptime Percentage (Blue Card) -->
+    <div class="col-md-3 mb-3">
+      <nb-card class="shadow-sm" style="background-color: #1e88e5; color: #fff; border-radius: 10px; border: none;">
+        <nb-card-header class="text-center" style="background-color: #1e88e5; color: #fff; border-bottom: none; padding: 0.5rem;">
+          Average Uptime Percentage
+        </nb-card-header>
+        <nb-card-body class="text-center" style="padding: 1rem;">
+          <p class="card-text" style="font-size: 2rem; font-weight: 300;color: #fff; margin-bottom: 0;">
+            {{ averageUptimePercentage }}%
+          </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <!-- Average Downtime Percentage (Green Card) -->
+    <div class="col-md-3 mb-3">
+      <nb-card class="shadow-sm" style="background-color: #43a047; color: #fff; border-radius: 10px; border: none;">
+        <nb-card-header class="text-center" style="background-color: #43a047; color: #fff; border-bottom: none; padding: 0.5rem;">
+          Average Downtime Percentage
+        </nb-card-header>
+        <nb-card-body class="text-center" style="padding: 1rem;">
+          <p class="card-text" style="font-size: 2rem; font-weight: 300; color: #fff;margin-bottom: 0;">
+            {{ averageDowntimePercentage }}%
+          </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <!-- Warning Notifications (Orange Card) -->
+    <div class="col-md-3 mb-3">
+      <nb-card class="shadow-sm" style="background-color: #fb8c00; color: #fff; border-radius: 10px; border: none;">
+        <nb-card-header class="text-center" style="background-color: #fb8c00; color: #fff; border-bottom: none; padding: 0.5rem;">
+          Warning Notifications
+        </nb-card-header>
+        <nb-card-body class="text-center" style="padding: 1rem;">
+          <p class="card-text" style="font-size: 2rem; font-weight: 300; color: #fff;margin-bottom: 0;">
+            {{ totalWarningNotifications }}
+          </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <!-- Critical Notifications (Red Card) -->
+    <div class="col-md-3 mb-3">
+      <nb-card class="shadow-sm" style="background-color: #d32f2f; color: #fff; border-radius: 10px; border: none;">
+        <nb-card-header class="text-center" style="background-color: #d32f2f; color: #fff; border-bottom: none; padding: 0.5rem;">
+          Critical Notifications
+        </nb-card-header>
+        <nb-card-body class="text-center" style="padding: 1rem;">
+          <p class="card-text" style="font-size: 2rem;color: #fff; font-weight: 300; margin-bottom: 0;">
+            {{ totalCriticalNotifications }}
+          </p>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Notifications Over Time Chart -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          Notifications Over Time
+        </div>
+        <div class="card-body">
+          <div echarts [options]="notificationsLineOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row for Notifications Breakdown, Average Downtime, and Uptime Percentage -->
+  <div class="row mb-4">
+    <!-- Pie Chart for Notifications Breakdown -->
+    <div class="col-md-4 mb-4">
       <div class="card">
         <div class="card-header">
           Notifications Breakdown
@@ -11,18 +85,34 @@
         </div>
       </div>
     </div>
-<!-- Line Chart for Notifications -->
-<div class="col-md-12 mb-4">
-  <div class="card">
-    <div class="card-header">
-      Notifications Over Time
+
+    <!-- Gauge Chart for Average Downtime Percentage -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Average Downtime Percentage
+        </div>
+        <div class="card-body">
+          <div echarts [options]="averageDowntimeOption" class="chart"></div>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <div echarts [options]="notificationsLineOption" class="chart"></div>
+
+    <!-- Gauge Chart for Average Uptime Percentage -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Average Uptime Percentage
+        </div>
+        <div class="card-body">
+          <div echarts [options]="averageUptimeOption" class="chart"></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- Row for Additional Charts -->
+  <div class="row mb-4">
     <!-- Bar Chart for Total Notifications -->
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="card">
@@ -55,30 +145,6 @@
         </div>
         <div class="card-body">
           <div echarts [options]="alertsPieOption" class="chart"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gauge Chart for Average Downtime Percentage -->
-    <div class="col-md-6 col-lg-4 mb-4">
-      <div class="card">
-        <div class="card-header">
-          Average Downtime Percentage
-        </div>
-        <div class="card-body">
-          <div echarts [options]="averageDowntimeOption" class="chart"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gauge Chart for Average Uptime Percentage -->
-    <div class="col-md-6 col-lg-4 mb-4">
-      <div class="card">
-        <div class="card-header">
-          Average Uptime Percentage
-        </div>
-        <div class="card-body">
-          <div echarts [options]="averageUptimeOption" class="chart"></div>
         </div>
       </div>
     </div>

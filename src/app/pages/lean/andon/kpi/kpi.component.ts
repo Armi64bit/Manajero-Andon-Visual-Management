@@ -17,11 +17,21 @@ export class KpiComponent implements OnInit {
   stationsStatusBarOption: any;
   alertsPieOption: any;
   notificationsLineOption: any;
-
+  averageDowntimePercentage: number = 0;
+  averageUptimePercentage: number = 0;
+  totalWarningNotifications: number = 0;
+  totalCriticalNotifications: number = 0;
   constructor(private kpiService: KpiService) { }
 
   ngOnInit() {
     this.kpiService.getKpisForAllDashboards().subscribe(kpis => {
+
+      this.averageDowntimePercentage = kpis.averageDowntimePercentage;
+      this.averageUptimePercentage = kpis.averageUptimePercentage;
+      this.totalWarningNotifications = kpis.totalWarningNotifications;
+      this.totalCriticalNotifications = kpis.totalCriticalNotifications;
+
+
       this.totalNotificationsOption = this.createPieChartOption('Notifications Breakdown', [
         { name: 'Resolved', value: kpis.totalResolvedNotifications },
         { name: 'Warning', value: kpis.totalWarningNotifications },
@@ -43,9 +53,10 @@ export class KpiComponent implements OnInit {
       ]);
 
       this.alertsPieOption = this.createPieChartOption('Alerts Breakdown', [
-        { name: 'In-Progress', value: kpis.totalInProgressAlerts },
-        { name: 'Resolved', value: kpis.totalAlerts - kpis.totalInProgressAlerts }
+        { name: 'Resolved', value: kpis.totalAlerts - kpis.totalInProgressAlerts },
+        { name: 'In-Progress', value: kpis.totalInProgressAlerts }
       ]);
+
 
       this.kpiService.getNotifications().subscribe(notifications => {
         this.notificationsLineOption = this.createLineChartOption(notifications);
@@ -57,49 +68,84 @@ export class KpiComponent implements OnInit {
     return {
       title: {
         text: title,
-        left: 'center'
+        left: 'center',
+        textStyle: {
+          color: '#333',
+          fontWeight: 'bold',
+          fontSize: 16
+        }
       },
       tooltip: {
         trigger: 'item',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: '#fff'
+        },
         formatter: '{a} <br/>{b}: {c} ({d}%)'
       },
       legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: data.map(item => item.name)
+        orient: 'horizontal',
+        bottom: '10%',
+        data: data.map(item => item.name),
+        textStyle: {
+          color: '#555'
+        }
       },
-      color: ['#ff9999', '#66b3ff', '#99ff99'], // Define custom colors here
+      color: ['#4caf50', '#ff9800', '#f44336'],  // Updated order to align colors correctly
       series: [
         {
           name: title,
           type: 'pie',
-          radius: '50%',
-          data: data,
-          emphasis: {
-            itemStyle: {
-              color: '#ff0000' // Highlight color
-            }
+          radius: ['40%', '70%'], // Donut-style pie chart
+          avoidLabelOverlap: false,
+          itemStyle: {
+            borderRadius: 10,
+            borderColor: '#fff',
+            borderWidth: 2
           },
           label: {
             show: true,
             position: 'outside',
-            formatter: '{b}: {d}%'
-          }
+            formatter: '{b}: {d}%',
+            color: '#333',
+            fontSize: 14
+          },
+          labelLine: {
+            length: 20,
+            length2: 15
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          data: data
         }
       ]
     };
   }
 
+
   createBarChartOption(title: string, data: any[]) {
     return {
       title: {
         text: title,
-        left: 'center'
+        left: 'center',
+        textStyle: {
+          color: '#333',
+          fontSize: 16
+        }
       },
       tooltip: {
         trigger: 'axis',
         axisPointer: {
           type: 'shadow'
+        },
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: '#fff'
         }
       },
       xAxis: {
@@ -107,13 +153,27 @@ export class KpiComponent implements OnInit {
         data: data.map(item => item.name),
         axisLabel: {
           interval: 0,
-          rotate: 30 // Rotate labels for better visibility
+          rotate: 30,
+          color: '#333'
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#ddd'
+          }
         }
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        axisLine: {
+          show: false
+        },
+        splitLine: {
+          lineStyle: {
+            color: '#f0f0f0'
+          }
+        }
       },
-      color: ['#4caf50', '#ffeb3b', '#f44336'], // Define custom colors here
+      color: ['#4caf50', '#ff9800', '#f44336'],
       series: [
         {
           name: title,
@@ -121,16 +181,18 @@ export class KpiComponent implements OnInit {
           data: data.map(item => ({
             value: item.value,
             itemStyle: {
-              color: this.getColorForName(item.name) // Set color based on name
+              color: this.getColorForName(item.name), // Use gradient color based on name
+              barBorderRadius: [4, 4, 0, 0]
             }
           })),
           label: {
             show: true,
-            position: 'top'
+            position: 'top',
+            color: '#333'
           },
           emphasis: {
             itemStyle: {
-              color: '#ff0000'
+              color: '#ff5722'
             }
           }
         }
@@ -138,11 +200,12 @@ export class KpiComponent implements OnInit {
       grid: {
         left: '3%',
         right: '4%',
-        bottom: '3%',
+        bottom: '10%',
         containLabel: true
       }
     };
   }
+
 
   createLineChartOption(notifications: any[]) {
     const dates = Array.from(new Set(notifications.map(notification => new Date(notification.timestamp).toLocaleDateString())));
@@ -155,27 +218,59 @@ export class KpiComponent implements OnInit {
     return {
       title: {
         text: 'Notifications Over Time',
-        left: 'center'
+        left: 'center',
+        textStyle: {
+          color: '#333',
+          fontSize: 16
+        }
       },
       tooltip: {
         trigger: 'axis',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: '#fff'
+        },
         formatter: '{b}<br/>Count: {c}'
       },
       xAxis: {
         type: 'category',
         data: dates,
-        boundaryGap: false
+        boundaryGap: false,
+        axisLine: {
+          lineStyle: {
+            color: '#ddd'
+          }
+        },
+        axisLabel: {
+          color: '#333'
+        }
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        axisLine: {
+          show: false
+        },
+        splitLine: {
+          lineStyle: {
+            color: '#f0f0f0'
+          }
+        }
       },
-      color: '#007bff',
+      color: ['#007bff'],
       series: [
         {
           name: 'Notifications',
           type: 'line',
           data: dates.map(date => counts[date] || 0),
-          smooth: true // Smooth line
+          smooth: true, // Smooth line
+          areaStyle: {
+            color: 'rgba(0, 123, 255, 0.2)' // Add area shading under the line
+          },
+          lineStyle: {
+            width: 2
+          },
+          symbol: 'circle',
+          symbolSize: 8
         }
       ],
       dataZoom: [{
@@ -185,30 +280,92 @@ export class KpiComponent implements OnInit {
       }]
     };
   }
-
   createGaugeOption(title: string, value: number) {
     return {
       title: {
         text: title,
-        subtext: '',
-        left: 'center'
+        left: 'center',
+        textStyle: {
+          color: '#333',
+          fontSize: 18,
+          fontWeight: 'bold',
+          fontFamily: 'Arial, sans-serif'
+        }
+      },
+      tooltip: {
+        formatter: '{a} <br/>{b}: {c}%',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: '#fff',
+          fontSize: 14,
+          fontFamily: 'Arial, sans-serif'
+        }
       },
       series: [{
         name: title,
         type: 'gauge',
-        detail: { formatter: '{value}%' },
+        startAngle: 180,
+        endAngle: 0,
+        radius: '85%',
+        center: ['50%', '60%'],
+        detail: {
+          formatter: '{value}%',
+          fontSize: 24,
+          fontWeight: 'bold',
+          color: '#333',
+          backgroundColor: 'transparent',
+          borderWidth: 0
+        },
         data: [{ value: value, name: title }],
+        axisLine: {
+          lineStyle: {
+            color: [
+              [0.3, '#FF6F61'],  // Red for low values
+              [0.7, '#FFEB3B'],  // Yellow for moderate values
+              [1, '#4CAF50']    // Green for high values
+            ],
+            width: 10
+          }
+        },
+        axisTick: {
+          distance: -20,
+          length: 6,
+          lineStyle: {
+            color: '#999',
+            width: 1
+          }
+        },
+        splitLine: {
+          distance: -20,
+          length: 14,
+          lineStyle: {
+            color: '#999',
+            width: 1
+          }
+        },
+        axisLabel: {
+          color: '#333',
+          fontSize: 12,
+          fontFamily: 'Arial, sans-serif'
+        },
+        pointer: {
+          width: 4,
+          length: '80%',
+          itemStyle: {
+            color: '#607D8B', // Dark grey pointer
+            shadowColor: 'rgba(0, 0, 0, 0.3)',
+            shadowBlur: 6
+          }
+        },
         itemStyle: {
-          color: '#67C23A' // Gauge color
+          color: '#607D8B' // Pointer color
         }
-      }],
-      emphasis: {
-        itemStyle: {
-          color: '#ff0000'
-        }
-      }
+      }]
     };
   }
+
+
+
 
   getColorForName(name: string) {
     const colors = {
