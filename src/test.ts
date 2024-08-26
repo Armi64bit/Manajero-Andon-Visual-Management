@@ -35,6 +35,14 @@ getTestBed().initTestEnvironment(
 import './app/pages/lean/andon/confirmation-dialog/confirmation-dialog.component.spec';
 import './app/pages/lean/andon/api/dashboard.service.spec';
 import './app/pages/lean/andon/api/how.service.spec';
+import './app/pages/lean/andon/api/kpi.service.spec';
+import './app/pages/lean/andon/api/notifications.service.spec';
+import './app/pages/lean/andon/api/station.service.spec';
+import './app/pages/lean/andon/api/what.service.spec';
+import './app/pages/lean/andon/api/whatif.service.spec';
+import './app/pages/lean/andon/api/why.service.spec';
+
+
 
 // Finally, start Karma to run the tests.
 __karma__.start();

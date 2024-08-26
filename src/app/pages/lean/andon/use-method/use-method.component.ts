@@ -69,7 +69,9 @@ export class UseMethodComponent implements OnInit, OnDestroy {
   gotokpi() {
     this.router.navigate(['/pages/lean/andon/kpi']); // Replace with your actual route
   }
-
+  navigateToKpi(dashboardId: string) {
+    this.router.navigate(['/pages/lean/andon/kpi', dashboardId]);
+  }
   onBackToSelection(): void {
     if (this.selectedDashboard) {
       this.stopMonitoringStations();

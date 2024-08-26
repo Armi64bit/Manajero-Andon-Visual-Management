@@ -5,6 +5,7 @@ import { CreateDashboardComponent } from './create-dashboard/create-dashboard.co
 import { UseMethodComponent } from './use-method/use-method.component';
 import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.component';
 import { KpiComponent } from './kpi/kpi.component';
+import { KpiperdashComponent } from './kpiperdash/kpiperdash.component';
 
 const routes: Routes = [
   { path: '', component: WorkshopComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'use', component: UseMethodComponent },
   { path: 'updateDash/:id', component: EditDashboardComponent },
   { path: 'kpi', component: KpiComponent },
+  { path: 'kpi/:dashboardId', component: KpiperdashComponent },
 
 
 

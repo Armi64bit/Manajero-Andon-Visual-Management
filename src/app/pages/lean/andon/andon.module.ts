@@ -50,6 +50,7 @@ import { KpiComponent } from './kpi/kpi.component';
 import { ChartModule } from 'angular2-chartjs';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { KpiperdashComponent } from './kpiperdash/kpiperdash.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     StationDetailsComponent,
     CreateDashboardComponent,
     EditDashboardComponent,
-    KpiComponent
+    KpiComponent,
+    KpiperdashComponent
   ],
   imports: [
     CommonModule,

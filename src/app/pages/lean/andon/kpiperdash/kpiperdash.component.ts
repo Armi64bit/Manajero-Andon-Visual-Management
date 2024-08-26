@@ -1,15 +1,14 @@
-// kpi.component.ts
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { KpiService } from '../api/kpi.service';
-import * as echarts from 'echarts';
 
 @Component({
-  selector: 'ngx-kpi',
-  templateUrl: './kpi.component.html',
-  styleUrls: ['./kpi.component.scss']
+  selector: 'ngx-kpiperdash',
+  templateUrl: './kpiperdash.component.html',
+  styleUrls: ['./kpiperdash.component.scss']
 })
-export class KpiComponent implements OnInit {
-
+export class KpiperdashComponent implements OnInit {
+  dashboardId: string = '';
   totalNotificationsOption: any;
   averageDowntimeOption: any;
   averageUptimeOption: any;
@@ -21,49 +20,53 @@ export class KpiComponent implements OnInit {
   averageUptimePercentage: number = 0;
   totalWarningNotifications: number = 0;
   totalCriticalNotifications: number = 0;
-  constructor(private kpiService: KpiService) { }
+
+  constructor(private route: ActivatedRoute, private kpiService: KpiService) { }
 
   ngOnInit() {
-    this.kpiService.getKpisForAllDashboards().subscribe(kpis => {
+    // Get the dashboard ID from the route
+    this.route.paramMap.subscribe(params => {
+      this.dashboardId = params.get('id') || ''; // Assuming the route parameter is named 'id'
 
-      this.averageDowntimePercentage = kpis.averageDowntimePercentage;
-      this.averageUptimePercentage = kpis.averageUptimePercentage;
-      this.totalWarningNotifications = kpis.totalWarningNotifications;
-      this.totalCriticalNotifications = kpis.totalCriticalNotifications;
+      // Fetch KPIs for the specific dashboard ID
+      this.kpiService.getKpisForDashboard(this.dashboardId).subscribe(kpis => {
+        this.averageDowntimePercentage = kpis.averageDowntimePercentage;
+        this.averageUptimePercentage = kpis.averageUptimePercentage;
+        this.totalWarningNotifications = kpis.totalWarningNotifications;
+        this.totalCriticalNotifications = kpis.totalCriticalNotifications;
 
+        this.totalNotificationsOption = this.createPieChartOption('Notifications Breakdown', [
+          { name: 'Resolved', value: kpis.totalResolvedNotifications },
+          { name: 'Warning', value: kpis.totalWarningNotifications },
+          { name: 'Critical', value: kpis.totalCriticalNotifications }
+        ]);
 
-      this.totalNotificationsOption = this.createPieChartOption('Notifications Breakdown', [
-        { name: 'Resolved', value: kpis.totalResolvedNotifications },
-        { name: 'Warning', value: kpis.totalWarningNotifications },
-        { name: 'Critical', value: kpis.totalCriticalNotifications }
-      ]);
+        this.averageDowntimeOption = this.createGaugeOption('Average Downtime %', kpis.averageDowntimePercentage);
+        this.averageUptimeOption = this.createGaugeOption('Average Uptime %', kpis.averageUptimePercentage);
 
-      this.averageDowntimeOption = this.createGaugeOption('Average Downtime %', kpis.averageDowntimePercentage);
-      this.averageUptimeOption = this.createGaugeOption('Average Uptime %', kpis.averageUptimePercentage);
+        this.totalNotificationsBarOption = this.createBarChartOption('Total Notifications', [
+          { name: 'Resolved', value: kpis.totalResolvedNotifications },
+          { name: 'Warning', value: kpis.totalWarningNotifications },
+          { name: 'Critical', value: kpis.totalCriticalNotifications }
+        ]);
 
-      this.totalNotificationsBarOption = this.createBarChartOption('Total Notifications', [
-        { name: 'Resolved', value: kpis.totalResolvedNotifications },
-        { name: 'Warning', value: kpis.totalWarningNotifications },
-        { name: 'Critical', value: kpis.totalCriticalNotifications }
-      ]);
+        this.stationsStatusBarOption = this.createBarChartOption('Stations by Status', [
+          { name: 'Critical', value: kpis.totalCriticalStations },
+          { name: 'Warning', value: kpis.totalWarningStations }
+        ]);
 
-      this.stationsStatusBarOption = this.createBarChartOption('Stations by Status', [
-        { name: 'Critical', value: kpis.totalCriticalStations },
-        { name: 'Warning', value: kpis.totalWarningStations }
-      ]);
+        this.alertsPieOption = this.createPieChartOption('Alerts Breakdown', [
+          { name: 'Resolved', value: kpis.totalAlerts - kpis.totalInProgressAlerts },
+          { name: 'In-Progress', value: kpis.totalInProgressAlerts }
+        ]);
+      });
 
-      this.alertsPieOption = this.createPieChartOption('Alerts Breakdown', [
-        { name: 'Resolved', value: kpis.totalAlerts - kpis.totalInProgressAlerts },
-        { name: 'In-Progress', value: kpis.totalInProgressAlerts }
-      ]);
-
-
+      // Fetch notifications data
       this.kpiService.getNotifications().subscribe(notifications => {
         this.notificationsLineOption = this.createLineChartOption(notifications);
       });
     });
   }
-
   createPieChartOption(title: string, data: any[]) {
     return {
       title: {
